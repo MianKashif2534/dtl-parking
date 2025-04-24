@@ -1,0 +1,63 @@
+import Image from 'next/image';
+
+export default function HeroSection() {
+  return (
+    <div className="relative w-full h-[900px] overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/home-hero.png"
+          alt="Snowy mountain landscape with truck"
+          fill
+          className="object-cover rounded-b-[300px]"
+          priority
+        />
+      </div>
+
+      {/* SVG Overlay */}
+      <svg
+        className="absolute inset-0 z-10"
+        width="1440"
+        height="900"
+        viewBox="0 0 1440 900"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g filter="url(#filter0_f_54_400)">
+          <path
+            d="M1384.75 -430.052L1420.75 -462C1420.75 -462 1665.39 218.144 1456.8 533.239C1145.86 1002.95 271.13 1014.85 -21.0678 533.239C-196.415 244.226 -21.0678 -332.469 -21.0678 -332.469V-462C6.46058 -433.686 54.9224 -393.484 54.9224 -393.484L121.414 -348.973L188.605 -315.953L282.031 -274.877L348.654 -256.621L419.875 -238.036L486.494 -226.195L569.856 -214.696C578.024 -214.696 652.975 -207.939 663.389 -207.939H728.481L775.829 -209.73L841.05 -217.828L921.457 -231.519L1001.1 -245.972L1053.17 -259.664L1110.61 -278.68L1173.4 -303.022L1217.05 -322.799L1272.18 -350.183L1335.74 -392.78L1384.75 -430.052Z"
+            fill="#070422"
+          />
+          <path
+            d="M663.389 -207.939H728.481L775.829 -209.73L841.05 -217.828L921.457 -231.519L1001.1 -245.972L1053.17 -259.664L1110.61 -278.68L1173.4 -303.022L1217.05 -322.799L1272.18 -350.183L1335.74 -392.78L1384.75 -430.052L1420.75 -462C1420.75 -462 1665.39 218.144 1456.8 533.239C1145.86 1002.95 271.13 1014.85 -21.0678 533.239C-196.415 244.226 -21.0678 -332.469 -21.0678 -332.469V-462C6.46058 -433.686 54.9224 -393.484 54.9224 -393.484L121.414 -348.973L188.605 -315.953L282.031 -274.877L348.654 -256.621L419.875 -238.036L486.494 -226.195L569.856 -214.696C578.024 -214.696 652.975 -207.939 663.389 -207.939ZM663.389 -207.939C647.053 -207.939 673.804 -207.939 663.389 -207.939Z"
+            stroke="white"
+            strokeWidth="4"
+          />
+        </g>
+        <defs>
+          <filter
+            id="filter0_f_54_400"
+            x="-109"
+            y="-474.926"
+            width="1660"
+            height="1374.93"
+            filterUnits="userSpaceOnUse"
+            colorInterpolationFilters="sRGB"
+          >
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              result="shape"
+            />
+            <feGaussianBlur
+              stdDeviation="4"
+              result="effect1_foregroundBlur_54_400"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </div>
+  );
+}
