@@ -12,3 +12,9 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+.react-date-picker__wrapper {
+  border: none !important;
+  background: transparent;
+}
