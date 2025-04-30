@@ -2,6 +2,7 @@ import AboutSection from "./components/about-section";
 import CommitmentSection from "./components/commitment-section";
 import HeroSection from "./components/hero-section";
 import ServicesSection from "./components/services-section";
+import TeamSection from "./components/team-section";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <AboutSection />
       <CommitmentSection />
       <ServicesSection />
+      <TeamSection />
 
     </div>
   );

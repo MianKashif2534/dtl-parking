@@ -104,9 +104,9 @@ export default function ServicesSection() {
                 </div>
 
                 <div className="flex justify-center items-center my-16">
-                    <div className="h-[2px] w-[120px] bg-[#9747FF]"></div>
+                    <div className="h-2 w-48 bg-gradient-to-r from-[#964FFF] to-[#5A2F99] rounded-[20px]"></div>
                     <h2 className="text-white text-3xl font-bold mx-4">DTL BY NUMBERS</h2>
-                    <div className="h-[2px] w-[120px] bg-[#9747FF]"></div>
+                    <div className="h-2 w-48 bg-gradient-to-r from-[#964FFF] to-[#5A2F99] rounded-[20px]"></div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
