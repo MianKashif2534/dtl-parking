@@ -2,6 +2,38 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link"
 
+export const StarPattern = ({ className }) => {
+    return (
+        <svg
+            width="136"
+            height="139"
+            viewBox="0 0 136 139"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={className}
+        >
+            <path
+                opacity="0.6"
+                d="M30 41L38.1027 62.8973L60 71L38.1027 79.1027L30 101L21.8973 79.1027L0 71L21.8973 62.8973L30 41Z"
+                fill="white"
+                fillOpacity="0.16"
+            />
+            <path
+                opacity="0.6"
+                d="M106 79L114.103 100.897L136 109L114.103 117.103L106 139L97.8973 117.103L76 109L97.8973 100.897L106 79Z"
+                fill="white"
+                fillOpacity="0.16"
+            />
+            <path
+                opacity="0.6"
+                d="M106 0L114.103 21.8973L136 30L114.103 38.1027L106 60L97.8973 38.1027L76 30L97.8973 21.8973L106 0Z"
+                fill="white"
+                fillOpacity="0.16"
+            />
+        </svg>
+    );
+};
+
 export default function CommitmentSection() {
     return (
         <section className="relative w-full py-8 overflow-hidden">
@@ -15,26 +47,7 @@ export default function CommitmentSection() {
 
             {/* Star SVG decoration */}
             <div className="absolute left-6 top-2/3 -translate-y-1/2 z-20">
-                <svg width="136" height="139" viewBox="0 0 136 139" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        opacity="0.6"
-                        d="M30 41L38.1027 62.8973L60 71L38.1027 79.1027L30 101L21.8973 79.1027L0 71L21.8973 62.8973L30 41Z"
-                        fill="white"
-                        fillOpacity="0.16"
-                    />
-                    <path
-                        opacity="0.6"
-                        d="M106 79L114.103 100.897L136 109L114.103 117.103L106 139L97.8973 117.103L76 109L97.8973 100.897L106 79Z"
-                        fill="white"
-                        fillOpacity="0.16"
-                    />
-                    <path
-                        opacity="0.6"
-                        d="M106 0L114.103 21.8973L136 30L114.103 38.1027L106 60L97.8973 38.1027L76 30L97.8973 21.8973L106 0Z"
-                        fill="white"
-                        fillOpacity="0.16"
-                    />
-                </svg>
+                <StarPattern />
             </div>
 
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-30">
