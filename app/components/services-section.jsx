@@ -18,7 +18,7 @@ const services = [
         title: "Satellite Tracking",
         description: "Real-time GPS tracking from pickup to delivery.",
         image: "/truck-about-3.png",
-        link: "/services/tracking",
+        link: "/services/satellite-tracking",
     },
     {
         title: "Power Only",
@@ -51,7 +51,14 @@ const stats = [
     },
 ];
 
-export default function ServicesSection() {
+export default function ServicesSection({
+    showStats = true,
+    heading = "Our Services",
+    subheading = "Fast, Flexible, Reliable",
+    description = "We offer a wide range of trucking services designed to support your logistics operations with maximum efficiency.",
+    ctaText = "Explore More",
+    ctaLink = "/services",
+}) {
     return (
         <section className="relative w-full py-16 overflow-hidden">
             {/* Decorative SVG */}
@@ -70,15 +77,15 @@ export default function ServicesSection() {
 
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
                 <div className="mb-8">
-                    <h2 className="text-royalpurple text-3xl font-medium mb-2">Our Services</h2>
+                    <h2 className="text-royalpurple text-3xl font-medium mb-2">{heading}</h2>
                     <div className="flex justify-between items-start">
-                        <h3 className="text-white text-5xl font-bold mb-4">Fast, Flexible, Reliable</h3>
-                        <Link href="/services" className="bg-[linear-gradient(90deg,_rgba(46,27,82,0.12)_0%,_rgba(103,61,184,0.72)_100%)] shadow-[0_0_4px_#5A2F99] rounded-[8px] text-white px-5 py-3 hover:bg-[#4D3A6E] transition">
-                            Explore More
+                        <h3 className="text-white text-5xl font-bold mb-4">{subheading}</h3>
+                        <Link href={ctaLink} className="bg-[linear-gradient(90deg,_rgba(46,27,82,0.12)_0%,_rgba(103,61,184,0.72)_100%)] shadow-[0_0_4px_#5A2F99] rounded-[8px] text-white px-5 py-3 hover:bg-[#4D3A6E] transition">
+                            {ctaText}
                         </Link>
                     </div>
                     <p className="text-white/80 text-lg max-w-2xl">
-                        We offer a wide range of trucking services designed to support your logistics operations with maximum efficiency.
+                        {description}
                     </p>
                 </div>
 
@@ -103,30 +110,34 @@ export default function ServicesSection() {
                     ))}
                 </div>
 
-                <div className="flex justify-center items-center my-16">
-                    <div className="h-2 w-48 bg-gradient-to-r from-[#964FFF] to-[#5A2F99] rounded-[20px]"></div>
-                    <h2 className="text-white text-3xl font-bold mx-4">DTL BY NUMBERS</h2>
-                    <div className="h-2 w-48 bg-gradient-to-r from-[#964FFF] to-[#5A2F99] rounded-[20px]"></div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {stats.map((stat, index) => (
-                        <div
-                            key={index}
-                            className="p-6 flex flex-col items-center justify-center border-2 border-[#5305B8] shadow-[0_0_16px_rgba(255,255,255,0.4)] rounded-[20px]"
-                        >
-                            <div className="mb-4 w-12">
-                                <img
-                                    src={stat.icon}
-                                    alt={`${stat.label} Icon`}
-                                    className="w-full h-auto object-contain"
-                                />
-                            </div>
-                            <h3 className="text-white text-3xl font-bold mb-2">{stat.value}</h3>
-                            <p className="text-[#9747FF] text-lg uppercase tracking-wider">{stat.label}</p>
+                {showStats && (
+                    <>
+                        <div className="flex justify-center items-center my-16">
+                            <div className="h-2 w-48 bg-gradient-to-r from-[#964FFF] to-[#5A2F99] rounded-[20px]"></div>
+                            <h2 className="text-white text-3xl font-bold mx-4">DTL BY NUMBERS</h2>
+                            <div className="h-2 w-48 bg-gradient-to-r from-[#964FFF] to-[#5A2F99] rounded-[20px]"></div>
                         </div>
-                    ))}
-                </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                            {stats.map((stat, index) => (
+                                <div
+                                    key={index}
+                                    className="p-6 flex flex-col items-center justify-center border-2 border-[#5305B8] shadow-[0_0_16px_rgba(255,255,255,0.4)] rounded-[20px]"
+                                >
+                                    <div className="mb-4 w-12">
+                                        <img
+                                            src={stat.icon}
+                                            alt={`${stat.label} Icon`}
+                                            className="w-full h-auto object-contain"
+                                        />
+                                    </div>
+                                    <h3 className="text-white text-3xl font-bold mb-2">{stat.value}</h3>
+                                    <p className="text-[#9747FF] text-lg uppercase tracking-wider">{stat.label}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </>
+                )}
 
             </div>
         </section>

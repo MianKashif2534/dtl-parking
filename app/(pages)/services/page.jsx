@@ -1,12 +1,29 @@
 /* eslint-disable react/no-unescaped-entities */
 
+import PageHeader from "@/app/components/page-header";
+import ServicesSection from "@/app/components/services-section";
 import { Check } from "lucide-react";
 
 /* eslint-disable @next/next/no-img-element */
 export default function ServicesPage() {
     return (
         <div className="min-h-screen">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <PageHeader
+                title="Our Services"
+                subtitle="Comprehensive freight solutions tailored to your business needs"
+                imageSrc="/home-hero.png"
+                imageAlt="DTL Transport truck on a mountain road"
+            />
+            <ServicesSection
+                showStats={false}
+                heading="Our Services"
+                subheading="Reliable. Flexible. Always on Time."
+                description="Our Single Driver services are ideal for standard delivery schedules and flexible pickup windows. DTL Transport’s experienced solo drivers are trained to handle a wide range of cargo types with professionalism and care."
+                ctaText="Drive With Us"
+                ctaLink="/services"
+            />
+
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Reliable Freight Solutions Section */}
                 <div className="mb-16">
                     <h1 className="text-white text-4xl font-bold mb-6 text-center">
@@ -162,6 +179,26 @@ export default function ServicesPage() {
                             ))}
                         </ul>
                     </div>
+                </div>
+            </div>
+
+            {/* Nationwide Logistics Coverage Section */}
+            <div className="relative overflow-hidden border-4 border-royalpurple mt-16">
+                <img
+                    src="/nationwide-logistics-coverage-map.png"
+                    alt="Nationwide logistics coverage map"
+                    className="w-full h-screen scale-105"
+                />
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 md:p-8">
+                    <h2 className="text-royalpurple text-2xl md:text-3xl font-bold mb-6">Nationwide Logistics Coverage</h2>
+                    <h3 className="text-white text-3xl md:text-4xl font-bold mb-6 text-center">
+                        From Coast to Coast — We've Got You Covered
+                    </h3>
+                    <p className="text-white text-sm md:text-base max-w-3xl text-center">
+                        With pickups typically from the West Coast and deliveries spanning the East Coast and all regions in
+                        between, DTL Transport is your partner in nationwide logistics. Our experienced team uses modern tech and
+                        industry insight to coordinate the safest and most efficient freight movement for your business.
+                    </p>
                 </div>
             </div>
         </div>
