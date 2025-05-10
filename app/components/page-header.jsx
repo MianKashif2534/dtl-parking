@@ -1,8 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 
 
-export default function PageHeader({ title, subtitle, imageSrc, imageAlt, height = "h-[600px]" }) {
+export default function PageHeader({ title, subtitle, imageSrc, imageAlt, height = "h-[700px]" }) {
     return (
         <div className={`relative w-full ${height} overflow-hidden`}>
+
+
             <div className="absolute inset-0 z-10 -top-[300px] -right-[50px] -left-[50px]">
                 {/* SVG with clipping path for the image */}
                 <svg
@@ -23,14 +26,16 @@ export default function PageHeader({ title, subtitle, imageSrc, imageAlt, height
                     {/* Image with clipping path applied */}
                     <image
                         href={imageSrc || "/placeholder.svg"}
-                        width="100%"
-                        height="100%"
+                        width="110%"
+                        height="90%"
+                        x="-5%"
+                        y="20%"
                         preserveAspectRatio="xMidYMid slice"
                         clipPath="url(#headerClip)"
                     />
 
                     {/* Overlay for better text readability */}
-                    <rect width="100%" height="100%" fill="rgba(0,0,0,0.3)" clipPath="url(#headerClip)" />
+                    {/* <rect width="100%" height="100%" fill="rgba(0,0,0,0.3)" clipPath="url(#headerClip)" /> */}
 
                     {/* Stroke around the shape */}
                     <g filter="url(#filter0_f_49_336)">

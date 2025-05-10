@@ -60,7 +60,7 @@ export default function ServicesSection({
     ctaLink = "/services",
 }) {
     return (
-        <section className="relative w-full py-16 overflow-hidden">
+        <section className="relative z-0 w-full py-16 overflow-hidden">
             {/* Decorative SVG */}
             <div className="absolute top-0 right-0 z-10">
                 <svg width="135" height="82" viewBox="0 0 135 82" fill="none" xmlns="http://www.w3.org/2000/svg">

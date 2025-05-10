@@ -11,7 +11,7 @@ export default function ServicesPage() {
             <PageHeader
                 title="Our Services"
                 subtitle="Comprehensive freight solutions tailored to your business needs"
-                imageSrc="/home-hero.png"
+                imageSrc="/service-hero.png"
                 imageAlt="DTL Transport truck on a mountain road"
             />
             <ServicesSection
@@ -187,7 +187,7 @@ export default function ServicesPage() {
                 <img
                     src="/nationwide-logistics-coverage-map.png"
                     alt="Nationwide logistics coverage map"
-                    className="w-full h-screen scale-105"
+                    className="w-full h-screen 2xl:h-[800px] scale-105"
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-4 md:p-8">
                     <h2 className="text-royalpurple text-2xl md:text-3xl font-bold mb-6">Nationwide Logistics Coverage</h2>
