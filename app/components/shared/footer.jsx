@@ -9,22 +9,116 @@ import 'react-date-picker/dist/DatePicker.css'
 import 'react-calendar/dist/Calendar.css'
 
 export default function Footer() {
-  const [distance, setDistance] = useState(750) // default value 750
+  const [distance, setDistance] = useState(750)
   const [date, setDate] = useState(null)
-  const inputRef = useRef(null) // Ref banaya
+  const [loading, setLoading] = useState(false)
+  const [message, setMessage] = useState({ text: '', type: '' })
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    freightType: '',
+    loadType: '',
+  })
 
-  const handleIconClick = () => {
-    const input = document.querySelector('.react-date-picker__inputGroup input')
-    if (input) {
-      console.log('Input found:', input) // Debugging line
-      input.focus()
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setLoading(true)
+    setMessage({ text: '', type: '' })
+
+    // Form validation
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.phone ||
+      !date ||
+      !formData.freightType ||
+      !formData.loadType
+    ) {
+      setMessage({ text: 'Please fill in all required fields', type: 'error' })
+      setLoading(false)
+      return
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(formData.email)) {
+      setMessage({ text: 'Please enter a valid email address', type: 'error' })
+      setLoading(false)
+      return
+    }
+
+    // Phone validation
+    const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+
+    try {
+      const formDataToSend = new FormData()
+      formDataToSend.append(
+        'access_key',
+        '93119b65-2a92-437e-a3ee-3fa223728d66'
+      )
+
+      // Append all form fields
+      Object.entries(formData).forEach(([key, value]) => {
+        formDataToSend.append(key, value)
+      })
+      formDataToSend.append(
+        'date',
+        date ? date.toISOString().split('T')[0] : ''
+      )
+      formDataToSend.append('distance', distance.toString())
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formDataToSend,
+      })
+
+      const result = await response.json()
+
+      if (response.status === 200) {
+        setMessage({
+          text: 'Quote request submitted successfully!',
+          type: 'success',
+        })
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          freightType: '',
+          loadType: '',
+        })
+        setDate(null)
+        setDistance(750)
+      } else {
+        setMessage({
+          text: result.message || 'Something went wrong!',
+          type: 'error',
+        })
+      }
+    } catch (error) {
+      console.error(error)
+      setMessage({
+        text: 'Failed to submit the form. Please try again.',
+        type: 'error',
+      })
+    } finally {
+      setLoading(false)
     }
   }
 
   return (
-    <footer className=' text-white'>
+    <footer className='text-white'>
       {/* Main Footer Content */}
-      <div className='bg-[#5305B866]  mx-auto px-4 py-12 lg:px-8'>
+      <div className='bg-[#5305B866] mx-auto px-4 py-12 lg:px-8'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
           {/* Left Column - Contact Info */}
           <div className='space-y-8'>
@@ -63,17 +157,33 @@ export default function Footer() {
           </div>
 
           {/* Right Column - Request Quote Form */}
-          <div className='bg-gray-300 rounded-3xl p-8'>
+          <div className='bg-gray-300 rounded-3xl p-8 relative'>
+            {message.text && (
+              <div
+                className={`absolute top-4 left-4 right-4 p-4 rounded-xl ${
+                  message.type === 'success'
+                    ? 'bg-green-500/90'
+                    : 'bg-red-500/90'
+                } text-white text-center transition-all duration-300 ease-in-out`}
+              >
+                {message.text}
+              </div>
+            )}
+
             <h2 className='text-purple-800 text-3xl font-bold text-center mb-6'>
               Request a Quote
             </h2>
-            <form className='space-y-6'>
+            <form onSubmit={handleSubmit} className='space-y-6'>
               <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                 <div className='relative'>
                   <input
                     type='text'
+                    name='name'
+                    value={formData.name}
+                    onChange={handleInputChange}
                     placeholder='Name'
                     className='w-full p-3 border-2 border-purple-800 rounded-xl bg-transparent text-purple-800 placeholder-purple-800'
+                    required
                   />
                   <div className='absolute right-3 top-1/2 -translate-y-1/2'>
                     <div className='w-5 h-5 text-purple-800'>
@@ -94,8 +204,12 @@ export default function Footer() {
                 <div className='relative'>
                   <input
                     type='email'
+                    name='email'
+                    value={formData.email}
+                    onChange={handleInputChange}
                     placeholder='Email'
                     className='w-full p-3 border-2 border-purple-800 rounded-xl bg-transparent text-purple-800 placeholder-purple-800'
+                    required
                   />
                   <div className='absolute right-3 top-1/2 -translate-y-1/2'>
                     <Mail className='w-5 h-5 text-purple-800' />
@@ -105,8 +219,12 @@ export default function Footer() {
                 <div className='relative'>
                   <input
                     type='tel'
+                    name='phone'
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     placeholder='Phone'
                     className='w-full p-3 border-2 border-purple-800 rounded-xl bg-transparent text-purple-800 placeholder-purple-800'
+                    required
                   />
                   <div className='absolute right-3 top-1/2 -translate-y-1/2'>
                     <Phone className='w-5 h-5 text-purple-800' />
@@ -121,12 +239,10 @@ export default function Footer() {
                     clearIcon={null}
                     format='y-MM-dd'
                     className='w-full p-3 rounded-xl bg-transparent text-purple-800 placeholder-purple-800
-    border-2 border-[#673DB8] focus:border-[#673DB8B8]'
+                      border-2 border-[#673DB8] focus:border-[#673DB8B8]'
+                    required
                   />
-                  <div
-                    onClick={handleIconClick}
-                    className='absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer'
-                  >
+                  <div className='absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer'>
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
                       viewBox='0 0 24 24'
@@ -156,11 +272,11 @@ export default function Footer() {
                     value={distance}
                     onChange={(e) => setDistance(Number(e.target.value))}
                     className='flex-1 h-2 appearance-none bg-gray-400 rounded-lg
-            [&::-webkit-slider-thumb]:appearance-none
-            [&::-webkit-slider-thumb]:w-4
-            [&::-webkit-slider-thumb]:h-4
-            [&::-webkit-slider-thumb]:rounded-full
-            [&::-webkit-slider-thumb]:bg-purple-800'
+                      [&::-webkit-slider-thumb]:appearance-none
+                      [&::-webkit-slider-thumb]:w-4
+                      [&::-webkit-slider-thumb]:h-4
+                      [&::-webkit-slider-thumb]:rounded-full
+                      [&::-webkit-slider-thumb]:bg-purple-800'
                   />
                   <div className='border-2 border-purple-800 rounded-xl px-4 py-2 text-purple-800 min-w-24 text-center'>
                     {distance} Miles
@@ -170,12 +286,18 @@ export default function Footer() {
 
               <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                 <div className='relative'>
-                  <select className='w-full p-3 border-2 border-purple-800 rounded-xl bg-transparent text-purple-800 appearance-none'>
-                    <option>Freight Type</option>
-                    <option>Full Truckload</option>
-                    <option>LTL</option>
-                    <option>Refrigerated</option>
-                    <option>Hazardous</option>
+                  <select
+                    name='freightType'
+                    value={formData.freightType}
+                    onChange={handleInputChange}
+                    className='w-full p-3 border-2 border-purple-800 rounded-xl bg-transparent text-purple-800 appearance-none'
+                    required
+                  >
+                    <option value=''>Freight Type</option>
+                    <option value='Full Truckload'>Full Truckload</option>
+                    <option value='LTL'>LTL</option>
+                    <option value='Refrigerated'>Refrigerated</option>
+                    <option value='Hazardous'>Hazardous</option>
                   </select>
                   <div className='absolute right-3 top-1/2 -translate-y-1/2'>
                     <svg
@@ -192,12 +314,18 @@ export default function Footer() {
                 </div>
 
                 <div className='relative'>
-                  <select className='w-full p-3 border-2 border-purple-800 rounded-xl bg-transparent text-purple-800 appearance-none'>
-                    <option>Load</option>
-                    <option>Pallets</option>
-                    <option>Boxes</option>
-                    <option>Containers</option>
-                    <option>Bulk</option>
+                  <select
+                    name='loadType'
+                    value={formData.loadType}
+                    onChange={handleInputChange}
+                    className='w-full p-3 border-2 border-purple-800 rounded-xl bg-transparent text-purple-800 appearance-none'
+                    required
+                  >
+                    <option value=''>Load</option>
+                    <option value='Pallets'>Pallets</option>
+                    <option value='Boxes'>Boxes</option>
+                    <option value='Containers'>Containers</option>
+                    <option value='Bulk'>Bulk</option>
                   </select>
                   <div className='absolute right-3 top-1/2 -translate-y-1/2'>
                     <svg
@@ -217,9 +345,15 @@ export default function Footer() {
               <div className='flex justify-center'>
                 <button
                   type='submit'
-                  className='bg-[#5305B8] text-white px-8 py-3 rounded-lg font-medium hover:bg-[#5305B8]/80 transition-colors'
+                  disabled={loading}
+                  className={`bg-[#5305B8] text-white px-8 py-3 rounded-lg font-medium transition-all duration-300
+                    ${
+                      loading
+                        ? 'opacity-70 cursor-not-allowed'
+                        : 'hover:bg-[#5305B8]/80'
+                    }`}
                 >
-                  Contact US
+                  {loading ? 'Submitting...' : 'Contact Us'}
                 </button>
               </div>
             </form>
