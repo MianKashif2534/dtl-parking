@@ -188,7 +188,7 @@ export default function ParkingPage() {
         : countries
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen font-light">
             {/* Header Section */}
             <PageHeader
                 title="Truck Parking Services at DTL Transport"
@@ -198,10 +198,10 @@ export default function ParkingPage() {
             />
 
             {/* Introduction Section */}
-            <section className="relative w-full py-16 overflow-hidden">
+            <section className="relative w-full py-8 md:py-16 overflow-hidden">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-white text-2xl font-bold mb-4">Secure, Spacious & Convenient Parking Solutions</h2>
-                    <p className="text-white/90 text-lg max-w-3xl">
+                    <p className="text-white/90 md:text-lg max-w-3xl">
                         At DTL Transport, we provide a safe and professional environment for truckers and fleet operators. Whether
                         you're making a short stopover or need long-term parking, our dedicated truck parking facility is built to
                         meet your needs with security, space, and easy access.
@@ -213,8 +213,8 @@ export default function ParkingPage() {
             <section className="relative w-full overflow-hidden">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
                     <div className="text-center mb-8">
-                        <h2 className="text-royalpurple text-5xl font-bold mb-4">Why Park with DTL?</h2>
-                        <p className="text-white/90 text-lg max-w-4xl mx-auto mb-12">
+                        <h2 className="text-purple text-3xl md:text-5xl font-bold mb-4">Why Park with DTL?</h2>
+                        <p className="text-white/90 md:text-lg max-w-4xl mx-auto mb-8 md:mb-12">
                             DTL Transport offers 24/7 guarded truck parking at our Fresno facility with controlled access, wide lanes,
                             and unbeatable convenience.
                         </p>
@@ -233,7 +233,7 @@ export default function ParkingPage() {
                         ))}
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:mb-12">
                         {/* Additional Feature Cards */}
                         {features.slice(3, 5).map((feature, index) => (
                             <FeatureCard
@@ -244,7 +244,7 @@ export default function ParkingPage() {
                                 link={feature.link}
                             />
                         ))}
-                        <div className="flex flex-col items-center justify-center">
+                        <div className="flex flex-col items-center justify-center mt-6 md:mt-0">
                             <div className="flex flex-col items-center gap-6 mb-4">
                                 <Link
                                     href="/careers/drivers"
@@ -267,9 +267,9 @@ export default function ParkingPage() {
             </section>
 
             {/* Reservation Form Section */}
-            <section className="relative w-full py-16 overflow-hidden">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="overflow-hidden border border-royalpurple/50 bg-[#0B0428] shadow-[0_0_15px_rgba(151,71,255,0.3)] rounded-[20px] p-8 md:p-12">
+            <section className="relative w-full py-8 md:py-16 overflow-hidden">
+                <div className="max-w-5xl mx-auto px-4 md:px-6 lg:px-8">
+                    <div className="overflow-hidden border-2 border-royalpurple bg-gradient-to-b from-black to-[#250252] shadow-[0px_0px_80px_16px_rgba(147,122,65,0.25)] rounded-[20px] px-4 py-6 md:p-12">
                         <h2 className="text-royalpurple text-4xl font-bold text-center mb-8">How to Reserve Your Space</h2>
 
                         <form className="space-y-6">
@@ -283,7 +283,7 @@ export default function ParkingPage() {
                                         type="text"
                                         id="name"
                                         placeholder="John"
-                                        className="w-full px-4 py-3 rounded-md bg-transparent border border-royalpurple text-white focus:border-royalpurple/80 focus:outline-none focus:ring-1 focus:ring-royalpurple/50"
+                                        className="w-full px-4 py-3 rounded-md bg-transparent border border-royalpurple text-white focus:border-royalpurple/80 focus:outline-none focus:ring-2 focus:ring-royalpurple/50"
                                     />
                                 </div>
 
@@ -296,7 +296,7 @@ export default function ParkingPage() {
                                         <select
                                             id="truckType"
                                             defaultValue=""
-                                            className="w-full px-4 py-3 rounded-md bg-transparent border border-royalpurple text-white appearance-none focus:border-royalpurple/80 focus:outline-none focus:ring-1 focus:ring-royalpurple/50"
+                                            className="w-full px-4 py-3 rounded-md bg-transparent border border-royalpurple text-white appearance-none focus:border-royalpurple/80 focus:outline-none focus:ring-2 focus:ring-royalpurple/50"
                                         >
                                             <option value="" disabled className="bg-[#0B0428]">
                                                 Select
@@ -320,7 +320,7 @@ export default function ParkingPage() {
                                         type="email"
                                         id="email"
                                         placeholder="john@email.com"
-                                        className="w-full px-4 py-3 rounded-md bg-transparent border border-royalpurple text-white focus:border-royalpurple/80 focus:outline-none focus:ring-1 focus:ring-royalpurple/50"
+                                        className="w-full px-4 py-3 rounded-md bg-transparent border border-royalpurple text-white focus:border-royalpurple/80 focus:outline-none focus:ring-2 focus:ring-royalpurple/50"
                                     />
                                 </div>
 
@@ -412,7 +412,7 @@ export default function ParkingPage() {
                                             type="tel"
                                             id="phone"
                                             placeholder="Phone number"
-                                            className="w-full px-4 py-3 rounded-r-md bg-transparent border border-royalpurple border-l-0 text-white focus:border-royalpurple/80 focus:outline-none focus:ring-1 focus:ring-royalpurple/50"
+                                            className="w-full px-4 py-3 rounded-r-md bg-transparent border border-royalpurple border-l-0 text-white focus:border-royalpurple/80 focus:outline-none focus:ring-2 focus:ring-royalpurple/50"
                                         />
                                     </div>
                                 </div>
@@ -426,7 +426,7 @@ export default function ParkingPage() {
                                         <select
                                             id="duration"
                                             defaultValue=""
-                                            className="w-full px-4 py-3 rounded-md bg-transparent border border-royalpurple text-white appearance-none focus:border-royalpurple/80 focus:outline-none focus:ring-1 focus:ring-royalpurple/50"
+                                            className="w-full px-4 py-3 rounded-md bg-transparent border border-royalpurple text-white appearance-none focus:border-royalpurple/80 focus:outline-none focus:ring-2 focus:ring-royalpurple/50"
                                         >
                                             <option value="" disabled className="bg-[#0B0428]">
                                                 Select
@@ -450,7 +450,7 @@ export default function ParkingPage() {
                                         type="text"
                                         id="company"
                                         placeholder="MD"
-                                        className="w-full px-4 py-3 rounded-md bg-transparent border border-royalpurple text-white focus:border-royalpurple/80 focus:outline-none focus:ring-1 focus:ring-royalpurple/50"
+                                        className="w-full px-4 py-3 rounded-md bg-transparent border border-royalpurple text-white focus:border-royalpurple/80 focus:outline-none focus:ring-2 focus:ring-royalpurple/50"
                                     />
                                 </div>
                             </div>
@@ -464,7 +464,7 @@ export default function ParkingPage() {
                                     id="message"
                                     rows={5}
                                     placeholder="Tell us more"
-                                    className="w-full px-4 py-3 rounded-md bg-transparent border border-royalpurple text-white focus:border-royalpurple/80 focus:outline-none focus:ring-1 focus:ring-royalpurple/50"
+                                    className="w-full px-4 py-3 rounded-md bg-transparent border border-royalpurple text-white focus:border-royalpurple/80 focus:outline-none focus:ring-2 focus:ring-royalpurple/50"
                                 ></textarea>
                             </div>
 
@@ -481,6 +481,23 @@ export default function ParkingPage() {
                     </div>
                 </div>
             </section>
-        </div>
+
+            {/* Truck Driver Banner */}
+            <section className="relative w-full mt-8 mb-16 overflow-hidden hidden md:block">
+                <div className="max-w-6xl mx-auto relative">
+                    <img
+                        src="/TruckDriverBanner.png"
+                        alt="DTL Transport truck driver"
+                        className="w-full h-auto object-cover"
+                    />
+                    <div className="absolute inset-0 flex items-center">
+                        <h2 className="text-royalpurple text-3xl md:text-4xl font-black px-4">
+                            DTL Transport, Inc. — One Call Does It All.
+                        </h2>
+                    </div>
+                </div>
+            </section>
+
+        </div >
     )
 }

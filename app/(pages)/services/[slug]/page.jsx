@@ -4,6 +4,7 @@ import { Check } from "lucide-react"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { getServiceBySlug, getAllServiceSlugs } from "@/app/lib/services"
+import PageHeader from "@/app/components/page-header"
 
 export async function generateStaticParams() {
     const slugs = getAllServiceSlugs()
@@ -31,7 +32,7 @@ export default async function ServicePage({ params }) {
 
     return (
         <div className="min-h-screen">
-            <div className="relative h-[300px] md:h-[400px] overflow-hidden">
+            {/* <div className="relative h-[300px] md:h-[400px] overflow-hidden">
                 <img
                     src={service.headerImage || "/placeholder.svg"}
                     alt={service.title}
@@ -40,9 +41,16 @@ export default async function ServicePage({ params }) {
                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                     <h1 className="text-white text-4xl md:text-5xl font-bold text-center px-4">{service.title}</h1>
                 </div>
-            </div>
+            </div> */}
 
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <PageHeader
+                title={service.title}
+                subtitle=""
+                imageSrc={service.headerImage}
+                imageAlt={service.title}
+            />
+
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {/* Sidebar Navigation */}
                     <div className="lg:col-span-1">
@@ -96,7 +104,7 @@ export default async function ServicePage({ params }) {
                     </div>
 
                     {/* Main Content */}
-                    <div className="lg:col-span-2">
+                    <div className="lg:col-span-2 font-light">
                         {/* Overview Section */}
                         <div className="mb-6">
                             <div className="inline-flex items-center mb-4 bg-royalpurple rounded-full w-fit px-4 py-1">
@@ -105,7 +113,7 @@ export default async function ServicePage({ params }) {
                                 </div>
                                 <h2 className="text-white text-xl font-bold">Overview</h2>
                             </div>
-                            <p className="text-white/80 text-lg">{service.overview}</p>
+                            <p className="text-white/80 md:text-lg">{service.overview}</p>
                         </div>
 
                         {/* Why Choose Section */}
@@ -114,7 +122,7 @@ export default async function ServicePage({ params }) {
                                 <div className="w-6 h-6 flex items-center justify-center mr-3">
                                     <img src="/icon-1.png" alt="icon" />
                                 </div>
-                                <h2 className="text-white text-xl font-bold">Why Choose DTL's {service.title} Service?</h2>
+                                <h2 className="text-white md:text-xl font-bold">Why Choose DTL's {service.title} Service?</h2>
                             </div>
                             <ul className="space-y-4">
                                 {service.benefits.map((benefit, index) => (
@@ -124,7 +132,7 @@ export default async function ServicePage({ params }) {
                                         </div>
                                         <div>
                                             <h3 className="text-white font-bold">{benefit.title}</h3>
-                                            <p className="text-white/80">{benefit.description}</p>
+                                            <p className="text-white/80 text-sm md:text-base">{benefit.description}</p>
                                         </div>
                                     </li>
                                 ))}
@@ -145,17 +153,17 @@ export default async function ServicePage({ params }) {
                                         <div className="bg-white border border-royalpurple rounded-full w-5 h-5 mt-1 flex items-center justify-center mr-3">
                                             <Check className="w-3 h-3 text-royalpurple" />
                                         </div>
-                                        <span className="text-white">{item}</span>
+                                        <span className="text-white text-sm md:text-base">{item}</span>
                                     </li>
                                 ))}
                             </ul>
                         </div>
 
                         {/* CTA Section */}
-                        <div className="mt-12 text-center">
+                        <div className="mt-6 md:mt-12 text-center">
                             <Link
                                 href="/contact"
-                                className="inline-block bg-royalpurple hover:bg-royalpurple/80 text-white px-8 py-3 rounded-full font-medium transition-colors"
+                                className="inline-block bg-royalpurple hover:bg-royalpurple/80 text-white px-8 py-3 rounded-full font-medium transition-colors text-sm md:text-base"
                             >
                                 Request {service.title} Service
                             </Link>

@@ -1,3 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
+import PageHeader from "@/app/components/page-header"
+
 export default function Page() {
   const teamMembers = [
     {
@@ -82,78 +85,91 @@ export default function Page() {
     },
   ]
   return (
-    <div className='max-w-6xl mx-auto '>
-      <div className='text-white flex flex-col md:flex-row gap-4 mb-10 mt-[10%] max-w-6xl mx-auto px-4'>
-        <div className='md:w-1/2'>
-          <h2 className='text-2xl md:text-5xl font-bold'>
-            Meet Our
-            <br />
-            Dedicated
-            <br />
-            Operations &<br />
-            Support Team
-          </h2>
-        </div>
-        <div className='md:w-2/3'>
-          <p className='text-sm md:text-base lg:text-lg leading-relaxed'>
-            At DTL Transport, our team is the driving force behind everything we
-            do. From dispatch and inbound logistics to HR, accounting, and fleet
-            maintenance — each member plays a vital role in delivering
-            excellence on the road and behind the scenes. With a shared
-            commitment to safety, service, and innovation, our staff works
-            around the clock to support drivers, partners, and our growing
-            network.Get to know the passionate individuals who keep DTL
-            Transport moving forward every mile of the way.
-          </p>
-        </div>
-      </div>
+    <>
+      <PageHeader
+        title="Lets Meet"
+        subtitle=""
+        imageSrc="/staff-hero.png"
+        imageAlt="DTL Transport truck parking facility"
+      />
+      <div className='max-w-6xl mx-auto'>
 
-      <div className='min-h-screen p-4 md:p-8'>
-        <div className='max-w-6xl mx-auto'>
-          <h2 className='text-white text-3xl font-bold mb-8 text-center'>
-            Our Leadership Team
-          </h2>
+        <div className='text-white flex flex-col md:flex-row gap-4 my-8 md:my-10 max-w-6xl mx-auto px-4'>
+          <div className='md:w-1/2'>
+            <h2 className="text-2xl font-bold md:hidden">
+              Meet Our Dedicated Operations & Support Team
+            </h2>
+            <h2 className="hidden md:block text-2xl md:text-5xl font-bold">
+              Meet Our
+              <br />
+              Dedicated
+              <br />
+              Operations &<br />
+              Support Team
+            </h2>
+          </div>
+          <div className='md:w-2/3'>
+            <p className='text-sm md:text-base lg:text-lg font-light leading-relaxed'>
+              At DTL Transport, our team is the driving force behind everything we
+              do. From dispatch and inbound logistics to HR, accounting, and fleet
+              maintenance — each member plays a vital role in delivering
+              excellence on the road and behind the scenes. With a shared
+              commitment to safety, service, and innovation, our staff works
+              around the clock to support drivers, partners, and our growing
+              network.Get to know the passionate individuals who keep DTL
+              Transport moving forward every mile of the way.
+            </p>
+          </div>
+        </div>
 
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-            {teamMembers.map((member) => (
-              <div
-                key={member.name}
-                className='bg-[#5305B866] rounded-lg p-6 flex flex-col'
-              >
-                {/* Top section with image, name, title */}
-                <div className='flex items-center mb-4 '>
-                  <div className='w-40 h-40 mr-2 flex-shrink-0'>
-                    <img
-                      src={member.imageSrc || '/placeholder.svg'}
-                      alt={member.name}
-                      className='w-full h-full object-cover'
-                    />
+        <div className='min-h-screen p-4 md:p-8'>
+          <div className='max-w-6xl mx-auto'>
+            <h2 className='text-white text-3xl font-bold mb-8 text-center'>
+              Our Leadership Team
+            </h2>
+
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+              {teamMembers.map((member) => (
+                <div
+                  key={member.name}
+                  className='bg-royalpurple/40 rounded-lg p-4 md:p-6 flex flex-col'
+                >
+                  {/* Top section with image, name, title */}
+                  <div className='flex items-center justify-between md:justify-normal mb-4 '>
+                    <div className='w-40 h-40 mr-2 flex-shrink-0'>
+                      <img
+                        src={member.imageSrc || '/placeholder.svg'}
+                        alt={member.name}
+                        className='w-full h-full object-cover'
+                      />
+                    </div>
+
+                    <div className='flex flex-col justify-center'>
+                      <h3 className='text-white text-xl md:text-2xl font-bold'>
+                        {member.name}
+                      </h3>
+                      <p className='text-purple text-lg md:font-bold'>
+                        {member.title}
+                      </p>
+                      <p className='text-white text-md md:font-bold'>
+                        {member.email}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className='flex flex-col justify-center '>
-                    <h3 className='text-white text-xl md:text-2xl font-bold'>
-                      {member.name}
-                    </h3>
-                    <p className='text-[#964FFF] text-lg md:font-bold'>
-                      {member.title}
-                    </p>
-                    <p className='text-white text-md md:font-bold'>
-                      {member.email}
+                  {/* Bio section below */}
+                  <div className='mt-8'>
+                    <p className='text-white/80  text-sm md:text-lg leading-relaxed mb-6 md:mb-20'>
+                      {member.bio}
                     </p>
                   </div>
                 </div>
-
-                {/* Bio section below */}
-                <div className='mt-8'>
-                  <p className='text-[#b5a0a0]  text-sm md:text-lg leading-relaxed mb-20'>
-                    {member.bio}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
+
   )
 }

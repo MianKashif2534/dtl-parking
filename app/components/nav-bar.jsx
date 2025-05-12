@@ -12,7 +12,7 @@ const navItems = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/about' },
   { name: 'Services', href: '/services', hasDropdown: true },
-  { name: 'Book Parking', href: '/book-parking' },
+  { name: 'Book Parking', href: '/parking' },
   { name: 'Contact', href: '/contact' },
 ]
 
@@ -77,13 +77,13 @@ export default function NavBar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className='hidden md:flex items-center space-x-3'>
+          <div className='hidden lg:flex items-center space-x-3'>
             {navItems.map((item) => (
               <div key={item.name} className='relative group'>
                 <Link
                   href={item.href}
                   className={cn(
-                    'bg-gradient-to-b from-[rgba(83,5,184,0.28)] to-[rgba(103,61,184,0.72)] text-white hover:bg-[#A58A47]/60 shadow-[0px_0px_4px_#5A2F99] rounded-sm px-4 py-1 text-sm 2xl:text-lg font-medium transition-all flex items-center h-10 justify-center'
+                    'bg-gradient-to-b from-[rgba(83,5,184,0.28)] to-[rgba(103,61,184,0.72)] text-white hover:bg-royalpurple/60 shadow-[0px_0px_4px_#5A2F99] rounded-sm px-4 py-1 text-sm 2xl:text-lg font-medium transition-all flex items-center h-10 justify-center'
                   )}
                 >
                   <span className='relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full'>
@@ -99,7 +99,7 @@ export default function NavBar() {
                         <Link
                           key={service.slug}
                           href={`/service/${service.slug}`}
-                          className='px-4 py-2 text-sm text-gray-800 font-bold rounded-md transition-all duration-300 transform hover:translate-x-1 hover:text-[#A58A47]'
+                          className='px-4 py-2 text-sm text-gray-800 font-bold rounded-md transition-all duration-300 transform hover:translate-x-1 hover:text-royalpurple'
                         >
                           {service.title}
                         </Link>
@@ -112,7 +112,7 @@ export default function NavBar() {
           </div>
 
           {/* Appointment Button */}
-          <div className='hidden md:flex items-center space-x-3 text-white'>
+          <div className='hidden lg:flex items-center space-x-3 text-white'>
             <div>
               <Link
                 href='/appointment'
@@ -139,7 +139,7 @@ export default function NavBar() {
           {/* Mobile Navigation Button */}
           <button
             onClick={toggleMobileMenu}
-            className='md:hidden text-[#FFFFFF] hover:text-[#A58A47] bg-[#A58A47] hover:bg-[#FFFFFF] p-2 rounded-xl focus:outline-none transition-colors'
+            className='lg:hidden text-white hover:text-royalpurple bg-royalpurple hover:bg-white p-2 rounded-xl focus:outline-none transition-colors'
             aria-label='Toggle menu'
           >
             <Menu className='h-5 w-5' />
@@ -151,7 +151,7 @@ export default function NavBar() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          'fixed inset-0 bg-gray-950 z-50 min-h-screen overflow-y-auto md:hidden transition-transform duration-300 ease-in-out',
+          'fixed inset-0 bg-gray-950 z-50 min-h-screen overflow-y-auto lg:hidden transition-transform duration-300 ease-in-out',
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
@@ -167,7 +167,7 @@ export default function NavBar() {
           </Link>
           <button
             onClick={toggleMobileMenu}
-            className='text-[#FFFFFF] hover:text-[#A58A47] bg-[#A58A47] hover:bg-[#FFFFFF] p-2 rounded-xl focus:outline-none'
+            className='text-white hover:text-royalpurple bg-royalpurple hover:bg-white p-2 rounded-xl focus:outline-none'
             aria-label='Close menu'
           >
             <X className='h-5 w-5' />
@@ -181,7 +181,7 @@ export default function NavBar() {
                 <>
                   <button
                     onClick={toggleServiceSubmenu}
-                    className='py-5 text-center text-sm font-medium text-white hover:text-[#A58A47] flex items-center justify-center gap-1'
+                    className='py-5 text-center text-sm font-medium text-white hover:text-royalpurple flex items-center justify-center gap-1'
                   >
                     {item.name}
                     <ChevronDown
@@ -199,7 +199,7 @@ export default function NavBar() {
                   >
                     <Link
                       href='/services'
-                      className='py-3 px-2 text-center text-sm font-medium text-white hover:text-[#A58A47] block rounded'
+                      className='py-3 px-2 text-center text-sm font-medium text-white hover:text-royalpurple block rounded'
                       onClick={toggleMobileMenu}
                     >
                       All Services
@@ -209,7 +209,7 @@ export default function NavBar() {
                         <Link
                           key={service.slug}
                           href={`/service/${service.slug}`}
-                          className='py-3 px-2 text-center text-sm font-medium text-white hover:text-[#A58A47] rounded'
+                          className='py-3 px-2 text-center text-sm font-medium text-white hover:text-royalpurple rounded'
                           onClick={toggleMobileMenu}
                         >
                           {service.title}
@@ -222,9 +222,9 @@ export default function NavBar() {
                 <Link
                   href={item.href}
                   className={cn(
-                    'py-5 text-center text-sm font-medium hover:text-[#A58A47]',
+                    'py-5 text-center text-sm font-medium hover:text-royalpurple',
                     pathname === item.href
-                      ? 'bg-[#A58A47] text-white'
+                      ? 'bg-royalpurple text-white'
                       : 'text-white'
                   )}
                   onClick={toggleMobileMenu}
@@ -235,14 +235,30 @@ export default function NavBar() {
             </div>
           ))}
 
-          <div className='mx-auto'>
-            <Link
-              href='/appointment'
-              onClick={toggleMobileMenu}
-              className='inline-block mt-5 mb-10 bg-gradient-to-b from-[rgba(83,5,184,0.28)] to-[rgba(103,61,184,0.72)] rounded-[2px] px-[24px] py-[8px] text-sm font-medium cursor-pointer transition shadow-[0px_0px_4px_#5A2F99]'
-            >
-              Appointment
-            </Link>
+          <div className='mx-auto mt-5'>
+            <div className='flex items-center space-x-3 text-white'>
+              <div>
+                <Link
+                  href='/appointment'
+                  className='bg-[linear-gradient(90deg,_rgba(46,27,82,0.12)_0%,_rgba(103,61,184,0.72)_100%)] shadow-[0_0_4px_#5A2F99] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
+                >
+                  <span className='relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full text-center'>
+                    Driver <br />
+                    Apply Now
+                  </span>
+                </Link>
+              </div>
+              <div>
+                <Link
+                  href='/appointment'
+                  className='bg-[#5305B8] shadow-[0_0_4px_#5A2F99] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
+                >
+                  <span className='relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full'>
+                    Talk to a Recruiter <br />1 (800) 426-2895
+                  </span>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>

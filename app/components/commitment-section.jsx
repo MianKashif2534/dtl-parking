@@ -1,6 +1,11 @@
+"use client"
+
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link"
+import { motion, useInView, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react"
+import InteractiveButton from "./animation/interactive-button"
 
 export const StarPattern = ({ className }) => {
     return (
@@ -31,36 +36,121 @@ export const StarPattern = ({ className }) => {
                 fillOpacity="0.16"
             />
         </svg>
-    );
-};
+    )
+}
 
 export default function CommitmentSection() {
+    const sectionRef = useRef(null)
+    const isInView = useInView(sectionRef, { once: true, amount: 0.2 })
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start end", "end start"],
+    })
+
+    // Parallax effect for background image
+    const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"])
+    const backgroundScale = useTransform(scrollYProgress, [0, 1], [1, 1.1])
+    const overlayOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.1, 0.2, 0.3])
+
+    // Animation variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.2,
+                duration: 0.5,
+                ease: "easeInOut",
+            },
+        },
+    }
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.7,
+                ease: "easeInOut",
+                type: "spring",
+                stiffness: 50,
+                damping: 15,
+            },
+        },
+    }
+
+    // Floating animation for stars
+    const floatingStarVariants = {
+        hidden: { opacity: 0, scale: 0.8 },
+        visible: {
+            opacity: 0.8,
+            scale: 1,
+            transition: {
+                duration: 1,
+                ease: "easeOut",
+                delay: 0.5,
+            },
+        },
+        floating: {
+            y: [0, -10, 0],
+            rotate: [0, 5, 0],
+            transition: {
+                duration: 6,
+                ease: "easeInOut",
+                repeat: Number.POSITIVE_INFINITY,
+                repeatType: "reverse",
+            },
+        },
+    }
+
     return (
-        <section className="relative w-full py-8 overflow-hidden">
-            {/* Background Image */}
-            <div className="absolute inset-0 z-0">
+        <motion.section
+            ref={sectionRef}
+            className="relative w-full py-8 overflow-hidden"
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={containerVariants}
+        >
+            {/* Background Image with Parallax */}
+            <motion.div
+                className="absolute h-full inset-0 z-0"
+            >
                 <img src="/commitment-bg.png" alt="Truck driver view" className="w-full h-full object-cover" />
-            </div>
+            </motion.div>
 
-            {/* Purple Overlay Layers */}
-            <div className="absolute inset-0 bg-[#231544]/10 z-10"></div>
+            {/* Purple Overlay Layers with dynamic opacity */}
+            <motion.div className="absolute inset-0 bg-[#231544] z-10" style={{ opacity: overlayOpacity }}></motion.div>
 
-            {/* Star SVG decoration */}
-            <div className="absolute left-6 top-2/3 -translate-y-1/2 z-20">
+            {/* Star SVG decoration with floating animation */}
+            <motion.div
+                className="absolute left-6 top-2/3 -translate-y-1/2 z-20"
+                variants={floatingStarVariants}
+                animate={isInView ? ["visible", "floating"] : "hidden"}
+            >
                 <StarPattern />
-            </div>
+            </motion.div>
 
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-30">
-                <h2 className="text-3xl text-royalpurple font-medium mb-2">Our Commitment</h2>
-                <h3 className="text-4xl font-bold mb-3 leading-tight">Where Reliability Meets Responsibility</h3>
-                <p className="text-lg mb-10 max-w-3xl mx-auto">
+                <motion.h2 className="text-3xl text-royalpurple font-medium mb-2" variants={itemVariants}>
+                    Our Commitment
+                </motion.h2>
+                <motion.h3 className="text-3xl md:text-4xl font-bold mb-3 leading-tight" variants={itemVariants}>
+                    Where Reliability Meets Responsibility
+                </motion.h3>
+                <motion.p className="md:text-lg mb-10 max-w-3xl mx-auto font-light" variants={itemVariants}>
                     DTL is committed to delivering your cargo with integrity, speed, and safety. Our fleet is modern, our drivers
                     are trained professionals, and our team works with laser focus to meet your delivery needs — whether it's
                     coast-to-coast or just across the state.
-                </p>
+                </motion.p>
 
-                <div className="flex flex-col sm:flex-row justify-center gap-4">
-                    <div>
+                <motion.div
+                    className="flex flex-col sm:flex-row justify-center gap-4"
+                    variants={itemVariants}
+                    transition={{ delay: 0.4 }}
+                >
+                    <InteractiveButton>
                         <Link
                             href="/appointment"
                             className="bg-[linear-gradient(90deg,_rgba(46,27,82,0.12)_0%,_rgba(103,61,184,0.72)_100%)] shadow-[0_0_4px_#5A2F99] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32"
@@ -70,20 +160,19 @@ export default function CommitmentSection() {
                                 Apply Now
                             </span>
                         </Link>
-                    </div>
-                    <div>
+                    </InteractiveButton>
+                    <InteractiveButton>
                         <Link
                             href="/appointment"
                             className="bg-royalpurple shadow-[0_0_4px_#5A2F99] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32"
                         >
                             <span className="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full">
-                                Talk to a Recruiter <br />
-                                1 (800) 426-2895
+                                Talk to a Recruiter <br />1 (800) 426-2895
                             </span>
                         </Link>
-                    </div>
-                </div>
+                    </InteractiveButton>
+                </motion.div>
             </div>
-        </section>
+        </motion.section>
     )
 }

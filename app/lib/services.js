@@ -3,7 +3,7 @@ const services= [
         slug: "ftl",
         title: "Truckload (FTL)",
         navTitle: "Truckload (FTL)",
-        headerImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-o004wOTWIfnKr2scW1aoJef79AQRvj.png",
+        headerImage: "/services/ftl.png",
         overview:
             "DTL Transport's Full Truckload (FTL) service is designed to provide fast, secure, and reliable transportation for shipments that require the exclusive use of an entire trailer. Whether you're moving freight across states or coast-to-coast, our FTL service gives cargo transit directly from pickup to destination without intermediate stops, minimizing handling and transit times.",
         benefits: [
@@ -42,7 +42,7 @@ const services= [
         slug: "ltl",
         title: "Less Than Truckload",
         navTitle: "LTL",
-        headerImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-rbkC4OMclGBoZpVHtHwR7Wa7esU8y0.png",
+        headerImage: "/services/ltl.png",
         overview:
             "DTL Transport's LTL (Less Than Truckload) service is the perfect solution for businesses that need to ship smaller freight loads without paying for a full trailer. Whether you're sending a few pallets or a partial load, our LTL service combines flexibility, affordability, and reliability to help you move your goods efficiently across the country.",
         benefits: [
@@ -82,7 +82,7 @@ const services= [
         slug: "satellite-tracking",
         title: "Satellite Tracking",
         navTitle: "Satellite Tracking",
-        headerImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ld3ZcNDmU57dPDoQiMtclK3dsldTvg.png",
+        headerImage: "/services/satellite-tracking.png",
         overview:
             "DTL Transport integrates Satellite Tracking technology to bring you real-time visibility and peace of mind. Our advanced tracking systems monitor your shipments from pickup to delivery, providing accurate location data, status updates, and security assurance.",
         benefits: [
@@ -118,7 +118,7 @@ const services= [
         slug: "power-only",
         title: "Power Only",
         navTitle: "Power Only",
-        headerImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-cp18AC1XIikGLcT3JzAxNIFfpbV3Az.png",
+        headerImage: "/services/power-only.png",
         overview:
             "At DTL Transport, our Power Only service provides the power unit (tractor) and a professional driver to haul your trailer or container. This flexible logistics solution is ideal for shippers and carriers who already own trailers but need reliable transport power to move freight efficiently.",
         benefits: [
