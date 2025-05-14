@@ -105,7 +105,7 @@ export default function HeroSection() {
         <motion.div variants={itemVariants}>
           <motion.div variants={buttonVariants} initial="initial" whileHover="hover" whileTap="tap">
             <Link
-              href="/"
+              href="/contact"
               className="inline-block text-white px-6 py-4 md:py-5 rounded-md shadow-[0_0_4px_#5A2F99] bg-[linear-gradient(90deg,_rgba(46,27,82,0.12)_0%,_rgba(103,61,184,0.72)_100%)]"
             >
               <span className="py-1 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full">

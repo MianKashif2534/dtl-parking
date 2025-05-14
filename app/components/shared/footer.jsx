@@ -21,6 +21,7 @@ export default function Footer() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
+      id="footer-contact"
     >
       {/* Main Footer Content */}
       <div className="bg-royalpurple">
@@ -305,14 +306,14 @@ function FooterBottom() {
           <FooterLink href="/services" delay={1.2}>
             Services
           </FooterLink>
-          <FooterLink href="/contact" delay={1.25}>
-            Contact Us
+          <FooterLink href="/team" delay={1.25}>
+            Our Team
           </FooterLink>
           <FooterLink href="/staff" delay={1.3}>
             Our Staff
           </FooterLink>
-          <FooterLink href="/terms" delay={1.35}>
-            Terms & Policy
+          <FooterLink href="/parking" delay={1.35}>
+            Parking
           </FooterLink>
         </motion.div>
 

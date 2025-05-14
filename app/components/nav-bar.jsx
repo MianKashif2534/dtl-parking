@@ -6,17 +6,18 @@ import Image from 'next/image'
 import { ChevronDown, Menu, X } from 'lucide-react'
 import { useWindowScroll } from 'react-use'
 import { usePathname } from 'next/navigation'
-import { services } from './data'
+import { getAllServices } from '../lib/services'
 
 const navItems = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/about' },
   { name: 'Services', href: '/services', hasDropdown: true },
   { name: 'Book Parking', href: '/parking' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Contact', href: '#footer-contact' },
 ]
 
 export default function NavBar() {
+  const services = getAllServices();
   const pathname = usePathname()
   const navRef = useRef(null)
 
@@ -93,12 +94,12 @@ export default function NavBar() {
                 </Link>
 
                 {item.hasDropdown && (
-                  <div className='absolute left-0 mt-2 w-[500px] bg-gradient-to-br from-gray-100 to-gray-200 border border-black/10 shadow-[0px_4px_4px_rgba(0,0,0,0.25)] box-border rounded-lg md:rounded-[20px] backdrop-blur-[17.5px] overflow-hidden z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 max-h-[70vh] overflow-y-auto'>
-                    <div className='grid grid-cols-2 gap-1 p-2'>
+                  <div className='absolute left-0 mt-2 w-[200px] bg-gradient-to-br from-gray-100 to-gray-200 border border-black/10 shadow-[0px_4px_4px_rgba(0,0,0,0.25)] box-border rounded-lg md:rounded-[20px] backdrop-blur-[17.5px] overflow-hidden z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 max-h-[70vh] overflow-y-auto'>
+                    <div className='grid grid-cols-1 gap-1 p-2'>
                       {services.map((service) => (
                         <Link
                           key={service.slug}
-                          href={`/service/${service.slug}`}
+                          href={`/services/${service.slug}`}
                           className='px-4 py-2 text-sm text-gray-800 font-bold rounded-md transition-all duration-300 transform hover:translate-x-1 hover:text-royalpurple'
                         >
                           {service.title}
@@ -126,7 +127,7 @@ export default function NavBar() {
             </div>
             <div>
               <Link
-                href='/appointment'
+                href="tel:18004262895"
                 className='bg-[#5305B8] shadow-[0_0_4px_#5A2F99] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
               >
                 <span className='relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full'>
@@ -181,7 +182,7 @@ export default function NavBar() {
                 <>
                   <button
                     onClick={toggleServiceSubmenu}
-                    className='py-5 text-center text-sm font-medium text-white hover:text-royalpurple flex items-center justify-center gap-1'
+                    className='py-5 text-center text-sm font-medium text-white hover:text-purple flex items-center justify-center gap-1'
                   >
                     {item.name}
                     <ChevronDown
@@ -199,7 +200,7 @@ export default function NavBar() {
                   >
                     <Link
                       href='/services'
-                      className='py-3 px-2 text-center text-sm font-medium text-white hover:text-royalpurple block rounded'
+                      className='py-3 px-2 text-center text-sm font-medium text-white hover:text-purple block rounded'
                       onClick={toggleMobileMenu}
                     >
                       All Services
@@ -208,8 +209,8 @@ export default function NavBar() {
                       {services.map((service) => (
                         <Link
                           key={service.slug}
-                          href={`/service/${service.slug}`}
-                          className='py-3 px-2 text-center text-sm font-medium text-white hover:text-royalpurple rounded'
+                          href={`/services/${service.slug}`}
+                          className='py-3 px-2 text-center text-sm font-medium text-white hover:text-purple rounded'
                           onClick={toggleMobileMenu}
                         >
                           {service.title}
@@ -222,7 +223,7 @@ export default function NavBar() {
                 <Link
                   href={item.href}
                   className={cn(
-                    'py-5 text-center text-sm font-medium hover:text-royalpurple',
+                    'py-5 text-center text-sm font-medium hover:text-purple',
                     pathname === item.href
                       ? 'bg-royalpurple text-white'
                       : 'text-white'
@@ -250,7 +251,7 @@ export default function NavBar() {
               </div>
               <div>
                 <Link
-                  href='/appointment'
+                  href="tel:18004262895"
                   className='bg-[#5305B8] shadow-[0_0_4px_#5A2F99] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
                 >
                   <span className='relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full'>

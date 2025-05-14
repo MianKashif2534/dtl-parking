@@ -152,7 +152,7 @@ export default function CommitmentSection() {
                 >
                     <InteractiveButton>
                         <Link
-                            href="/appointment"
+                            href="/driver"
                             className="bg-[linear-gradient(90deg,_rgba(46,27,82,0.12)_0%,_rgba(103,61,184,0.72)_100%)] shadow-[0_0_4px_#5A2F99] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32"
                         >
                             <span className="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full text-center">
@@ -163,11 +163,11 @@ export default function CommitmentSection() {
                     </InteractiveButton>
                     <InteractiveButton>
                         <Link
-                            href="/appointment"
+                            href="tel:18004262895"
                             className="bg-royalpurple shadow-[0_0_4px_#5A2F99] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32"
                         >
                             <span className="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full">
-                                Talk to a Recruiter <br />1 (800) 426-2895
+                                Talk to a Recruiter <br /> 1 (800) 426-2895
                             </span>
                         </Link>
                     </InteractiveButton>

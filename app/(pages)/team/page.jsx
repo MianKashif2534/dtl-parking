@@ -1,59 +1,190 @@
+"use client"
+
 /* eslint-disable react/no-unescaped-entities */
 import PageHeader from "@/app/components/page-header"
 import { Download, Globe, Shield } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { motion, useInView } from "framer-motion"
+import { useRef } from "react"
 
-// Card component for "What We Offer" section
-const BenefitCard = ({ icon: Icon, title, subtitle, description, quote, author }) => (
-  <div className="relative pt-10 pb-6">
-    <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-      <div className="bg-[#0a2a5e] p-3 w-16 h-16 flex items-center justify-center">
-        <Icon className="w-8 h-8 text-white" />
-      </div>
-    </div>
+const BenefitCard = ({ icon: Icon, title, subtitle, description, quote, author, index }) => {
+  const cardRef = useRef(null)
+  const isInView = useInView(cardRef, { once: true, amount: 0.2 })
 
-    <div className="bg-white min-h-[500px] rounded-md rounded-b-none border-b-8 border-royalpurple/90 p-6 h-full flex flex-col">
-      <h3 className="text-2xl md:text-3xl font-bold text-royalpurple text-center mb-1">{title}</h3>
-      <p className="text-lg md:text-xl text-royalpurple font-semibold text-center mb-4">{subtitle}</p>
+  return (
+    <motion.div
+      ref={cardRef}
+      className="relative pt-10 pb-6"
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{
+        duration: 0.7,
+        delay: index * 0.2,
+        ease: "easeOut",
+      }}
+    >
+      <motion.div
+        className="absolute -top-2 left-1/2 transform -translate-x-1/2 z-10"
+        initial={{ scale: 0, rotate: -180 }}
+        animate={isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
+        transition={{
+          duration: 0.6,
+          delay: 0.3 + index * 0.2,
+          type: "spring",
+          stiffness: 200,
+          damping: 20,
+        }}
+      >
+        <motion.div
+          className="bg-[#0a2a5e] flex items-center justify-center p-3 w-16 h-16 rounded-full"
+          whileHover={{ scale: 1.1, backgroundColor: "#0d3b7d" }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        >
+          <Icon className="w-8 h-8 text-white" />
+        </motion.div>
+      </motion.div>
 
-      <p className="text-sm md:text-base mb-4 font-light text-royalpurple text-center">{description}</p>
 
-      <div className="mt-auto italic text-xs md:text-sm text-royalpurple text-center">
-        <p className="font-semibold">
-          "{quote}" — {author}
-        </p>
-      </div>
-    </div>
-  </div>
-)
+      <motion.div
+        className="bg-white min-h-[500px] rounded-md rounded-b-none border-b-8 border-royalpurple/90 p-6 h-full flex flex-col"
+        whileHover={{ y: -5, boxShadow: "0 10px 25px rgba(90, 47, 153, 0.3)" }}
+        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+      >
+        <motion.h3
+          className="text-2xl md:text-3xl font-bold text-royalpurple text-center mb-1"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: 0.4 + index * 0.2 }}
+        >
+          {title}
+        </motion.h3>
+        <motion.p
+          className="text-lg md:text-xl text-royalpurple font-semibold text-center mb-4"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
+        >
+          {subtitle}
+        </motion.p>
+
+        <motion.p
+          className="text-sm md:text-base mb-4 font-light text-royalpurple text-center"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 + index * 0.2 }}
+        >
+          {description}
+        </motion.p>
+
+        <motion.div
+          className="mt-auto italic text-xs md:text-sm text-royalpurple text-center"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.5, delay: 0.7 + index * 0.2 }}
+        >
+          <p className="font-semibold">
+            "{quote}" — {author}
+          </p>
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  )
+}
 
 // Team Member Card component
-const TeamMemberCard = ({ name, role, email, image, description }) => (
-  <div className="bg-royalpurple/40 px-3 py-4 md:p-6 rounded-md transition-all duration-300 hover:shadow-[0_0_15px_rgba(151,71,255,0.3)]">
-    <div className="flex flex-col sm:flex-row gap-6 items-center mb-6 md:mb-12">
-      <div className="w-40 h-40 rounded-full overflow-hidden flex-shrink-0 border-4 border-royalpurple">
-        <Image
-          src={image || "/placeholder.svg"}
-          alt={name}
-          width={96}
-          height={96}
-          className="w-full h-full object-cover"
-        />
+const TeamMemberCard = ({ name, role, email, image, description, index }) => {
+  const cardRef = useRef(null)
+  const isInView = useInView(cardRef, { once: true, amount: 0.2 })
+
+  return (
+    <motion.div
+      ref={cardRef}
+      className="bg-royalpurple/40 px-3 py-4 md:p-6 rounded-md"
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{
+        duration: 0.7,
+        delay: index * 0.15,
+        ease: "easeOut",
+      }}
+      whileHover={{
+        scale: 1.02,
+        boxShadow: "0 0 20px rgba(151, 71, 255, 0.4)",
+        backgroundColor: "rgba(90, 47, 153, 0.5)",
+      }}
+    >
+      <div className="flex flex-col sm:flex-row gap-6 items-center mb-6 md:mb-12">
+        <motion.div
+          className="w-40 h-40 rounded-full overflow-hidden flex-shrink-0 border-4 border-royalpurple"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
+          whileHover={{ scale: 1.05 }}
+        >
+          <Image
+            src={image || "/placeholder.svg?height=96&width=96"}
+            alt={name}
+            width={96}
+            height={96}
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+        <div className="">
+          <motion.h3
+            className="text-xl md:text-3xl font-bold text-center sm:text-left"
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            transition={{ duration: 0.5, delay: 0.3 + index * 0.15 }}
+          >
+            {name}
+          </motion.h3>
+          <motion.p
+            className="text-purple md:text-xl font-semibold text-center sm:text-left"
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            transition={{ duration: 0.5, delay: 0.4 + index * 0.15 }}
+          >
+            {role}
+          </motion.p>
+          <motion.a
+            href={`mailto:${email}`}
+            className="text-sm md:text-xl text-center sm:text-left hover:text-purple transition-colors block"
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            transition={{ duration: 0.5, delay: 0.5 + index * 0.15 }}
+            whileHover={{ scale: 1.05, x: 5 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            {email}
+          </motion.a>
+        </div>
       </div>
-      <div className="">
-        <h3 className="text-xl md:text-3xl font-bold text-center sm:text-left">{name}</h3>
-        <p className="text-purple md:text-xl font-semibold text-center sm:text-left">{role}</p>
-        <a href={`mailto:${email}`} className="text-sm md:text-xl text-center sm:text-left hover:text-purple transition-colors">
-          {email}
-        </a>
-      </div>
-    </div>
-    <p className="text-sm md:text-lg font-extralight leading-relaxed text-center md:text-left">{description}</p>
-  </div>
-)
+      <motion.p
+        className="text-sm md:text-lg font-extralight leading-relaxed text-center md:text-left"
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.5, delay: 0.6 + index * 0.15 }}
+      >
+        {description}
+      </motion.p>
+    </motion.div>
+  )
+}
 
 export default function TeamPage() {
+  // Refs for scroll animations
+  const heroRef = useRef(null)
+  const offerSectionRef = useRef(null)
+  const teamSectionRef = useRef(null)
+  const ctaButtonRef = useRef(null)
+
+  // InView states
+  const isHeroInView = useInView(heroRef, { once: true, amount: 0.3 })
+  const isOfferSectionInView = useInView(offerSectionRef, { once: true, amount: 0.1 })
+  const isTeamSectionInView = useInView(teamSectionRef, { once: true, amount: 0.1 })
+  const isCtaButtonInView = useInView(ctaButtonRef, { once: true, amount: 0.8 })
+
   // Benefits data
   const benefits = [
     {
@@ -121,6 +252,90 @@ export default function TeamPage() {
     },
   ]
 
+  // Animation variants
+  const fadeInUpVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    },
+  }
+
+  const staggerContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  }
+
+  const headingVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  }
+
+  const lineVariants = {
+    hidden: { width: 0 },
+    visible: {
+      width: "30px",
+      transition: {
+        duration: 0.8,
+        ease: "easeInOut",
+      },
+    },
+  }
+
+  const imageScaleVariants = {
+    hidden: { scale: 0.9, opacity: 0.8 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        ease: "easeOut",
+      },
+    },
+    hover: {
+      scale: 1.05,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  }
+
+  const buttonVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+    hover: {
+      scale: 1.05,
+      y: -5,
+      boxShadow: "0 10px 25px rgba(151, 71, 255, 0.5)",
+    },
+    tap: { scale: 0.98 },
+  }
+
   return (
     <>
       <PageHeader
@@ -130,55 +345,124 @@ export default function TeamPage() {
         imageAlt="DTL Transport truck parking facility"
       />
       {/* Hero Section */}
-      <section className="relative max-w-6xl mx-auto overflow-hidden text-white py-8 px-4 md:p-12">
+      <motion.section
+        ref={heroRef}
+        className="relative max-w-6xl mx-auto overflow-hidden text-white py-8 px-4 md:p-12"
+        variants={staggerContainerVariants}
+        initial="hidden"
+        animate={isHeroInView ? "visible" : "hidden"}
+      >
         <div className="flex flex-col md:flex-row gap-8">
-          <div className="flex-1 space-y-6 md:space-y-8">
+          <motion.div className="flex-1 space-y-6 md:space-y-8" variants={fadeInUpVariants}>
             <div className="space-y-2">
-              <h1 className="text-2xl md:text-4xl font-bold">
+              <motion.h1
+                className="text-2xl md:text-4xl font-bold"
+                variants={headingVariants}
+                initial="hidden"
+                animate={isHeroInView ? "visible" : "hidden"}
+              >
                 <span className="text-white">Keep Rolling and </span>
                 <span className="text-purple">Get Paid</span>
-              </h1>
-              <h2 className="text-xl md:text-3xl font-bold flex items-center gap-2">
-                <span className="w-6 h-0.5 bg-white"></span>
+              </motion.h1>
+              <motion.h2
+                className="text-xl md:text-3xl font-bold flex items-center gap-2"
+                variants={headingVariants}
+                initial="hidden"
+                animate={isHeroInView ? "visible" : "hidden"}
+                transition={{ delay: 0.2 }}
+              >
+                <motion.span
+                  className="w-6 h-0.5 bg-white"
+                  variants={lineVariants}
+                  initial="hidden"
+                  animate={isHeroInView ? "visible" : "hidden"}
+                ></motion.span>
                 <span>Join the DTL Family</span>
-              </h2>
+              </motion.h2>
             </div>
 
-            <p className="text-sm md:text-lg leading-relaxed font-extralight max-w-xl">
+            <motion.p
+              className="text-sm md:text-lg leading-relaxed font-extralight max-w-xl"
+              variants={fadeInUpVariants}
+              initial="hidden"
+              animate={isHeroInView ? "visible" : "hidden"}
+              transition={{ delay: 0.3 }}
+            >
               At DTL Transportation, we don't just offer a job; we provide a fulfilling career where you're valued and
               supported every mile of the way. Our commitment to treating drivers with the respect they deserve sets us
               apart. With us, you're not just a number; you're part of a family that's dedicated to your success on and
               off the road.
-            </p>
+            </motion.p>
 
-            <div className="space-y-4 md:space-y-6">
-              <h3 className="text-xl md:text-2xl font-bold">Step into Becoming Legendary!</h3>
+            <motion.div
+              className="space-y-4 md:space-y-6"
+              variants={fadeInUpVariants}
+              initial="hidden"
+              animate={isHeroInView ? "visible" : "hidden"}
+              transition={{ delay: 0.4 }}
+            >
+              <motion.h3
+                className="text-xl md:text-2xl font-bold"
+                initial={{ opacity: 0, x: -20 }}
+                animate={isHeroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                Step into Becoming Legendary!
+              </motion.h3>
 
-              <div className="border-l-4 border-white p-4 w-full md:w-1/2 transition-transform hover:scale-105 bg-gradient-to-r from-[rgba(90,47,153,0.4)] to-[#0B0428]">
+              <motion.div
+                className="border-l-4 border-white p-4 w-full md:w-1/2 bg-gradient-to-r from-[rgba(90,47,153,0.4)] to-[#0B0428]"
+                initial={{ opacity: 0, x: -30 }}
+                animate={isHeroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+                transition={{ duration: 0.7, delay: 0.6 }}
+                whileHover={{ scale: 1.05, x: 5 }}
+                whileTap={{ scale: 0.98 }}
+              >
                 <p className="text-2xl font-semibold">Talk to a Recruiter:</p>
-                <a href="tel:+15592894424" className="text-lg hover:text-purple transition-colors">
+                <motion.a
+                  href="tel:+15592894424"
+                  className="text-lg hover:text-purple transition-colors"
+                  whileHover={{ scale: 1.05, x: 5 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                   (559) 289-4424
-                </a>
-              </div>
-            </div>
-          </div>
+                </motion.a>
+              </motion.div>
+            </motion.div>
+          </motion.div>
 
-          <div className="h-full overflow-hidden">
+          <motion.div
+            className="h-full overflow-hidden"
+            variants={imageScaleVariants}
+            initial="hidden"
+            animate={isHeroInView ? "visible" : "hidden"}
+            whileHover="hover"
+          >
             <Image
               src="/about/about-left.png"
               alt="DTL Transportation Driver"
               width={400}
               height={400}
-              className="object-cover rounded-md transition-transform duration-700"
+              className="object-cover rounded-md"
               priority
             />
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* What We Offer Section */}
-      <section className="relative w-full max-w-6xl mx-auto text-white my-8 md:py-12 px-4 md:px-8">
-        <h2 className="text-2xl md:text-5xl font-bold text-center mb-6 md:mb-12">What We Offer</h2>
+      <section
+        ref={offerSectionRef}
+        className="relative w-full max-w-6xl mx-auto text-white my-8 md:py-12 px-4 md:px-8"
+      >
+        <motion.h2
+          className="text-2xl md:text-5xl font-bold text-center mb-6 md:mb-12"
+          variants={headingVariants}
+          initial="hidden"
+          animate={isOfferSectionInView ? "visible" : "hidden"}
+        >
+          What We Offer
+        </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {benefits.map((benefit, index) => (
@@ -190,43 +474,99 @@ export default function TeamPage() {
               description={benefit.description}
               quote={benefit.quote}
               author={benefit.author}
+              index={index}
             />
           ))}
         </div>
 
-        <div className="text-center mt-6 md:mt-12">
-          <Link
-            href="/careers/apply"
-            className="inline-block bg-gradient-to-r from-[rgba(46,27,82,0.12)] to-[rgba(103,61,184,0.72)] text-white font-bold py-4 px-8 rounded-md transition duration-300 shadow-[0_0_4px_#5A2F99] hover:shadow-[0_0_15px_rgba(151,71,255,0.5)] hover:translate-y-[-2px]"
-          >
-            Apply Now
-          </Link>
-        </div>
+        <motion.div
+          ref={ctaButtonRef}
+          className="text-center mt-6 md:mt-12"
+          variants={fadeInUpVariants}
+          initial="hidden"
+          animate={isCtaButtonInView ? "visible" : "hidden"}
+        >
+          <motion.div variants={buttonVariants} initial="hidden" animate="visible" whileHover="hover" whileTap="tap" className="inline-block">
+            <Link
+              href="/"
+              className="inline-block bg-gradient-to-r from-[rgba(46,27,82,0.12)] to-[rgba(103,61,184,0.72)] text-white font-bold py-4 px-8 rounded-md shadow-[0_0_4px_#5A2F99]"
+            >
+              Apply Now
+            </Link>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Team Section */}
-      <section className="relative w-full max-w-6xl mx-auto text-white py-8 md:py-12 px-4 md:px-8">
+      <motion.section
+        ref={teamSectionRef}
+        className="relative w-full max-w-6xl mx-auto text-white py-8 md:py-12 px-4 md:px-8"
+        variants={staggerContainerVariants}
+        initial="hidden"
+        animate={isTeamSectionInView ? "visible" : "hidden"}
+      >
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row gap-6 md:gap-8 mb-8 md:mb-12">
-            <div className="md:w-1/2">
-              <h2 className="text-2xl md:text-4xl font-bold">
-                Meet Our
-                <br />
-                Dedicated
-                <br />
-                Executive Team —
-                <br />
-                <span className="text-purple">Recruiting</span>
-              </h2>
-            </div>
-            <div className="md:w-1/2">
-              <p className="text-sm md:text-base font-light leading-relaxed">
+            <motion.div
+              className="md:w-1/2"
+              variants={fadeInUpVariants}
+              initial="hidden"
+              animate={isTeamSectionInView ? "visible" : "hidden"}
+            >
+              <motion.h2 className="text-2xl md:text-4xl font-bold">
+                <motion.span
+                  className="block"
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={isTeamSectionInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                >
+                  Meet Our
+                </motion.span>
+                <motion.span
+                  className="block"
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={isTeamSectionInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  Dedicated
+                </motion.span>
+                <motion.span
+                  className="block"
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={isTeamSectionInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  Executive Team —
+                </motion.span>
+                <motion.span
+                  className="block text-purple"
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={isTeamSectionInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                >
+                  Recruiting
+                </motion.span>
+              </motion.h2>
+            </motion.div>
+            <motion.div
+              className="md:w-1/2"
+              variants={fadeInUpVariants}
+              initial="hidden"
+              animate={isTeamSectionInView ? "visible" : "hidden"}
+              transition={{ delay: 0.5 }}
+            >
+              <motion.p
+                className="text-sm md:text-base font-light leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isTeamSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.7, delay: 0.6 }}
+              >
                 Our Recruiting Team is passionate about connecting talented drivers and professionals with rewarding
                 careers at DTL Transportation. With a commitment to building a culture of respect, safety, and growth,
                 our team works tirelessly to ensure each recruit finds their perfect fit within our company. Meet the
                 leaders who are guiding our drivers toward success on the road.
-              </p>
-            </div>
+              </motion.p>
+            </motion.div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -238,11 +578,12 @@ export default function TeamPage() {
                 email={member.email}
                 image={member.image}
                 description={member.description}
+                index={index}
               />
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
     </>
   )
 }

@@ -11,19 +11,19 @@ const serviceCards = [
         title: "Truck Parking",
         description: "Day & night access for trucks with or without trailers.",
         image: "/Truck-parking.png",
-        link: "/services/truck-parking",
+        link: "/services",
     },
     {
         title: "Security Monitoring",
         description: "24-hour camera coverage and guards on patrol.",
         image: "/Security-monitoring.png",
-        link: "/services/security-monitoring",
+        link: "/services",
     },
     {
         title: "Magnetic Gate Entry",
         description: "Hassle-free entry with card-access technology.",
         image: "/Magnetic-gate-entry.png",
-        link: "/services/gate-entry",
+        link: "/services",
     },
 ]
 
@@ -213,7 +213,7 @@ export default function TruckParkingSection() {
                         <motion.div variants={itemVariants}>
                             <InteractiveButton>
                                 <Link
-                                    href="/careers/drivers"
+                                    href="/driver"
                                     className="inline-block bg-[linear-gradient(90deg,rgba(46,27,82,0.12)_0%,rgba(103,61,184,0.72)_100%)] shadow-[0_0_4px_#5A2F99] text-white px-6 py-3 rounded-md transition"
                                 >
                                     <span className="py-1 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full">
@@ -230,7 +230,7 @@ export default function TruckParkingSection() {
                         <motion.div variants={itemVariants}>
                             <InteractiveButton>
                                 <Link
-                                    href="/services/shipping"
+                                    href="/"
                                     className="bg-royalpurple hidden md:inline-block shadow-[0_0_4px_#5A2F99] hover:bg-[#4D3A6E] text-white px-6 py-3 rounded-md transition"
                                 >
                                     <span className="py-1 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full">
