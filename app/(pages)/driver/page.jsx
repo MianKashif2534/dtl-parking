@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import HeroSection from '@/app/components/HeroSection/HeroSection'
 
 const cities = [
   'New York',
@@ -164,349 +165,366 @@ const DriverForm = () => {
     }
   }
 
+  const driverHeroProps = {
+    backgroundImage: '/driver-hero.png',
+    welcomeText: 'Welcome to DTL',
+    mainHeading: 'Are You A Driver?',
+    subHeading:
+      'Join our growing family! We are always looking for drivers and employees who want to use their talents to their full potential.',
+    ctaText: 'Apply Now',
+    ctaLink: '#driver-form',
+    height: 'h-[600px] md:h-[700px]',
+  }
+
   return (
-    <div
-      className='min-h-screen w-full flex items-center justify-center'
-      style={{
-        background:
-          'linear-gradient(180deg, rgba(39, 14, 142, 0.2) 0%, #0B0428 100%)',
-      }}
-    >
-      <form
-        onSubmit={handleSubmit}
-        className='w-full max-w-3xl bg-white/5 p-8 rounded-xl shadow-lg backdrop-blur-md text-white my-5'
+    <>
+      <HeroSection {...driverHeroProps} />
+      <div
+        id='driver-form'
+        className='min-h-screen w-full flex items-center justify-center'
+        style={{
+          background:
+            'linear-gradient(180deg, rgba(39, 14, 142, 0.2) 0%, #0B0428 100%)',
+        }}
       >
-        {message.text && (
-          <div
-            className={`mb-4 p-4 rounded ${
-              message.type === 'success' ? 'bg-green-500/20' : 'bg-red-500/20'
+        <form
+          onSubmit={handleSubmit}
+          className='w-full max-w-3xl bg-white/5 p-8 rounded-xl shadow-lg backdrop-blur-md text-white my-5'
+        >
+          {message.text && (
+            <div
+              className={`mb-4 p-4 rounded ${
+                message.type === 'success' ? 'bg-green-500/20' : 'bg-red-500/20'
+              }`}
+            >
+              {message.text}
+            </div>
+          )}
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+            <div>
+              <label className='block mb-1'>First Name</label>
+              <input
+                name='firstName'
+                value={formData.firstName}
+                onChange={handleInputChange}
+                className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
+                required
+              />
+            </div>
+            <div>
+              <label className='block mb-1'>Last Name</label>
+              <input
+                name='lastName'
+                value={formData.lastName}
+                onChange={handleInputChange}
+                className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
+                required
+              />
+            </div>
+          </div>
+          <div className='mt-6'>
+            <label className='block mb-1'>Email Address</label>
+            <input
+              name='email'
+              value={formData.email}
+              onChange={handleInputChange}
+              className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
+              required
+            />
+          </div>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'>
+            <div>
+              <label className='block mb-1'>Home Phone Number</label>
+              <input
+                name='homePhone'
+                value={formData.homePhone}
+                onChange={handleInputChange}
+                className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
+                required
+              />
+            </div>
+            <div>
+              <label className='block mb-1'>Cell Phone Number</label>
+              <input
+                name='cellPhone'
+                value={formData.cellPhone}
+                onChange={handleInputChange}
+                className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
+                required
+              />
+            </div>
+          </div>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'>
+            <div>
+              <label className='block mb-1'>Street</label>
+              <input
+                name='street'
+                value={formData.street}
+                onChange={handleInputChange}
+                className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
+                required
+              />
+            </div>
+            <div>
+              <label className='block mb-1'>ZIP</label>
+              <input
+                name='zip'
+                value={formData.zip}
+                onChange={handleInputChange}
+                className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
+                required
+              />
+            </div>
+          </div>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'>
+            <div>
+              <label className='block mb-1'>City</label>
+              <select
+                name='city'
+                value={formData.city}
+                onChange={handleInputChange}
+                className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
+                required
+              >
+                <option value=''>Select City</option>
+                {cities.map((city) => (
+                  <option className='text-[#5305B8]' key={city} value={city}>
+                    {city}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className='block mb-1'>State</label>
+              <select
+                name='state'
+                value={formData.state}
+                onChange={handleInputChange}
+                className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
+                required
+                disabled={statesLoading}
+              >
+                <option value=''>Select State</option>
+                {statesLoading ? (
+                  <option value='' disabled>
+                    Loading states...
+                  </option>
+                ) : (
+                  states.map((state) => (
+                    <option
+                      className='text-[#5305B8]'
+                      key={state.name}
+                      value={state.name}
+                    >
+                      {state.name}
+                    </option>
+                  ))
+                )}
+              </select>
+            </div>
+          </div>
+          <div className='mt-6'>
+            <label className='block mb-1'>
+              How many years of Truck Driving experience?
+            </label>
+            <input
+              name='experience'
+              value={formData.experience}
+              onChange={handleInputChange}
+              className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
+              required
+            />
+          </div>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'>
+            <div>
+              <label className='block mb-1'>Atleast 21 years old</label>
+              <div className='flex gap-4 mt-1'>
+                <label className='flex items-center gap-1'>
+                  <input
+                    type='radio'
+                    name='age21'
+                    style={{ accentColor: '#5305B8' }}
+                    checked={formData.age21 === 'Yes'}
+                    onChange={handleInputChange}
+                  />{' '}
+                  Yes
+                </label>
+                <label className='flex items-center gap-1'>
+                  <input
+                    type='radio'
+                    name='age21'
+                    style={{ accentColor: '#5305B8' }}
+                    checked={formData.age21 === 'No'}
+                    onChange={handleInputChange}
+                  />{' '}
+                  No
+                </label>
+              </div>
+            </div>
+            <div>
+              <label className='block mb-1'>
+                Currently serving or a military veteran?
+              </label>
+              <div className='flex gap-4 mt-1'>
+                <label className='flex items-center gap-1'>
+                  <input
+                    type='radio'
+                    name='military'
+                    style={{ accentColor: '#5305B8' }}
+                    checked={formData.military === 'Yes'}
+                    onChange={handleInputChange}
+                  />{' '}
+                  Yes
+                </label>
+                <label className='flex items-center gap-1'>
+                  <input
+                    type='radio'
+                    name='military'
+                    style={{ accentColor: '#5305B8' }}
+                    checked={formData.military === 'No'}
+                    onChange={handleInputChange}
+                  />{' '}
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
+          <div className='mt-6'>
+            <label className='block mb-1'>
+              How many moving violations have you had in the last 5 years?
+            </label>
+            <input
+              name='violations'
+              value={formData.violations}
+              onChange={handleInputChange}
+              className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
+              required
+            />
+          </div>
+          <div className='mt-6'>
+            <label className='block mb-1'>
+              How many accidents in total did you have in the last 3 years?
+            </label>
+            <input
+              name='accidents'
+              value={formData.accidents}
+              onChange={handleInputChange}
+              className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
+              required
+            />
+          </div>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'>
+            <div>
+              <label className='block mb-1'>
+                Have you ever been charged/convicted of a DUI/OWI?
+              </label>
+              <div className='flex gap-4 mt-1'>
+                <label className='flex items-center gap-1'>
+                  <input
+                    type='radio'
+                    name='dui'
+                    style={{ accentColor: '#5305B8' }}
+                    checked={formData.dui === 'Yes'}
+                    onChange={handleInputChange}
+                  />{' '}
+                  Yes
+                </label>
+                <label className='flex items-center gap-1'>
+                  <input
+                    type='radio'
+                    name='dui'
+                    style={{ accentColor: '#5305B8' }}
+                    checked={formData.dui === 'No'}
+                    onChange={handleInputChange}
+                  />{' '}
+                  No
+                </label>
+              </div>
+            </div>
+            <div>
+              <label className='block mb-1'>
+                Have you had any CITATIONS in the last 5 years?
+              </label>
+              <div className='flex gap-4 mt-1'>
+                <label className='flex items-center gap-1'>
+                  <input
+                    type='radio'
+                    name='citations'
+                    style={{ accentColor: '#5305B8' }}
+                    checked={formData.citations === 'Yes'}
+                    onChange={handleInputChange}
+                  />{' '}
+                  Yes
+                </label>
+                <label className='flex items-center gap-1'>
+                  <input
+                    type='radio'
+                    name='citations'
+                    style={{ accentColor: '#5305B8' }}
+                    checked={formData.citations === 'No'}
+                    onChange={handleInputChange}
+                  />{' '}
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
+          <div className='mt-6'>
+            <label className='block mb-1'>Upload your CV / Resume here</label>
+            <input
+              type='file'
+              name='resume'
+              onChange={handleFileChange}
+              className='w-full text-white file:bg-royalpurple file:text-white file:rounded file:px-4 file:py-2 file:border-0 file:mr-4'
+              required
+            />
+          </div>
+          <div className='mt-6'>
+            <label className='block mb-1'>
+              Select and Upload your Documents
+            </label>
+            <div className='flex flex-wrap gap-4 mb-2'>
+              {documents.map((doc) => (
+                <label key={doc.name} className='flex items-center gap-1'>
+                  <input type='checkbox' style={{ accentColor: '#5305B8' }} />{' '}
+                  {doc.name}
+                </label>
+              ))}
+            </div>
+            <input
+              type='file'
+              className='w-full text-white file:bg-royalpurple file:text-white file:rounded file:px-4 file:py-2 file:border-0 file:mr-4'
+            />
+          </div>
+          <div className='mt-6'>
+            <label className='block mb-1'>How did you hear about us?</label>
+            <div className='flex flex-col gap-2'>
+              {hearAboutUs.map((opt) => (
+                <label key={opt} className='flex items-center gap-1'>
+                  <input
+                    type='radio'
+                    name='hearAbout'
+                    style={{ accentColor: '#5305B8' }}
+                    checked={formData.hearAbout === opt}
+                    onChange={handleInputChange}
+                  />{' '}
+                  {opt}
+                </label>
+              ))}
+            </div>
+          </div>
+          <button
+            type='submit'
+            disabled={loading}
+            className={`mt-8 w-full bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 rounded transition ${
+              loading ? 'opacity-50 cursor-not-allowed' : ''
             }`}
           >
-            {message.text}
-          </div>
-        )}
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-          <div>
-            <label className='block mb-1'>First Name</label>
-            <input
-              name='firstName'
-              value={formData.firstName}
-              onChange={handleInputChange}
-              className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
-              required
-            />
-          </div>
-          <div>
-            <label className='block mb-1'>Last Name</label>
-            <input
-              name='lastName'
-              value={formData.lastName}
-              onChange={handleInputChange}
-              className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
-              required
-            />
-          </div>
-        </div>
-        <div className='mt-6'>
-          <label className='block mb-1'>Email Address</label>
-          <input
-            name='email'
-            value={formData.email}
-            onChange={handleInputChange}
-            className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
-            required
-          />
-        </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'>
-          <div>
-            <label className='block mb-1'>Home Phone Number</label>
-            <input
-              name='homePhone'
-              value={formData.homePhone}
-              onChange={handleInputChange}
-              className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
-              required
-            />
-          </div>
-          <div>
-            <label className='block mb-1'>Cell Phone Number</label>
-            <input
-              name='cellPhone'
-              value={formData.cellPhone}
-              onChange={handleInputChange}
-              className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
-              required
-            />
-          </div>
-        </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'>
-          <div>
-            <label className='block mb-1'>Street</label>
-            <input
-              name='street'
-              value={formData.street}
-              onChange={handleInputChange}
-              className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
-              required
-            />
-          </div>
-          <div>
-            <label className='block mb-1'>ZIP</label>
-            <input
-              name='zip'
-              value={formData.zip}
-              onChange={handleInputChange}
-              className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
-              required
-            />
-          </div>
-        </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'>
-          <div>
-            <label className='block mb-1'>City</label>
-            <select
-              name='city'
-              value={formData.city}
-              onChange={handleInputChange}
-              className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
-              required
-            >
-              <option value=''>Select City</option>
-              {cities.map((city) => (
-                <option className='text-[#5305B8]' key={city} value={city}>
-                  {city}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label className='block mb-1'>State</label>
-            <select
-              name='state'
-              value={formData.state}
-              onChange={handleInputChange}
-              className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
-              required
-              disabled={statesLoading}
-            >
-              <option value=''>Select State</option>
-              {statesLoading ? (
-                <option value='' disabled>
-                  Loading states...
-                </option>
-              ) : (
-                states.map((state) => (
-                  <option
-                    className='text-[#5305B8]'
-                    key={state.name}
-                    value={state.name}
-                  >
-                    {state.name}
-                  </option>
-                ))
-              )}
-            </select>
-          </div>
-        </div>
-        <div className='mt-6'>
-          <label className='block mb-1'>
-            How many years of Truck Driving experience?
-          </label>
-          <input
-            name='experience'
-            value={formData.experience}
-            onChange={handleInputChange}
-            className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
-            required
-          />
-        </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'>
-          <div>
-            <label className='block mb-1'>Atleast 21 years old</label>
-            <div className='flex gap-4 mt-1'>
-              <label className='flex items-center gap-1'>
-                <input
-                  type='radio'
-                  name='age21'
-                  style={{ accentColor: '#5305B8' }}
-                  checked={formData.age21 === 'Yes'}
-                  onChange={handleInputChange}
-                />{' '}
-                Yes
-              </label>
-              <label className='flex items-center gap-1'>
-                <input
-                  type='radio'
-                  name='age21'
-                  style={{ accentColor: '#5305B8' }}
-                  checked={formData.age21 === 'No'}
-                  onChange={handleInputChange}
-                />{' '}
-                No
-              </label>
-            </div>
-          </div>
-          <div>
-            <label className='block mb-1'>
-              Currently serving or a military veteran?
-            </label>
-            <div className='flex gap-4 mt-1'>
-              <label className='flex items-center gap-1'>
-                <input
-                  type='radio'
-                  name='military'
-                  style={{ accentColor: '#5305B8' }}
-                  checked={formData.military === 'Yes'}
-                  onChange={handleInputChange}
-                />{' '}
-                Yes
-              </label>
-              <label className='flex items-center gap-1'>
-                <input
-                  type='radio'
-                  name='military'
-                  style={{ accentColor: '#5305B8' }}
-                  checked={formData.military === 'No'}
-                  onChange={handleInputChange}
-                />{' '}
-                No
-              </label>
-            </div>
-          </div>
-        </div>
-        <div className='mt-6'>
-          <label className='block mb-1'>
-            How many moving violations have you had in the last 5 years?
-          </label>
-          <input
-            name='violations'
-            value={formData.violations}
-            onChange={handleInputChange}
-            className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
-            required
-          />
-        </div>
-        <div className='mt-6'>
-          <label className='block mb-1'>
-            How many accidents in total did you have in the last 3 years?
-          </label>
-          <input
-            name='accidents'
-            value={formData.accidents}
-            onChange={handleInputChange}
-            className='w-full bg-transparent border border-white rounded px-3 py-2 outline-none'
-            required
-          />
-        </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'>
-          <div>
-            <label className='block mb-1'>
-              Have you ever been charged/convicted of a DUI/OWI?
-            </label>
-            <div className='flex gap-4 mt-1'>
-              <label className='flex items-center gap-1'>
-                <input
-                  type='radio'
-                  name='dui'
-                  style={{ accentColor: '#5305B8' }}
-                  checked={formData.dui === 'Yes'}
-                  onChange={handleInputChange}
-                />{' '}
-                Yes
-              </label>
-              <label className='flex items-center gap-1'>
-                <input
-                  type='radio'
-                  name='dui'
-                  style={{ accentColor: '#5305B8' }}
-                  checked={formData.dui === 'No'}
-                  onChange={handleInputChange}
-                />{' '}
-                No
-              </label>
-            </div>
-          </div>
-          <div>
-            <label className='block mb-1'>
-              Have you had any CITATIONS in the last 5 years?
-            </label>
-            <div className='flex gap-4 mt-1'>
-              <label className='flex items-center gap-1'>
-                <input
-                  type='radio'
-                  name='citations'
-                  style={{ accentColor: '#5305B8' }}
-                  checked={formData.citations === 'Yes'}
-                  onChange={handleInputChange}
-                />{' '}
-                Yes
-              </label>
-              <label className='flex items-center gap-1'>
-                <input
-                  type='radio'
-                  name='citations'
-                  style={{ accentColor: '#5305B8' }}
-                  checked={formData.citations === 'No'}
-                  onChange={handleInputChange}
-                />{' '}
-                No
-              </label>
-            </div>
-          </div>
-        </div>
-        <div className='mt-6'>
-          <label className='block mb-1'>Upload your CV / Resume here</label>
-          <input
-            type='file'
-            name='resume'
-            onChange={handleFileChange}
-            className='w-full text-white file:bg-royalpurple file:text-white file:rounded file:px-4 file:py-2 file:border-0 file:mr-4'
-            required
-          />
-        </div>
-        <div className='mt-6'>
-          <label className='block mb-1'>Select and Upload your Documents</label>
-          <div className='flex flex-wrap gap-4 mb-2'>
-            {documents.map((doc) => (
-              <label key={doc.name} className='flex items-center gap-1'>
-                <input type='checkbox' style={{ accentColor: '#5305B8' }} />{' '}
-                {doc.name}
-              </label>
-            ))}
-          </div>
-          <input
-            type='file'
-            className='w-full text-white file:bg-royalpurple file:text-white file:rounded file:px-4 file:py-2 file:border-0 file:mr-4'
-          />
-        </div>
-        <div className='mt-6'>
-          <label className='block mb-1'>How did you hear about us?</label>
-          <div className='flex flex-col gap-2'>
-            {hearAboutUs.map((opt) => (
-              <label key={opt} className='flex items-center gap-1'>
-                <input
-                  type='radio'
-                  name='hearAbout'
-                  style={{ accentColor: '#5305B8' }}
-                  checked={formData.hearAbout === opt}
-                  onChange={handleInputChange}
-                />{' '}
-                {opt}
-              </label>
-            ))}
-          </div>
-        </div>
-        <button
-          type='submit'
-          disabled={loading}
-          className={`mt-8 w-full bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 rounded transition ${
-            loading ? 'opacity-50 cursor-not-allowed' : ''
-          }`}
-        >
-          {loading ? 'Submitting...' : 'Submit'}
-        </button>
-      </form>
-    </div>
+            {loading ? 'Submitting...' : 'Submit'}
+          </button>
+        </form>
+      </div>
+    </>
   )
 }
 
