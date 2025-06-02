@@ -1,14 +1,23 @@
 /* eslint-disable react/no-unescaped-entities */
-"use client"
+'use client'
 
-import { Calendar, ChevronDown, Facebook, Instagram, Mail, MapPin, Phone, User } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
-import { useEffect, useRef, useState } from "react"
-import DatePicker from "react-date-picker"
-import "react-date-picker/dist/DatePicker.css"
-import "react-calendar/dist/Calendar.css"
-import { motion, useInView } from "framer-motion"
+import {
+  Calendar,
+  ChevronDown,
+  Facebook,
+  Instagram,
+  Mail,
+  MapPin,
+  Phone,
+  User,
+} from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
+import DatePicker from 'react-date-picker'
+import 'react-date-picker/dist/DatePicker.css'
+import 'react-calendar/dist/Calendar.css'
+import { motion, useInView } from 'framer-motion'
 
 export default function Footer() {
   const footerRef = useRef(null)
@@ -17,31 +26,31 @@ export default function Footer() {
   return (
     <motion.footer
       ref={footerRef}
-      className="text-white overflow-hidden"
+      className='text-white overflow-hidden'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      id="footer-contact"
+      id='footer-contact'
     >
       {/* Main Footer Content */}
-      <div className="bg-royalpurple">
-        <div className="max-w-7xl mx-auto px-4 py-8 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative">
+      <div className='bg-royalpurple'>
+        <div className='max-w-7xl mx-auto px-4 py-8 lg:px-8'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 relative'>
             {/* Left Column - Contact Info */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
             >
               <ContactInfo />
             </motion.div>
 
             {/* Right Column - Request Quote Form */}
             <motion.div
-              className="md:absolute md:right-0"
+              className='md:absolute md:right-0'
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-              transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+              transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
             >
               <QuoteForm />
             </motion.div>
@@ -50,7 +59,7 @@ export default function Footer() {
       </div>
 
       {/* Dark Footer Section */}
-      <div className="max-w-7xl mx-auto">
+      <div className='max-w-7xl mx-auto'>
         <FooterBottom />
       </div>
     </motion.footer>
@@ -59,29 +68,29 @@ export default function Footer() {
 
 const ContactItem = ({ icon, text, href, delay = 0 }) => (
   <motion.div
-    className="flex items-center gap-4"
+    className='flex items-center gap-4'
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, delay: delay, ease: "easeOut" }}
+    transition={{ duration: 0.5, delay: delay, ease: 'easeOut' }}
   >
     <motion.div
-      className="bg-white rounded-full p-2 md:p-3 w-8 md:w-12 h-8 md:h-12 flex items-center justify-center"
-      whileHover={{ scale: 1.1, boxShadow: "0 0 8px rgba(255,255,255,0.5)" }}
-      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+      className='bg-white rounded-full p-2 md:p-3 w-8 md:w-12 h-8 md:h-12 flex items-center justify-center'
+      whileHover={{ scale: 1.1, boxShadow: '0 0 8px rgba(255,255,255,0.5)' }}
+      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
     >
       {icon}
     </motion.div>
     {href ? (
       <motion.a
         href={href}
-        className="text-lg md:text-xl hover:text-purple transition-colors"
+        className='text-lg md:text-xl hover:text-purple transition-colors'
         whileHover={{ x: 5 }}
-        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        transition={{ type: 'spring', stiffness: 400, damping: 10 }}
       >
         {text}
       </motion.a>
     ) : (
-      <span className="text-lg md:text-xl">{text}</span>
+      <span className='text-lg md:text-xl'>{text}</span>
     )}
   </motion.div>
 )
@@ -93,9 +102,9 @@ function ContactInfo() {
   return (
     <motion.div
       ref={infoRef}
-      className="space-y-8"
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      className='space-y-8'
+      initial='hidden'
+      animate={isInView ? 'visible' : 'hidden'}
       variants={{
         hidden: { opacity: 0 },
         visible: {
@@ -108,31 +117,31 @@ function ContactInfo() {
       }}
     >
       <motion.div
-        className="space-y-4"
+        className='space-y-4'
         variants={{
           hidden: { opacity: 0, y: 20 },
           visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.6, ease: "easeOut" },
+            transition: { duration: 0.6, ease: 'easeOut' },
           },
         }}
       >
         <motion.h2
-          className="text-5xl font-bold"
+          className='text-5xl font-bold'
           variants={{
             hidden: { opacity: 0, y: -20 },
             visible: {
               opacity: 1,
               y: 0,
-              transition: { duration: 0.7, ease: "easeOut", type: "spring" },
+              transition: { duration: 0.7, ease: 'easeOut', type: 'spring' },
             },
           }}
         >
           Contact
         </motion.h2>
         <motion.p
-          className="md:text-lg font-light max-w-md"
+          className='md:text-lg font-light max-w-md'
           variants={{
             hidden: { opacity: 0 },
             visible: {
@@ -141,27 +150,27 @@ function ContactInfo() {
             },
           }}
         >
-          Get in touch for quick quotes, service info, or custom freight solutions. Let's move your cargo, the right
-          way.
+          Get in touch for quick quotes, service info, or custom freight
+          solutions. Let's move your cargo, the right way.
         </motion.p>
       </motion.div>
 
-      <div className="space-y-4">
+      <div className='space-y-4'>
         <ContactItem
-          icon={<MapPin className="text-royalpurple h-6 w-6" />}
-          text="Headquarters: Fresno, California"
+          icon={<MapPin className='text-royalpurple h-6 w-6' />}
+          text='Headquarters: Fresno, California'
           delay={0.3}
         />
         <ContactItem
-          icon={<Phone className="text-royalpurple h-6 w-6" />}
-          text="(559) 289-4424"
-          href="tel:+15592894424"
+          icon={<Phone className='text-royalpurple h-6 w-6' />}
+          text='(559) 289-4424'
+          href='tel:+15592894424'
           delay={0.4}
         />
         <ContactItem
-          icon={<Mail className="text-royalpurple h-6 w-6" />}
-          text="lucky@dtltrans.com"
-          href="mailto:lucky@dtltrans.com"
+          icon={<Mail className='text-royalpurple h-6 w-6' />}
+          text='lucky@dtltrans.com'
+          href='mailto:lucky@dtltrans.com'
           delay={0.5}
         />
       </div>
@@ -169,12 +178,13 @@ function ContactInfo() {
   )
 }
 
-
 const SocialLink = ({ href, icon }) => (
   <Link
     href={href}
-    className="bg-white rounded-full p-2 hover:bg-gray-100 transition-colors"
-    aria-label={`Visit our ${href.replace("https://", "").replace("www.", "").split(".")[0]} page`}
+    className='bg-white rounded-full p-2 hover:bg-gray-100 transition-colors'
+    aria-label={`Visit our ${
+      href.replace('https://', '').replace('www.', '').split('.')[0]
+    } page`}
   >
     {icon}
   </Link>
@@ -189,7 +199,7 @@ const FooterLink = ({ href, children, delay = 0 }) => (
   >
     <Link
       href={href}
-      className="md:text-lg hover:text-purple border-b-2 border-white hover:border-purple transition-colors"
+      className='md:text-lg hover:text-purple border-b-2 border-white hover:border-purple transition-colors'
     >
       {children}
     </Link>
@@ -204,55 +214,61 @@ function FooterBottom() {
   return (
     <motion.div
       ref={bottomRef}
-      className="py-6 px-4"
+      className='py-6 px-4'
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.7, delay: 0.5 }}
     >
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+      <div className='container mx-auto'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8'>
           {/* Company Info */}
           <motion.div
-            className="space-y-4"
+            className='space-y-4'
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
             transition={{ duration: 0.7, delay: 0.6 }}
           >
             <motion.div
-              className="flex items-center"
+              className='flex items-center'
               whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
             >
-              <Image src="/logo.png" alt="DTL Transport Logo" width={120} height={60} className="rounded-lg p-1" />
+              <Image
+                src='/logo.png'
+                alt='DTL Transport Logo'
+                width={120}
+                height={60}
+                className='rounded-lg p-1'
+              />
             </motion.div>
             <motion.p
-              className="md:text-lg max-w-md font-light"
+              className='md:text-lg max-w-md font-light'
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
             >
-              DTL is your trusted U.S. trucking partner, delivering reliable freight solutions with modern fleets and
-              clear communication.
+              DTL is your trusted U.S. trucking partner, delivering reliable
+              freight solutions with modern fleets and clear communication.
             </motion.p>
             <motion.div
-              className="flex gap-2"
+              className='flex gap-2'
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
             >
               <SocialLink
-                href="https://facebook.com/dtltransport"
-                icon={<Facebook className="w-5 h-5 text-royalpurple" />}
+                href='https://facebook.com/dtltransport'
+                icon={<Facebook className='w-5 h-5 text-royalpurple' />}
                 delay={0.9}
               />
               <SocialLink
-                href="mailto:info@dtltrans.com"
-                icon={<Mail className="w-5 h-5 text-royalpurple" />}
+                href='mailto:info@dtltrans.com'
+                icon={<Mail className='w-5 h-5 text-royalpurple' />}
                 delay={1.0}
               />
               <SocialLink
-                href="https://instagram.com/dtltransport"
-                icon={<Instagram className="w-5 h-5 text-royalpurple" />}
+                href='https://instagram.com/dtltransport'
+                icon={<Instagram className='w-5 h-5 text-royalpurple' />}
                 delay={1.1}
               />
             </motion.div>
@@ -260,13 +276,13 @@ function FooterBottom() {
 
           {/* About Us */}
           <motion.div
-            className="space-y-4 md:mt-32"
+            className='space-y-4 md:mt-32'
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.7, delay: 0.7 }}
           >
             <motion.h3
-              className="text-3xl font-bold text-[rgba(103,61,184,0.72)]"
+              className='text-3xl font-bold text-[rgba(103,61,184,0.72)]'
               initial={{ opacity: 0, y: -20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
               transition={{ duration: 0.5, delay: 0.8 }}
@@ -274,52 +290,53 @@ function FooterBottom() {
               About Us
             </motion.h3>
             <motion.p
-              className="md:text-lg font-light"
+              className='md:text-lg font-light'
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.5, delay: 0.9 }}
             >
-              DTL is a professional freight carrier committed to dependable, on-time delivery across the U.S. With a
-              modern fleet and industry expertise, we provide scalable logistics solutions tailored to your business
-              needs.
+              DTL is a professional freight carrier committed to dependable,
+              on-time delivery across the U.S. With a modern fleet and industry
+              expertise, we provide scalable logistics solutions tailored to
+              your business needs.
             </motion.p>
           </motion.div>
         </div>
 
         {/* Navigation Links */}
         <motion.div
-          className="flex flex-wrap justify-center gap-x-2 md:gap-x-8 gap-y-2 py-4"
+          className='flex flex-wrap justify-center gap-x-2 md:gap-x-8 gap-y-2 py-4'
           style={{
-            borderBottom: "2px solid",
-            borderImage: "linear-gradient(90deg, #5305B8 0%, #250252 100%) 1",
+            borderBottom: '2px solid',
+            borderImage: 'linear-gradient(90deg, #5305B8 0%, #250252 100%) 1',
           }}
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.7, delay: 1.0 }}
         >
-          <FooterLink href="/" delay={1.1}>
+          <FooterLink href='/' delay={1.1}>
             Home
           </FooterLink>
-          <FooterLink href="/about" delay={1.15}>
+          <FooterLink href='/about' delay={1.15}>
             About Us
           </FooterLink>
-          <FooterLink href="/services" delay={1.2}>
+          <FooterLink href='/services' delay={1.2}>
             Services
           </FooterLink>
-          <FooterLink href="/team" delay={1.25}>
+          <FooterLink href='/team' delay={1.25}>
             Our Team
           </FooterLink>
-          <FooterLink href="/staff" delay={1.3}>
+          <FooterLink href='/staff' delay={1.3}>
             Our Staff
           </FooterLink>
-          <FooterLink href="/parking" delay={1.35}>
+          <FooterLink href='/parking' delay={1.35}>
             Parking
           </FooterLink>
         </motion.div>
 
         {/* Copyright */}
         <motion.div
-          className="pt-6 text-gray-400 font-light"
+          className='pt-6 text-gray-400 font-light'
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: 1.4 }}
@@ -343,7 +360,7 @@ function QuoteForm() {
   const handleIconClick = () => {
     if (datePickerRef.current) {
       // Find the input element within the date picker
-      const input = datePickerRef.current.querySelector("input")
+      const input = datePickerRef.current.querySelector('input')
       if (input) {
         input.focus()
       }
@@ -355,13 +372,13 @@ function QuoteForm() {
   const handleSubmit = (e) => {
     e.preventDefault()
     // Form submission logic here
-    console.log("Form submitted", { date, distance })
+    console.log('Form submitted', { date, distance })
   }
 
   // Add custom styles for the date picker and form elements
   useEffect(() => {
     // Add a style tag to the document head
-    const style = document.createElement("style")
+    const style = document.createElement('style')
     style.innerHTML = `
       /* Input focus and hover styles */
       .form-input {
@@ -583,7 +600,7 @@ function QuoteForm() {
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut",
+        ease: 'easeOut',
         staggerChildren: 0.1,
         delayChildren: 0.2,
       },
@@ -597,8 +614,8 @@ function QuoteForm() {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: "easeOut",
-        type: "spring",
+        ease: 'easeOut',
+        type: 'spring',
         stiffness: 50,
         damping: 15,
       },
@@ -612,17 +629,17 @@ function QuoteForm() {
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut",
+        ease: 'easeOut',
         delay: 0.5,
-        type: "spring",
+        type: 'spring',
         stiffness: 100,
         damping: 15,
       },
     },
     hover: {
       scale: 1.05,
-      boxShadow: "0 5px 15px rgba(83, 5, 184, 0.3)",
-      transition: { type: "spring", stiffness: 400, damping: 10 },
+      boxShadow: '0 5px 15px rgba(83, 5, 184, 0.3)',
+      transition: { type: 'spring', stiffness: 400, damping: 10 },
     },
     tap: { scale: 0.95 },
   }
@@ -630,69 +647,89 @@ function QuoteForm() {
   return (
     <motion.div
       ref={formRef}
-      className="bg-gray-300 rounded-3xl p-4 md:p-8 shadow-lg"
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      className='bg-gray-300 rounded-3xl p-4 md:p-8 shadow-lg'
+      initial='hidden'
+      animate={isInView ? 'visible' : 'hidden'}
       variants={formVariants}
     >
-      <motion.h2 className="text-royalpurple text-3xl font-bold text-center mb-6" variants={inputVariants}>
+      <motion.h2
+        className='text-royalpurple text-3xl font-bold text-center mb-6'
+        variants={inputVariants}
+      >
         Request a Quote
       </motion.h2>
-      <motion.form className="space-y-6" onSubmit={handleSubmit} variants={formVariants}>
-        <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-4" variants={inputVariants}>
+      <motion.form
+        className='space-y-6'
+        onSubmit={handleSubmit}
+        variants={formVariants}
+      >
+        <motion.div
+          className='grid grid-cols-1 md:grid-cols-2 gap-4'
+          variants={inputVariants}
+        >
           {/* Name Input */}
-          <motion.div className="relative" variants={inputVariants}>
+          <motion.div className='relative' variants={inputVariants}>
             <input
-              type="text"
-              placeholder="Name"
-              className="form-input w-full p-3 border-2 border-royalpurple rounded-xl bg-transparent text-royalpurple placeholder-royalpurple/70"
+              type='text'
+              placeholder='Name'
+              className='form-input w-full p-3 border-2 border-royalpurple rounded-xl bg-transparent text-royalpurple placeholder-royalpurple/70'
               required
-              onFocus={() => setFocusedInput("name")}
+              onFocus={() => setFocusedInput('name')}
               onBlur={() => setFocusedInput(null)}
             />
             <div
-              className={`absolute right-3 top-1/2 -translate-y-1/2 input-icon-wrapper ${focusedInput === "name" ? "form-input-focused" : ""}`}
+              className={`absolute right-3 top-1/2 -translate-y-1/2 input-icon-wrapper ${
+                focusedInput === 'name' ? 'form-input-focused' : ''
+              }`}
             >
-              <User className="input-icon w-5 h-5 text-royalpurple" />
+              <User className='input-icon w-5 h-5 text-royalpurple' />
             </div>
           </motion.div>
 
           {/* Email Input */}
-          <motion.div className="relative" variants={inputVariants}>
+          <motion.div className='relative' variants={inputVariants}>
             <input
-              type="email"
-              placeholder="Email"
-              className="form-input w-full p-3 border-2 border-royalpurple rounded-xl bg-transparent text-royalpurple placeholder-royalpurple/70"
+              type='email'
+              placeholder='Email'
+              className='form-input w-full p-3 border-2 border-royalpurple rounded-xl bg-transparent text-royalpurple placeholder-royalpurple/70'
               required
-              onFocus={() => setFocusedInput("email")}
+              onFocus={() => setFocusedInput('email')}
               onBlur={() => setFocusedInput(null)}
             />
             <div
-              className={`absolute right-3 top-1/2 -translate-y-1/2 input-icon-wrapper ${focusedInput === "email" ? "form-input-focused" : ""}`}
+              className={`absolute right-3 top-1/2 -translate-y-1/2 input-icon-wrapper ${
+                focusedInput === 'email' ? 'form-input-focused' : ''
+              }`}
             >
-              <Mail className="input-icon w-5 h-5 text-royalpurple" />
+              <Mail className='input-icon w-5 h-5 text-royalpurple' />
             </div>
           </motion.div>
 
           {/* Phone Input */}
-          <motion.div className="relative" variants={inputVariants}>
+          <motion.div className='relative' variants={inputVariants}>
             <input
-              type="tel"
-              placeholder="Phone"
-              className="form-input w-full p-3 border-2 border-royalpurple rounded-xl bg-transparent text-royalpurple placeholder-royalpurple/70"
+              type='tel'
+              placeholder='Phone'
+              className='form-input w-full p-3 border-2 border-royalpurple rounded-xl bg-transparent text-royalpurple placeholder-royalpurple/70'
               required
-              onFocus={() => setFocusedInput("phone")}
+              onFocus={() => setFocusedInput('phone')}
               onBlur={() => setFocusedInput(null)}
             />
             <div
-              className={`absolute right-3 top-1/2 -translate-y-1/2 input-icon-wrapper ${focusedInput === "phone" ? "form-input-focused" : ""}`}
+              className={`absolute right-3 top-1/2 -translate-y-1/2 input-icon-wrapper ${
+                focusedInput === 'phone' ? 'form-input-focused' : ''
+              }`}
             >
-              <Phone className="input-icon w-5 h-5 text-royalpurple" />
+              <Phone className='input-icon w-5 h-5 text-royalpurple' />
             </div>
           </motion.div>
 
           {/* Date Picker */}
-          <motion.div className="relative" ref={datePickerRef} variants={inputVariants}>
+          <motion.div
+            className='relative'
+            ref={datePickerRef}
+            variants={inputVariants}
+          >
             <DatePicker
               onChange={(value) => {
                 setDate(value)
@@ -701,63 +738,67 @@ function QuoteForm() {
               value={date}
               calendarIcon={null}
               clearIcon={null}
-              format="y-MM-dd"
-              dayPlaceholder="DD"
-              monthPlaceholder="MM"
-              yearPlaceholder="YYYY"
-              className="w-full rounded-xl bg-transparent text-royalpurple"
+              format='y-MM-dd'
+              dayPlaceholder='DD'
+              monthPlaceholder='MM'
+              yearPlaceholder='YYYY'
+              className='w-full rounded-xl bg-transparent text-royalpurple'
               isOpen={calendarOpen}
               onCalendarClose={() => setCalendarOpen(false)}
               onCalendarOpen={() => setCalendarOpen(true)}
-              onFocus={() => setFocusedInput("date")}
+              onFocus={() => setFocusedInput('date')}
               onBlur={() => setFocusedInput(null)}
             />
             <div
               onClick={handleIconClick}
-              className={`absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer input-icon-wrapper ${focusedInput === "date" ? "form-input-focused" : ""}`}
+              className={`absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer input-icon-wrapper ${
+                focusedInput === 'date' ? 'form-input-focused' : ''
+              }`}
             >
-              <Calendar className="input-icon w-5 h-5 text-royalpurple" />
+              <Calendar className='input-icon w-5 h-5 text-royalpurple' />
             </div>
           </motion.div>
         </motion.div>
 
         {/* Distance Slider */}
-        <motion.div className="space-y-2" variants={inputVariants}>
-          <label htmlFor="distance-slider" className="text-royalpurple font-medium">
+        <motion.div className='space-y-2' variants={inputVariants}>
+          <label
+            htmlFor='distance-slider'
+            className='text-royalpurple font-medium'
+          >
             Distance (Miles):
           </label>
-          <div className="flex items-center gap-4">
+          <div className='flex flex-col sm:flex-row items-center gap-4'>
             <input
-              id="distance-slider"
-              type="range"
-              min="0"
-              max="2373"
+              id='distance-slider'
+              type='range'
+              min='0'
+              max='2373'
               value={distance}
               onChange={(e) => setDistance(Number(e.target.value))}
-              className="flex-1 h-2 appearance-none bg-gray-400 rounded-lg"
+              className='flex-1 h-2 appearance-none bg-gray-400 rounded-lg'
               aria-valuemin={0}
               aria-valuemax={2373}
               aria-valuenow={distance}
-              onFocus={() => setFocusedInput("distance")}
+              onFocus={() => setFocusedInput('distance')}
               onBlur={() => setFocusedInput(null)}
             />
-            <motion.div
-              className="distance-display border-2 border-royalpurple rounded-xl px-4 py-2 text-royalpurple min-w-24 text-center"
-              animate={{ x: distance / 30 }}
-              transition={{ type: "spring", stiffness: 100, damping: 10 }}
-            >
+            <motion.div className='distance-display border-2 border-royalpurple rounded-xl px-4 py-2 text-royalpurple min-w-24 text-center'>
               {distance} Miles
             </motion.div>
           </div>
         </motion.div>
 
         {/* Freight Type and Load Selects */}
-        <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-4" variants={inputVariants}>
-          <motion.div className="relative" variants={inputVariants}>
+        <motion.div
+          className='grid grid-cols-1 md:grid-cols-2 gap-4'
+          variants={inputVariants}
+        >
+          <motion.div className='relative' variants={inputVariants}>
             <select
-              className="form-select w-full p-3 border-2 border-royalpurple rounded-xl bg-transparent text-royalpurple appearance-none"
-              aria-label="Freight Type"
-              onFocus={() => setFocusedInput("freight")}
+              className='form-select w-full p-3 border-2 border-royalpurple rounded-xl bg-transparent text-royalpurple appearance-none'
+              aria-label='Freight Type'
+              onFocus={() => setFocusedInput('freight')}
               onBlur={() => setFocusedInput(null)}
             >
               <option>Freight Type</option>
@@ -767,17 +808,19 @@ function QuoteForm() {
               <option>Hazardous</option>
             </select>
             <div
-              className={`absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none input-icon-wrapper ${focusedInput === "freight" ? "form-input-focused" : ""}`}
+              className={`absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none input-icon-wrapper ${
+                focusedInput === 'freight' ? 'form-input-focused' : ''
+              }`}
             >
-              <ChevronDown className="input-icon w-5 h-5 text-royalpurple" />
+              <ChevronDown className='input-icon w-5 h-5 text-royalpurple' />
             </div>
           </motion.div>
 
-          <motion.div className="relative" variants={inputVariants}>
+          <motion.div className='relative' variants={inputVariants}>
             <select
-              className="form-select w-full p-3 border-2 border-royalpurple rounded-xl bg-transparent text-royalpurple appearance-none"
-              aria-label="Load Type"
-              onFocus={() => setFocusedInput("load")}
+              className='form-select w-full p-3 border-2 border-royalpurple rounded-xl bg-transparent text-royalpurple appearance-none'
+              aria-label='Load Type'
+              onFocus={() => setFocusedInput('load')}
               onBlur={() => setFocusedInput(null)}
             >
               <option>Load</option>
@@ -787,21 +830,23 @@ function QuoteForm() {
               <option>Bulk</option>
             </select>
             <div
-              className={`absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none input-icon-wrapper ${focusedInput === "load" ? "form-input-focused" : ""}`}
+              className={`absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none input-icon-wrapper ${
+                focusedInput === 'load' ? 'form-input-focused' : ''
+              }`}
             >
-              <ChevronDown className="input-icon w-5 h-5 text-royalpurple" />
+              <ChevronDown className='input-icon w-5 h-5 text-royalpurple' />
             </div>
           </motion.div>
         </motion.div>
 
         {/* Submit Button */}
-        <motion.div className="flex" variants={inputVariants}>
+        <motion.div className='flex' variants={inputVariants}>
           <motion.button
-            type="submit"
-            className="bg-royalpurple text-white px-8 py-3 rounded-lg font-medium hover:bg-royalpurple/80 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
+            type='submit'
+            className='bg-royalpurple text-white px-8 py-3 rounded-lg font-medium hover:bg-royalpurple/80 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200'
             variants={buttonVariants}
-            whileHover="hover"
-            whileTap="tap"
+            whileHover='hover'
+            whileTap='tap'
           >
             Contact Us
           </motion.button>

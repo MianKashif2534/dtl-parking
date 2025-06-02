@@ -1,58 +1,67 @@
-"use client"
+'use client'
 
 /* eslint-disable react/no-unescaped-entities */
-import PageHeader from "@/app/components/page-header"
-import { Download, Globe, Shield } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
+import PageHeader from '@/app/components/page-header'
+import { Download, Globe, Shield } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 
-const BenefitCard = ({ icon: Icon, title, subtitle, description, quote, author, index }) => {
+const BenefitCard = ({
+  icon: Icon,
+  title,
+  subtitle,
+  description,
+  quote,
+  author,
+  index,
+}) => {
   const cardRef = useRef(null)
   const isInView = useInView(cardRef, { once: true, amount: 0.2 })
 
   return (
     <motion.div
       ref={cardRef}
-      className="relative pt-10 pb-6"
+      className='relative pt-10 pb-6'
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{
         duration: 0.7,
         delay: index * 0.2,
-        ease: "easeOut",
+        ease: 'easeOut',
       }}
     >
       <motion.div
-        className="absolute -top-2 left-1/2 transform -translate-x-1/2 z-10"
+        className='absolute top-0 left-0 right-0 mx-auto flex justify-center items-center z-50'
         initial={{ scale: 0, rotate: -180 }}
-        animate={isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
+        animate={
+          isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }
+        }
         transition={{
           duration: 0.6,
           delay: 0.3 + index * 0.2,
-          type: "spring",
+          type: 'spring',
           stiffness: 200,
           damping: 20,
         }}
       >
         <motion.div
-          className="bg-[#0a2a5e] flex items-center justify-center p-3 w-16 h-16 rounded-full"
-          whileHover={{ scale: 1.1, backgroundColor: "#0d3b7d" }}
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          className='bg-[#0a2a5e] flex items-center justify-center p-3 w-16 h-16 rounded-full'
+          whileHover={{ scale: 1.1, backgroundColor: '#0d3b7d' }}
+          transition={{ type: 'spring', stiffness: 400, damping: 10 }}
         >
-          <Icon className="w-8 h-8 text-white" />
+          <Icon className='w-8 h-8 text-white' />
         </motion.div>
       </motion.div>
 
-
       <motion.div
-        className="bg-white min-h-[500px] rounded-md rounded-b-none border-b-8 border-royalpurple/90 p-6 h-full flex flex-col"
-        whileHover={{ y: -5, boxShadow: "0 10px 25px rgba(90, 47, 153, 0.3)" }}
-        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+        className='bg-white min-h-[500px] rounded-md rounded-b-none border-b-8 border-royalpurple/90 p-6 h-full flex flex-col'
+        whileHover={{ y: -5, boxShadow: '0 10px 25px rgba(90, 47, 153, 0.3)' }}
+        transition={{ type: 'spring', stiffness: 300, damping: 15 }}
       >
         <motion.h3
-          className="text-2xl md:text-3xl font-bold text-royalpurple text-center mb-1"
+          className='text-2xl md:text-3xl font-bold text-royalpurple text-center mb-1'
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.4 + index * 0.2 }}
@@ -60,7 +69,7 @@ const BenefitCard = ({ icon: Icon, title, subtitle, description, quote, author, 
           {title}
         </motion.h3>
         <motion.p
-          className="text-lg md:text-xl text-royalpurple font-semibold text-center mb-4"
+          className='text-lg md:text-xl text-royalpurple font-semibold text-center mb-4'
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
@@ -69,7 +78,7 @@ const BenefitCard = ({ icon: Icon, title, subtitle, description, quote, author, 
         </motion.p>
 
         <motion.p
-          className="text-sm md:text-base mb-4 font-light text-royalpurple text-center"
+          className='text-sm md:text-base mb-4 font-light text-royalpurple text-center'
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.6 + index * 0.2 }}
@@ -78,12 +87,12 @@ const BenefitCard = ({ icon: Icon, title, subtitle, description, quote, author, 
         </motion.p>
 
         <motion.div
-          className="mt-auto italic text-xs md:text-sm text-royalpurple text-center"
+          className='mt-auto italic text-xs md:text-sm text-royalpurple text-center'
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.7 + index * 0.2 }}
         >
-          <p className="font-semibold">
+          <p className='font-semibold'>
             "{quote}" — {author}
           </p>
         </motion.div>
@@ -100,39 +109,41 @@ const TeamMemberCard = ({ name, role, email, image, description, index }) => {
   return (
     <motion.div
       ref={cardRef}
-      className="bg-royalpurple/40 px-3 py-4 md:p-6 rounded-md"
+      className='bg-royalpurple/40 px-3 py-4 md:p-6 rounded-md'
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{
         duration: 0.7,
         delay: index * 0.15,
-        ease: "easeOut",
+        ease: 'easeOut',
       }}
       whileHover={{
         scale: 1.02,
-        boxShadow: "0 0 20px rgba(151, 71, 255, 0.4)",
-        backgroundColor: "rgba(90, 47, 153, 0.5)",
+        boxShadow: '0 0 20px rgba(151, 71, 255, 0.4)',
+        backgroundColor: 'rgba(90, 47, 153, 0.5)',
       }}
     >
-      <div className="flex flex-col sm:flex-row gap-6 items-center mb-6 md:mb-12">
+      <div className='flex flex-col sm:flex-row gap-6 items-center mb-6 md:mb-12'>
         <motion.div
-          className="w-40 h-40 rounded-full overflow-hidden flex-shrink-0 border-4 border-royalpurple"
+          className='w-40 h-40 rounded-full overflow-hidden flex-shrink-0 border-4 border-royalpurple'
           initial={{ scale: 0.8, opacity: 0 }}
-          animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
+          animate={
+            isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }
+          }
           transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
           whileHover={{ scale: 1.05 }}
         >
           <Image
-            src={image || "/placeholder.svg?height=96&width=96"}
+            src={image || '/placeholder.svg?height=96&width=96'}
             alt={name}
             width={96}
             height={96}
-            className="w-full h-full object-cover"
+            className='w-full h-full object-cover'
           />
         </motion.div>
-        <div className="">
+        <div className=''>
           <motion.h3
-            className="text-xl md:text-3xl font-bold text-center sm:text-left"
+            className='text-xl md:text-3xl font-bold text-center sm:text-left'
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
             transition={{ duration: 0.5, delay: 0.3 + index * 0.15 }}
@@ -140,7 +151,7 @@ const TeamMemberCard = ({ name, role, email, image, description, index }) => {
             {name}
           </motion.h3>
           <motion.p
-            className="text-purple md:text-xl font-semibold text-center sm:text-left"
+            className='text-purple md:text-xl font-semibold text-center sm:text-left'
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
             transition={{ duration: 0.5, delay: 0.4 + index * 0.15 }}
@@ -149,7 +160,7 @@ const TeamMemberCard = ({ name, role, email, image, description, index }) => {
           </motion.p>
           <motion.a
             href={`mailto:${email}`}
-            className="text-sm md:text-xl text-center sm:text-left hover:text-purple transition-colors block"
+            className='text-sm md:text-xl text-center sm:text-left hover:text-purple transition-colors block'
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
             transition={{ duration: 0.5, delay: 0.5 + index * 0.15 }}
@@ -161,7 +172,7 @@ const TeamMemberCard = ({ name, role, email, image, description, index }) => {
         </div>
       </div>
       <motion.p
-        className="text-sm md:text-lg font-extralight leading-relaxed text-center md:text-left"
+        className='text-sm md:text-lg font-extralight leading-relaxed text-center md:text-left'
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.5, delay: 0.6 + index * 0.15 }}
@@ -181,74 +192,82 @@ export default function TeamPage() {
 
   // InView states
   const isHeroInView = useInView(heroRef, { once: true, amount: 0.3 })
-  const isOfferSectionInView = useInView(offerSectionRef, { once: true, amount: 0.1 })
-  const isTeamSectionInView = useInView(teamSectionRef, { once: true, amount: 0.1 })
+  const isOfferSectionInView = useInView(offerSectionRef, {
+    once: true,
+    amount: 0.1,
+  })
+  const isTeamSectionInView = useInView(teamSectionRef, {
+    once: true,
+    amount: 0.1,
+  })
   const isCtaButtonInView = useInView(ctaButtonRef, { once: true, amount: 0.8 })
 
   // Benefits data
   const benefits = [
     {
       icon: Download,
-      title: "Get Paid for Your Hard Work",
-      subtitle: "Rolling Rewards.",
+      title: 'Get Paid for Your Hard Work',
+      subtitle: 'Rolling Rewards.',
       description:
         "We know why you're here — you want to get paid, and we make sure you're compensated for every mile you drive. But we also appreciate that we prioritize their financial success with competitive pay rates, performance incentives, and bonuses. Whether you're on the open road or completing a dedicated route, we're here to keep your wheels turning and your earnings growing.",
-      quote: "DTL understands that money matters. They pay, and they pay on time.",
-      author: "Robbie",
+      quote:
+        'DTL understands that money matters. They pay, and they pay on time.',
+      author: 'Robbie',
     },
     {
       icon: Shield,
-      title: "Be Appreciated for What You Do",
+      title: 'Be Appreciated for What You Do',
       subtitle: "We're Here for You.",
       description:
         "At DTL, we believe respect goes a long way. Our team is dedicated to making sure drivers feel supported every step of the way. If you have questions or need assistance, you can count on us to pick up the phone and respond quickly. You're part of a community that values open communication, reliability, and treating drivers like family.",
-      quote: "When I call, they answer. They take the time to help me, and I always feel appreciated.",
-      author: "Mike",
+      quote:
+        'When I call, they answer. They take the time to help me, and I always feel appreciated.',
+      author: 'Mike',
     },
     {
       icon: Globe,
-      title: "Join a Team That Cares",
-      subtitle: "A Culture of Connection.",
+      title: 'Join a Team That Cares',
+      subtitle: 'A Culture of Connection.',
       description:
         "DTL is more than just a transportation company; we're a team bound by respect and camaraderie. When you're out on the road, you'll always have a team behind you that values your safety and well-being. From our Driver Managers to our support staff, we all work together to keep you safe, connected, and part of something bigger.",
       quote: "The team at DTL is indescribably welcoming — it's like family.",
-      author: "Alex",
+      author: 'Alex',
     },
   ]
 
   // Team members data
   const teamMembers = [
     {
-      name: "Julianne Bernard",
-      role: "Director of Recruiting",
-      email: "jbernard@newdtlinc.com",
-      image: "/about/user-4.png",
+      name: 'Julianne Bernard',
+      role: 'Director of Recruiting',
+      email: 'jbernard@newdtlinc.com',
+      image: '/about/user-4.png',
       description:
         "Julianne brings a wealth of experience to DTL Transportation, approaching driver recruitment with a knack for strategic growth and a passion for success. As Director of Recruiting, she ensures that each hire aligns with our values and mission, helping to build a workforce that's not only skilled but also passionate about making a difference on the road.",
     },
     {
-      name: "Kain Coronel",
-      role: "Recruiting Manager",
-      email: "kcoronel@newdtlinc.com",
-      image: "/about/user-3.png",
+      name: 'Kain Coronel',
+      role: 'Recruiting Manager',
+      email: 'kcoronel@newdtlinc.com',
+      image: '/about/user-3.png',
       description:
         "Kain is dedicated to finding the best talent for DTL Transportation. With a keen eye for identifying potential and a strong commitment to each candidate's journey, Kain ensures that new team members are welcomed and well-prepared for success in their roles.",
     },
     {
-      name: "Gabe Chaidez",
-      role: "Recruiting Specialist",
-      email: "gchaidez@newdtlinc.com",
-      image: "/about/user-2.png",
+      name: 'Gabe Chaidez',
+      role: 'Recruiting Specialist',
+      email: 'gchaidez@newdtlinc.com',
+      image: '/about/user-2.png',
       description:
-        "Gabe is a vital part of the recruiting team, known for his friendly and approachable style as he builds strong relationships with prospective drivers and support staff, guiding them through each step of the hiring process and ensuring they feel like part of the Legend family from day one.",
+        'Gabe is a vital part of the recruiting team, known for his friendly and approachable style as he builds strong relationships with prospective drivers and support staff, guiding them through each step of the hiring process and ensuring they feel like part of the Legend family from day one.',
     },
     {
-      name: "John Worthey",
-      role: "Driver Recruiter",
-      email: "jworthey@newdtlinc.com",
-      image: "/about/user-1.png",
+      name: 'John Worthey',
+      role: 'Driver Recruiter',
+      email: 'jworthey@newdtlinc.com',
+      image: '/about/user-1.png',
       description:
-        "John brings dedication and enthusiasm to his recruiting role, supporting candidates with a commitment to transparency and integrity. He takes pride in matching drivers with opportunities that align with their skills and ambitions while helping careers with us.",
+        'John brings dedication and enthusiasm to his recruiting role, supporting candidates with a commitment to transparency and integrity. He takes pride in matching drivers with opportunities that align with their skills and ambitions while helping careers with us.',
     },
   ]
 
@@ -260,7 +279,7 @@ export default function TeamPage() {
       y: 0,
       transition: {
         duration: 0.7,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   }
@@ -283,7 +302,7 @@ export default function TeamPage() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   }
@@ -291,10 +310,10 @@ export default function TeamPage() {
   const lineVariants = {
     hidden: { width: 0 },
     visible: {
-      width: "30px",
+      width: '30px',
       transition: {
         duration: 0.8,
-        ease: "easeInOut",
+        ease: 'easeInOut',
       },
     },
   }
@@ -306,14 +325,14 @@ export default function TeamPage() {
       opacity: 1,
       transition: {
         duration: 1,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
     hover: {
       scale: 1.05,
       transition: {
         duration: 0.5,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   }
@@ -325,13 +344,13 @@ export default function TeamPage() {
       scale: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
     hover: {
       scale: 1.05,
       y: -5,
-      boxShadow: "0 10px 25px rgba(151, 71, 255, 0.5)",
+      boxShadow: '0 10px 25px rgba(151, 71, 255, 0.5)',
     },
     tap: { scale: 0.98 },
   }
@@ -339,89 +358,98 @@ export default function TeamPage() {
   return (
     <>
       <PageHeader
-        title="Talk to Expert"
-        subtitle=""
-        imageSrc="/team-hero.png"
-        imageAlt="DTL Transport truck parking facility"
+        title='Talk to Expert'
+        subtitle=''
+        imageSrc='/team-hero.png'
+        imageAlt='DTL Transport truck parking facility'
       />
       {/* Hero Section */}
       <motion.section
         ref={heroRef}
-        className="relative max-w-6xl mx-auto overflow-hidden text-white py-8 px-4 md:p-12"
+        className='relative max-w-6xl mx-auto overflow-hidden text-white py-8 px-4 md:p-12'
         variants={staggerContainerVariants}
-        initial="hidden"
-        animate={isHeroInView ? "visible" : "hidden"}
+        initial='hidden'
+        animate={isHeroInView ? 'visible' : 'hidden'}
       >
-        <div className="flex flex-col md:flex-row gap-8">
-          <motion.div className="flex-1 space-y-6 md:space-y-8" variants={fadeInUpVariants}>
-            <div className="space-y-2">
+        <div className='flex flex-col md:flex-row gap-8'>
+          <motion.div
+            className='flex-1 space-y-6 md:space-y-8'
+            variants={fadeInUpVariants}
+          >
+            <div className='space-y-2'>
               <motion.h1
-                className="text-2xl md:text-4xl font-bold"
+                className='text-2xl md:text-4xl font-bold'
                 variants={headingVariants}
-                initial="hidden"
-                animate={isHeroInView ? "visible" : "hidden"}
+                initial='hidden'
+                animate={isHeroInView ? 'visible' : 'hidden'}
               >
-                <span className="text-white">Keep Rolling and </span>
-                <span className="text-purple">Get Paid</span>
+                <span className='text-white'>Keep Rolling and </span>
+                <span className='text-purple'>Get Paid</span>
               </motion.h1>
               <motion.h2
-                className="text-xl md:text-3xl font-bold flex items-center gap-2"
+                className='text-xl md:text-3xl font-bold flex items-center gap-2'
                 variants={headingVariants}
-                initial="hidden"
-                animate={isHeroInView ? "visible" : "hidden"}
+                initial='hidden'
+                animate={isHeroInView ? 'visible' : 'hidden'}
                 transition={{ delay: 0.2 }}
               >
                 <motion.span
-                  className="w-6 h-0.5 bg-white"
+                  className='w-6 h-0.5 bg-white'
                   variants={lineVariants}
-                  initial="hidden"
-                  animate={isHeroInView ? "visible" : "hidden"}
+                  initial='hidden'
+                  animate={isHeroInView ? 'visible' : 'hidden'}
                 ></motion.span>
                 <span>Join the DTL Family</span>
               </motion.h2>
             </div>
 
             <motion.p
-              className="text-sm md:text-lg leading-relaxed font-extralight max-w-xl"
+              className='text-sm md:text-lg leading-relaxed font-extralight max-w-xl'
               variants={fadeInUpVariants}
-              initial="hidden"
-              animate={isHeroInView ? "visible" : "hidden"}
+              initial='hidden'
+              animate={isHeroInView ? 'visible' : 'hidden'}
               transition={{ delay: 0.3 }}
             >
-              At DTL Transportation, we don't just offer a job; we provide a fulfilling career where you're valued and
-              supported every mile of the way. Our commitment to treating drivers with the respect they deserve sets us
-              apart. With us, you're not just a number; you're part of a family that's dedicated to your success on and
-              off the road.
+              At DTL Transportation, we don't just offer a job; we provide a
+              fulfilling career where you're valued and supported every mile of
+              the way. Our commitment to treating drivers with the respect they
+              deserve sets us apart. With us, you're not just a number; you're
+              part of a family that's dedicated to your success on and off the
+              road.
             </motion.p>
 
             <motion.div
-              className="space-y-4 md:space-y-6"
+              className='space-y-4 md:space-y-6'
               variants={fadeInUpVariants}
-              initial="hidden"
-              animate={isHeroInView ? "visible" : "hidden"}
+              initial='hidden'
+              animate={isHeroInView ? 'visible' : 'hidden'}
               transition={{ delay: 0.4 }}
             >
               <motion.h3
-                className="text-xl md:text-2xl font-bold"
+                className='text-xl md:text-2xl font-bold'
                 initial={{ opacity: 0, x: -20 }}
-                animate={isHeroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                animate={
+                  isHeroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+                }
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
                 Step into Becoming Legendary!
               </motion.h3>
 
               <motion.div
-                className="border-l-4 border-white p-4 w-full md:w-1/2 bg-gradient-to-r from-[rgba(90,47,153,0.4)] to-[#0B0428]"
+                className='border-l-4 border-white p-4 w-full md:w-1/2 bg-gradient-to-r from-[rgba(90,47,153,0.4)] to-[#0B0428]'
                 initial={{ opacity: 0, x: -30 }}
-                animate={isHeroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+                animate={
+                  isHeroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }
+                }
                 transition={{ duration: 0.7, delay: 0.6 }}
                 whileHover={{ scale: 1.05, x: 5 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <p className="text-2xl font-semibold">Talk to a Recruiter:</p>
+                <p className='text-2xl font-semibold'>Talk to a Recruiter:</p>
                 <motion.a
-                  href="tel:+15592894424"
-                  className="text-lg hover:text-purple transition-colors"
+                  href='tel:+15592894424'
+                  className='text-lg hover:text-purple transition-colors'
                   whileHover={{ scale: 1.05, x: 5 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -432,18 +460,18 @@ export default function TeamPage() {
           </motion.div>
 
           <motion.div
-            className="h-full overflow-hidden"
+            className='h-full overflow-hidden'
             variants={imageScaleVariants}
-            initial="hidden"
-            animate={isHeroInView ? "visible" : "hidden"}
-            whileHover="hover"
+            initial='hidden'
+            animate={isHeroInView ? 'visible' : 'hidden'}
+            whileHover='hover'
           >
             <Image
-              src="/about/about-left.png"
-              alt="DTL Transportation Driver"
+              src='/about/about-left.png'
+              alt='DTL Transportation Driver'
               width={400}
               height={400}
-              className="object-cover rounded-md"
+              className='object-cover rounded-md'
               priority
             />
           </motion.div>
@@ -453,18 +481,18 @@ export default function TeamPage() {
       {/* What We Offer Section */}
       <section
         ref={offerSectionRef}
-        className="relative w-full max-w-6xl mx-auto text-white my-8 md:py-12 px-4 md:px-8"
+        className='relative w-full max-w-6xl mx-auto text-white my-8 md:py-12 px-4 md:px-8'
       >
         <motion.h2
-          className="text-2xl md:text-5xl font-bold text-center mb-6 md:mb-12"
+          className='text-2xl md:text-5xl font-bold text-center mb-6 md:mb-12'
           variants={headingVariants}
-          initial="hidden"
-          animate={isOfferSectionInView ? "visible" : "hidden"}
+          initial='hidden'
+          animate={isOfferSectionInView ? 'visible' : 'hidden'}
         >
           What We Offer
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
           {benefits.map((benefit, index) => (
             <BenefitCard
               key={index}
@@ -481,15 +509,22 @@ export default function TeamPage() {
 
         <motion.div
           ref={ctaButtonRef}
-          className="text-center mt-6 md:mt-12"
+          className='text-center mt-6 md:mt-12'
           variants={fadeInUpVariants}
-          initial="hidden"
-          animate={isCtaButtonInView ? "visible" : "hidden"}
+          initial='hidden'
+          animate={isCtaButtonInView ? 'visible' : 'hidden'}
         >
-          <motion.div variants={buttonVariants} initial="hidden" animate="visible" whileHover="hover" whileTap="tap" className="inline-block">
+          <motion.div
+            variants={buttonVariants}
+            initial='hidden'
+            animate='visible'
+            whileHover='hover'
+            whileTap='tap'
+            className='inline-block'
+          >
             <Link
-              href="/"
-              className="inline-block bg-gradient-to-r from-[rgba(46,27,82,0.12)] to-[rgba(103,61,184,0.72)] text-white font-bold py-4 px-8 rounded-md shadow-[0_0_4px_#5A2F99]"
+              href='/'
+              className='inline-block bg-gradient-to-r from-[rgba(46,27,82,0.12)] to-[rgba(103,61,184,0.72)] text-white font-bold py-4 px-8 rounded-md shadow-[0_0_4px_#5A2F99]'
             >
               Apply Now
             </Link>
@@ -500,48 +535,64 @@ export default function TeamPage() {
       {/* Team Section */}
       <motion.section
         ref={teamSectionRef}
-        className="relative w-full max-w-6xl mx-auto text-white py-8 md:py-12 px-4 md:px-8"
+        className='relative w-full max-w-6xl mx-auto text-white py-8 md:py-12 px-4 md:px-8'
         variants={staggerContainerVariants}
-        initial="hidden"
-        animate={isTeamSectionInView ? "visible" : "hidden"}
+        initial='hidden'
+        animate={isTeamSectionInView ? 'visible' : 'hidden'}
       >
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-6 md:gap-8 mb-8 md:mb-12">
+        <div className='max-w-6xl mx-auto'>
+          <div className='flex flex-col md:flex-row gap-6 md:gap-8 mb-8 md:mb-12'>
             <motion.div
-              className="md:w-1/2"
+              className='md:w-1/2'
               variants={fadeInUpVariants}
-              initial="hidden"
-              animate={isTeamSectionInView ? "visible" : "hidden"}
+              initial='hidden'
+              animate={isTeamSectionInView ? 'visible' : 'hidden'}
             >
-              <motion.h2 className="text-2xl md:text-4xl font-bold">
+              <motion.h2 className='text-2xl md:text-4xl font-bold'>
                 <motion.span
-                  className="block"
+                  className='block'
                   initial={{ opacity: 0, x: -30 }}
-                  animate={isTeamSectionInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+                  animate={
+                    isTeamSectionInView
+                      ? { opacity: 1, x: 0 }
+                      : { opacity: 0, x: -30 }
+                  }
                   transition={{ duration: 0.6, delay: 0.1 }}
                 >
                   Meet Our
                 </motion.span>
                 <motion.span
-                  className="block"
+                  className='block'
                   initial={{ opacity: 0, x: -30 }}
-                  animate={isTeamSectionInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+                  animate={
+                    isTeamSectionInView
+                      ? { opacity: 1, x: 0 }
+                      : { opacity: 0, x: -30 }
+                  }
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
                   Dedicated
                 </motion.span>
                 <motion.span
-                  className="block"
+                  className='block'
                   initial={{ opacity: 0, x: -30 }}
-                  animate={isTeamSectionInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+                  animate={
+                    isTeamSectionInView
+                      ? { opacity: 1, x: 0 }
+                      : { opacity: 0, x: -30 }
+                  }
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
                   Executive Team —
                 </motion.span>
                 <motion.span
-                  className="block text-purple"
+                  className='block text-purple'
                   initial={{ opacity: 0, x: -30 }}
-                  animate={isTeamSectionInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+                  animate={
+                    isTeamSectionInView
+                      ? { opacity: 1, x: 0 }
+                      : { opacity: 0, x: -30 }
+                  }
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
                   Recruiting
@@ -549,27 +600,34 @@ export default function TeamPage() {
               </motion.h2>
             </motion.div>
             <motion.div
-              className="md:w-1/2"
+              className='md:w-1/2'
               variants={fadeInUpVariants}
-              initial="hidden"
-              animate={isTeamSectionInView ? "visible" : "hidden"}
+              initial='hidden'
+              animate={isTeamSectionInView ? 'visible' : 'hidden'}
               transition={{ delay: 0.5 }}
             >
               <motion.p
-                className="text-sm md:text-base font-light leading-relaxed"
+                className='text-sm md:text-base font-light leading-relaxed'
                 initial={{ opacity: 0, y: 20 }}
-                animate={isTeamSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                animate={
+                  isTeamSectionInView
+                    ? { opacity: 1, y: 0 }
+                    : { opacity: 0, y: 20 }
+                }
                 transition={{ duration: 0.7, delay: 0.6 }}
               >
-                Our Recruiting Team is passionate about connecting talented drivers and professionals with rewarding
-                careers at DTL Transportation. With a commitment to building a culture of respect, safety, and growth,
-                our team works tirelessly to ensure each recruit finds their perfect fit within our company. Meet the
-                leaders who are guiding our drivers toward success on the road.
+                Our Recruiting Team is passionate about connecting talented
+                drivers and professionals with rewarding careers at DTL
+                Transportation. With a commitment to building a culture of
+                respect, safety, and growth, our team works tirelessly to ensure
+                each recruit finds their perfect fit within our company. Meet
+                the leaders who are guiding our drivers toward success on the
+                road.
               </motion.p>
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
             {teamMembers.map((member, index) => (
               <TeamMemberCard
                 key={index}

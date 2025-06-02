@@ -278,7 +278,7 @@ export default function TestimonialsSection() {
                                         className="h-2 w-36 bg-gradient-to-r from-[#964FFF] to-[#5A2F99] rounded-[20px]"
                                         variants={lineVariants}
                                     ></motion.div>
-                                    <motion.h2 className="text-white text-4xl font-bold mx-4" variants={titleVariants}>
+                                    <motion.h2 className="text-white text-2xl md:text-4xl font-bold mx-4 py-2" variants={titleVariants}>
                                         Testimonials
                                     </motion.h2>
                                     <motion.div

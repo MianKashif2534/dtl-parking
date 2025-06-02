@@ -272,7 +272,7 @@ export default function ServicesSection({
                                 className="h-2 w-48 bg-gradient-to-r from-[#964FFF] to-[#5A2F99] rounded-[20px]"
                                 variants={lineVariants}
                             ></motion.div>
-                            <motion.h2 className="text-white text-3xl font-bold mx-4" variants={itemVariants}>
+                            <motion.h2 className="text-white text-2xl md:text-3xl font-bold mx-4 py-2" variants={itemVariants}>
                                 DTL BY NUMBERS
                             </motion.h2>
                             <motion.div
