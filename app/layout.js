@@ -83,7 +83,7 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body
         suppressHydrationWarning
-        className={`${futuraHeavy.variable} container mx-auto antialiased`}
+        className={`${futuraHeavy.variable} container mx-auto`}
       >
         {/* <AnimatePresence mode="wait"> */}
         <NavBar />
