@@ -3,18 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --background: #0B0428;
+  --background: #0b0428;
   --foreground: #171717;
-  --font-geist-sans: 'Geist Sans', sans-serif;
-  --font-geist-mono: 'Geist Mono', monospace;
+  --font-futura-heavy: 'Futura Heavy', sans-serif;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-futura-heavy);
 }
-
 
 .react-date-picker__wrapper {
   border: none !important;
