@@ -341,7 +341,12 @@ function FooterBottom() {
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: 1.4 }}
         >
-          <p>© {currentYear} DTL Parking, LLC. All Rights Reserved.</p>
+          <p>
+            © {currentYear} DTL Parking, LLC. All Rights Reserved.{" "}
+            <Link href='https://www.timexsolutioninc.com/' target='_blank'>
+              Designed by Timex Solutions Inc.
+            </Link>
+          </p>
         </motion.div>
       </div>
     </motion.div>
