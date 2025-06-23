@@ -138,7 +138,7 @@ export default function AboutSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                     {/* Left content */}
                     <div className="text-white">
-                        <motion.h2 className="text-3xl text-royalpurple font-medium mb-4" variants={itemVariants}>
+                        <motion.h2 className="text-3xl text-white font-medium mb-4" variants={itemVariants}>
                             About Us
                         </motion.h2>
                         <motion.h3 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 leading-tight" variants={itemVariants}>
@@ -146,16 +146,16 @@ export default function AboutSection() {
                             <br />
                             Mile After Mile
                         </motion.h3>
-                        <motion.p className="md:text-lg mb-6 md:mb-8 font-light" variants={itemVariants}>
+                        <motion.p className="md:text-lg mb-6 md:mb-8 font-light text-white/80" variants={itemVariants}>
                             DTL is a leading name in U.S. logistics, offering end-to-end trucking solutions tailored to your supply
                             chain needs. With years of experience and a customer-first mindset, we ensure your freight arrives safely
                             and on time, every time.
                         </motion.p>
                         <motion.div variants={itemVariants}>
-                            <InteractiveButton className = "inline-block">
+                            <InteractiveButton className="inline-block">
                                 <Link
                                     href="/about"
-                                    className="inline-block bg-[linear-gradient(90deg,_rgba(46,27,82,0.12)_0%,_rgba(103,61,184,0.72)_100%)] shadow-[0_0_4px_#5A2F99] rounded-[8px] text-white px-8 py-3 transition-colors"
+                                    className="inline-block bg-blue shadow-[0_0_4px_#0B0428] rounded-[8px] text-white px-8 py-3 transition-colors"
                                 >
                                     <span className="py-1 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full">
                                         Read More
@@ -169,11 +169,11 @@ export default function AboutSection() {
                     <div className="relative w-full h-[500px]">
                         {/* Purple highlight lines */}
                         <motion.div
-                            className="absolute top-0 right-[40%] left-0 h-4 bg-[linear-gradient(90deg,_#964FFF_0%,_#5A2F99_100%)] rounded-full"
+                            className="absolute top-0 right-[40%] left-0 h-4 bg-royalblue rounded-full"
                             variants={lineVariants}
                         ></motion.div>
                         <motion.div
-                            className="absolute bottom-8 right-0 w-4 h-3/4 bg-[linear-gradient(90deg,_#964FFF_0%,_#5A2F99_100%)] rounded-full"
+                            className="absolute bottom-8 right-0 w-4 h-3/4 bg-royalblue rounded-full"
                             variants={verticalLineVariants}
                         ></motion.div>
 
@@ -206,7 +206,7 @@ export default function AboutSection() {
 
                         {/* Running since badge */}
                         <motion.div
-                            className="absolute bottom-8 right-6 bg-[radial-gradient(50%_50%_at_50%_50%,_#5305B8_0%,_#250252_100%)] border-2 border-white/50 shadow-[inset_0_0_80px_#5305B8] text-white px-6 py-4 rounded-2xl"
+                            className="absolute bottom-8 right-6 bg-blue border-2 border-white/50 shadow-[inset_0_0_80px_#014A7F99] text-white px-6 py-4 rounded-2xl"
                             variants={badgeVariants}
                         >
                             <p className="text-center">

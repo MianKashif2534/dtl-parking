@@ -182,14 +182,10 @@ const DriverForm = () => {
       <div
         id='driver-form'
         className='min-h-screen w-full flex items-center justify-center'
-        style={{
-          background:
-            'linear-gradient(180deg, rgba(39, 14, 142, 0.2) 0%, #0B0428 100%)',
-        }}
       >
         <form
           onSubmit={handleSubmit}
-          className='w-full max-w-3xl bg-white/5 p-8 rounded-xl shadow-lg backdrop-blur-md text-white my-5'
+          className='w-full max-w-3xl bg-blue/40 p-8 rounded-xl shadow-lg backdrop-blur-md text-white my-5'
         >
           {message.text && (
             <div
@@ -475,7 +471,7 @@ const DriverForm = () => {
               type='file'
               name='resume'
               onChange={handleFileChange}
-              className='w-full text-white file:bg-royalpurple file:text-white file:rounded file:px-4 file:py-2 file:border-0 file:mr-4'
+              className='w-full text-white file:bg-royalblue file:text-white file:rounded file:px-4 file:py-2 file:border-0 file:mr-4'
               required
             />
           </div>
@@ -493,7 +489,7 @@ const DriverForm = () => {
             </div>
             <input
               type='file'
-              className='w-full text-white file:bg-royalpurple file:text-white file:rounded file:px-4 file:py-2 file:border-0 file:mr-4'
+              className='w-full text-white file:bg-royalblue file:text-white file:rounded file:px-4 file:py-2 file:border-0 file:mr-4'
             />
           </div>
           <div className='mt-6'>
@@ -516,7 +512,7 @@ const DriverForm = () => {
           <button
             type='submit'
             disabled={loading}
-            className={`mt-8 w-full bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 rounded transition ${
+            className={`mt-8 w-full bg-blue hover:bg-blue/80 text-white font-bold py-3 rounded transition ${
               loading ? 'opacity-50 cursor-not-allowed' : ''
             }`}
           >

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #0b0428;
+  --background: #0B0428;
   --foreground: #171717;
   --font-futura-heavy: 'Futura Heavy', sans-serif;
 }

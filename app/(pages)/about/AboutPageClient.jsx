@@ -17,14 +17,14 @@ const panelData = [
             "With a growing fleet, Lally built a reputation for strong customer relationships, on-time deliveries, and a commitment to excellence that continues to drive our business model today.",
         ],
     },
-    {
-        image: "/about/image-2.png",
-        alt: "Scaling the Fleet",
-        title: "Scaling the Fleet — Built on Innovation",
-        content: [
-            "By 2015, DTL Transport transformed from boutique to mid-sized carrier, acquiring a modern fleet of refrigerated trucks and expanding operations across several states. This growth coincided with the company's commitment to sustainability and industry compliance.",
-        ],
-    },
+    // {
+    //     image: "/about/image-2.png",
+    //     alt: "Scaling the Fleet",
+    //     title: "Scaling the Fleet — Built on Innovation",
+    //     content: [
+    //         "By 2015, DTL Transport transformed from boutique to mid-sized carrier, acquiring a modern fleet of refrigerated trucks and expanding operations across several states. This growth coincided with the company's commitment to sustainability and industry compliance.",
+    //     ],
+    // },
     {
         image: "/about/image-3.png",
         alt: "Safety First",
@@ -33,14 +33,14 @@ const panelData = [
             "With growth came the need for a robust safety and compliance program. Under the direction of our Transportation & Safety Manager program, DTL implemented comprehensive training, vehicle maintenance, and driver wellness protocols.",
         ],
     },
-    {
-        image: "/about/image-4.png",
-        alt: "Trusted Partner",
-        title: "A Trusted Partner in Freight",
-        content: [
-            "Today, DTL Transport is a trusted partner to major shippers across the U.S. providing reliable service, clear communication, and timely deliveries. From agricultural products to consumer goods and industrial supplies, DTL has partnered with shippers of all sizes to find the reliable freight solutions.",
-        ],
-    },
+    // {
+    //     image: "/about/image-4.png",
+    //     alt: "Trusted Partner",
+    //     title: "A Trusted Partner in Freight",
+    //     content: [
+    //         "Today, DTL Transport is a trusted partner to major shippers across the U.S. providing reliable service, clear communication, and timely deliveries. From agricultural products to consumer goods and industrial supplies, DTL has partnered with shippers of all sizes to find the reliable freight solutions.",
+    //     ],
+    // },
 ]
 
 const InfoPanel = ({ image, alt, title, content, index }) => {
@@ -50,7 +50,7 @@ const InfoPanel = ({ image, alt, title, content, index }) => {
     return (
         <motion.div
             ref={panelRef}
-            className="relative md:h-[600px] overflow-hidden border-4 rounded-[24px] border-royalpurple"
+            className="relative md:h-[600px] overflow-hidden border-4 rounded-[24px] border-royalblue"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
@@ -111,7 +111,7 @@ export default function AboutPageClient() {
                 transition={{ duration: 1.2, delay: 0.5 }}
             >
                 <Image
-                    src="/header-shade.svg"
+                    src="/header-shade1.svg"
                     alt=""
                     width={1440}
                     height={1172}
@@ -144,14 +144,14 @@ export default function AboutPageClient() {
                             animate={isFounderInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
                             transition={{ duration: 0.8, delay: 0.3 }}
                         >
-                            <div className="w-4/5 h-4/5 flex justify-center items-center">
+                            <div className="w-full h-full flex justify-center items-center">
                                 <motion.div
                                     className="overflow-hidden shadow-xl"
                                     whileHover={{ scale: 1.05, rotate: 2 }}
                                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                                 >
                                     <Image
-                                        src="/Uncle-Image.png"
+                                        src="/Uncle-Image1.png"
                                         alt="Founder portrait"
                                         width={400}
                                         height={400}
@@ -177,7 +177,7 @@ export default function AboutPageClient() {
                                 Built on Legacy. Driven by Purpose.
                             </motion.h2>
                             <motion.p
-                                className="text-sm md:text-lg font-extralight leading-relaxed mb-4"
+                                className="text-sm md:text-lg font-extralight leading-relaxed mb-4 text-white/80"
                                 initial={{ opacity: 0 }}
                                 animate={isFounderInView ? { opacity: 1 } : { opacity: 0 }}
                                 transition={{ duration: 0.6, delay: 0.5 }}
@@ -188,7 +188,7 @@ export default function AboutPageClient() {
                                 and began hauling produce across the country — from the West Coast to the East.
                             </motion.p>
                             <motion.p
-                                className="text-sm md:text-lg font-extralight leading-relaxed"
+                                className="text-sm md:text-lg font-extralight leading-relaxed text-white/80"
                                 initial={{ opacity: 0 }}
                                 animate={isFounderInView ? { opacity: 1 } : { opacity: 0 }}
                                 transition={{ duration: 0.6, delay: 0.6 }}
@@ -223,7 +223,7 @@ export default function AboutPageClient() {
                     {/* Company Tagline */}
                     <motion.div
                         ref={taglineRef}
-                        className="my-8 text-royalpurple border-l-8 border-l-royalpurple hidden md:block"
+                        className="my-8 text-royalblue border-l-8 border-l-royalblue hidden md:block"
                         initial={{ opacity: 0, x: -100 }}
                         animate={isTaglineInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }}
                         transition={{ duration: 1, delay: 0.3, type: "spring", stiffness: 50, damping: 15 }}

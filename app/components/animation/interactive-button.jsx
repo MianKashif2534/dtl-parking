@@ -6,7 +6,7 @@ export default function InteractiveButton({
     children,
     className = "",
     scale = 1.05,
-    shadow = "0 0 8px rgba(90, 47, 153, 0.8)",
+    shadow = "0 0 8px rgba(1, 74, 127, 0.6)",
 }) {
     const buttonVariants = {
         initial: { scale: 1 },

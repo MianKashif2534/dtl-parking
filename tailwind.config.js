@@ -15,6 +15,8 @@ module.exports = {
         foreground: 'var(--foreground)',
         royalpurple: '#5A2F99',
         purple: '#964FFF',
+        blue: '#014A7F99',
+        royalblue: '#014A7F'
       },
       keyframes: {
         scroll: {

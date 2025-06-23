@@ -93,7 +93,7 @@ function FeatureCard({ title, description, image, link, index }) {
     return (
         <motion.div
             ref={cardRef}
-            className="overflow-hidden border-4 border-royalpurple relative group bg-royalpurple shadow-[0_0_4px_4px_#5305B8] rounded-[20px]"
+            className="overflow-hidden border-4 border-royalblue relative group bg-royalblue shadow-[0_0_4px_4px_#014A7F] rounded-[20px]"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{
@@ -106,7 +106,7 @@ function FeatureCard({ title, description, image, link, index }) {
             }}
             whileHover={{
                 scale: 1.03,
-                boxShadow: "0 0 20px 4px #5305B8",
+                boxShadow: "0 0 20px 4px #014A7F",
                 transition: { type: "spring", stiffness: 400, damping: 10 },
             }}
         >
@@ -121,7 +121,7 @@ function FeatureCard({ title, description, image, link, index }) {
                     }}
                 />
                 <motion.div
-                    className="absolute inset-0 bg-royalpurple/20"
+                    className="absolute inset-0 bg-royalblue/20"
                     whileHover={{
                         backgroundColor: "rgba(83, 5, 184, 0.3)",
                         transition: { duration: 0.3 },
@@ -318,7 +318,7 @@ export default function ParkingPage() {
         },
         hover: {
             scale: 1.05,
-            boxShadow: "0 0 15px rgba(83, 5, 184, 0.7)",
+            boxShadow: "0 0 15px rgba(1, 74, 127, 0.6)",
             transition: {
                 type: "spring",
                 stiffness: 400,
@@ -365,7 +365,7 @@ export default function ParkingPage() {
                     <motion.h2 className="text-white text-2xl font-bold mb-4" variants={titleVariants}>
                         Secure, Spacious & Convenient Parking Solutions
                     </motion.h2>
-                    <motion.p className="text-white/90 md:text-lg max-w-3xl" variants={formItemVariants}>
+                    <motion.p className="text-white/80 md:text-lg max-w-3xl" variants={formItemVariants}>
                         At DTL Transport, we provide a safe and professional environment for truckers and fleet operators. Whether
                         you're making a short stopover or need long-term parking, our dedicated truck parking facility is built to
                         meet your needs with security, space, and easy access.
@@ -382,10 +382,10 @@ export default function ParkingPage() {
                         initial="hidden"
                         animate={isFeaturesInView ? "visible" : "hidden"}
                     >
-                        <motion.h2 className="text-purple text-3xl md:text-5xl font-bold mb-4" variants={titleVariants}>
+                        <motion.h2 className="text-white text-3xl md:text-5xl font-bold mb-4" variants={titleVariants}>
                             Why Park with DTL?
                         </motion.h2>
-                        <motion.p className="text-white/90 md:text-lg max-w-4xl mx-auto mb-8 md:mb-12" variants={formItemVariants}>
+                        <motion.p className="text-white/80 md:text-lg max-w-4xl mx-auto mb-8 md:mb-12" variants={formItemVariants}>
                             DTL Transport offers 24/7 guarded truck parking at our Fresno facility with controlled access, wide lanes,
                             and unbeatable convenience.
                         </motion.p>
@@ -441,7 +441,7 @@ export default function ParkingPage() {
                                 >
                                     <Link
                                         href="/driver"
-                                        className="inline-block bg-[linear-gradient(90deg,rgba(46,27,82,0.12)_0%,rgba(103,61,184,0.72)_100%)] shadow-[0_0_4px_#5A2F99] text-white px-10 py-5 rounded-md transition w-full md:w-auto text-center text-lg"
+                                        className="inline-block bg-blue shadow-[0_0_4px_#014A7F] text-white px-10 py-5 rounded-md transition w-full md:w-auto text-center text-lg"
                                     >
                                         Drive With Us
                                     </Link>
@@ -464,7 +464,7 @@ export default function ParkingPage() {
                                 >
                                     <Link
                                         href="/services"
-                                        className="inline-block bg-royalpurple shadow-[0_0_4px_#5A2F99] hover:bg-royalpurple/80 text-white px-10 py-5 rounded-md transition w-full md:w-auto text-center text-lg"
+                                        className="inline-block bg-royalblue shadow-[0_0_4px_#014A7F] hover:bg-royalblue/80 text-white px-10 py-5 rounded-md transition w-full md:w-auto text-center text-lg"
                                     >
                                         Ship with Us
                                     </Link>
@@ -485,10 +485,10 @@ export default function ParkingPage() {
             >
                 <div className="max-w-5xl mx-auto px-4 md:px-6 lg:px-8">
                     <motion.div
-                        className="overflow-hidden border-2 border-royalpurple bg-gradient-to-b from-black to-[#250252] shadow-[0px_0px_80px_16px_rgba(147,122,65,0.25)] rounded-[20px] px-4 py-6 md:p-12"
+                        className="overflow-hidden border-4 border-royalblue bg-gradient-to-b from-black to-[#250252] shadow-[0px_0px_80px_16px_rgba(147,122,65,0.25)] rounded-[20px] px-4 py-6 md:p-12"
                         variants={formVariants}
                     >
-                        <motion.h2 className="text-royalpurple text-4xl font-bold text-center mb-8" variants={titleVariants}>
+                        <motion.h2 className="text-royalblue text-4xl font-bold text-center mb-8" variants={titleVariants}>
                             How to Reserve Your Space
                         </motion.h2>
 
@@ -503,10 +503,10 @@ export default function ParkingPage() {
                                         type="text"
                                         id="name"
                                         placeholder="John"
-                                        className="w-full px-4 py-3 rounded-md bg-transparent border border-royalpurple text-white focus:border-royalpurple/80 focus:outline-none focus:ring-2 focus:ring-royalpurple/50"
+                                        className="w-full px-4 py-3 rounded-md bg-transparent border-2 border-white text-white focus:border-royalblue/80 focus:outline-none focus:ring-2 focus:ring-royalblue/50"
                                         whileFocus={{
-                                            borderColor: "#7928CA",
-                                            boxShadow: "0 0 0 3px rgba(121, 40, 202, 0.25)",
+                                            borderColor: "#014A7F",
+                                            boxShadow: "0 0 0 3px rgba(1, 74, 127, 0.6)",
                                         }}
                                     />
                                 </motion.div>
@@ -520,10 +520,10 @@ export default function ParkingPage() {
                                         <motion.select
                                             id="truckType"
                                             defaultValue=""
-                                            className="w-full px-4 py-3 rounded-md bg-transparent border border-royalpurple text-white appearance-none focus:border-royalpurple/80 focus:outline-none focus:ring-2 focus:ring-royalpurple/50"
+                                            className="w-full px-4 py-3 rounded-md bg-transparent border-2 border-white text-white appearance-none focus:border-royalblue/80 focus:outline-none focus:ring-2 focus:ring-royalblue/50"
                                             whileFocus={{
-                                                borderColor: "#7928CA",
-                                                boxShadow: "0 0 0 3px rgba(121, 40, 202, 0.25)",
+                                                borderColor: "#014A7F",
+                                                boxShadow: "0 0 0 3px rgba(1, 74, 127, 0.6)",
                                             }}
                                         >
                                             <option value="" disabled className="bg-[#0B0428]">
@@ -535,7 +535,7 @@ export default function ParkingPage() {
                                                 </option>
                                             ))}
                                         </motion.select>
-                                        <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-royalpurple w-5 h-5 pointer-events-none" />
+                                        <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-royalblue w-5 h-5 pointer-events-none" />
                                     </div>
                                 </motion.div>
 
@@ -548,10 +548,10 @@ export default function ParkingPage() {
                                         type="email"
                                         id="email"
                                         placeholder="john@email.com"
-                                        className="w-full px-4 py-3 rounded-md bg-transparent border border-royalpurple text-white focus:border-royalpurple/80 focus:outline-none focus:ring-2 focus:ring-royalpurple/50"
+                                        className="w-full px-4 py-3 rounded-md bg-transparent border-2 border-white text-white focus:border-royalblue/80 focus:outline-none focus:ring-2 focus:ring-royalblue/80"
                                         whileFocus={{
-                                            borderColor: "#7928CA",
-                                            boxShadow: "0 0 0 3px rgba(121, 40, 202, 0.25)",
+                                            borderColor: "#014A7F",
+                                            boxShadow: "0 0 0 3px rgba(1, 74, 127, 0.6)",
                                         }}
                                     />
                                 </motion.div>
@@ -566,7 +566,7 @@ export default function ParkingPage() {
                                             <motion.button
                                                 type="button"
                                                 onClick={toggleCountryCodeDropdown}
-                                                className="flex items-center justify-center px-3 py-3 border border-royalpurple rounded-l-md bg-transparent text-white hover:bg-royalpurple/20 transition-colors"
+                                                className="flex items-center justify-center px-3 py-3 border-2 border-white rounded-l-md bg-transparent text-white hover:bg-royalblue/20 transition-colors"
                                                 whileHover={{ backgroundColor: "rgba(83, 5, 184, 0.2)" }}
                                                 whileTap={{ scale: 0.98 }}
                                             >
@@ -588,13 +588,13 @@ export default function ParkingPage() {
                                             <AnimatePresence>
                                                 {countryCodeOpen && (
                                                     <motion.div
-                                                        className="absolute top-full left-0 mt-1 w-72 max-h-60 overflow-y-auto bg-[#0B0428] border border-royalpurple rounded-md shadow-lg z-50"
+                                                        className="absolute top-full left-0 mt-1 w-72 max-h-60 overflow-y-auto bg-[#0B0428] border-2 border-white rounded-md shadow-lg z-50"
                                                         initial={{ opacity: 0, y: -10 }}
                                                         animate={{ opacity: 1, y: 0 }}
                                                         exit={{ opacity: 0, y: -10 }}
                                                         transition={{ duration: 0.2 }}
                                                     >
-                                                        <div className="sticky top-0 bg-[#0B0428] p-2 border-b border-royalpurple/50">
+                                                        <div className="sticky top-0 bg-[#0B0428] p-2 border-b border-royalblue/50">
                                                             <div className="relative">
                                                                 <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-white/50 w-4 h-4" />
                                                                 <motion.input
@@ -602,13 +602,13 @@ export default function ParkingPage() {
                                                                     placeholder="Search countries..."
                                                                     value={searchQuery}
                                                                     onChange={(e) => setSearchQuery(e.target.value)}
-                                                                    className="w-full pl-8 pr-4 py-2 rounded-md bg-transparent border border-royalpurple text-white focus:border-royalpurple/80 focus:outline-none"
+                                                                    className="w-full pl-8 pr-4 py-2 rounded-md bg-transparent border-2 border-white text-white focus:border-royalblue/80 focus:outline-none"
                                                                     initial={{ opacity: 0 }}
                                                                     animate={{ opacity: 1 }}
                                                                     transition={{ duration: 0.3, delay: 0.1 }}
                                                                     whileFocus={{
-                                                                        borderColor: "#7928CA",
-                                                                        boxShadow: "0 0 0 3px rgba(121, 40, 202, 0.25)",
+                                                                        borderColor: "#014A7F",
+                                                                        boxShadow: "0 0 0 3px rgba(1, 74, 127, 0.6)",
                                                                     }}
                                                                 />
                                                             </div>
@@ -617,7 +617,7 @@ export default function ParkingPage() {
                                                         <div className="p-1">
                                                             {loading ? (
                                                                 <div className="flex items-center justify-center p-4">
-                                                                    <Loader2 className="w-6 h-6 animate-spin text-royalpurple" />
+                                                                    <Loader2 className="w-6 h-6 animate-spin text-royalblue" />
                                                                     <span className="ml-2 text-white">Loading countries...</span>
                                                                 </div>
                                                             ) : error ? (
@@ -634,7 +634,7 @@ export default function ParkingPage() {
                                                                         key={index}
                                                                         type="button"
                                                                         onClick={() => selectCountry(country)}
-                                                                        className={`flex items-center w-full px-3 py-2 text-left text-white hover:bg-royalpurple/20 rounded ${selectedCountry?.country === country.country ? "bg-royalpurple/30" : ""
+                                                                        className={`flex items-center w-full px-3 py-2 text-left text-white hover:bg-royalblue/20 rounded ${selectedCountry?.country === country.country ? "bg-royalblue/30" : ""
                                                                             }`}
                                                                         initial={{ opacity: 0, y: 5 }}
                                                                         animate={{ opacity: 1, y: 0 }}
@@ -651,7 +651,7 @@ export default function ParkingPage() {
                                                                         </span>
                                                                         <span className="text-white/70 ml-1">{country.code}</span>
                                                                         {selectedCountry?.country === country.country && (
-                                                                            <Check className="w-4 h-4 ml-2 text-royalpurple" />
+                                                                            <Check className="w-4 h-4 ml-2 text-royalblue" />
                                                                         )}
                                                                     </motion.button>
                                                                 ))
@@ -665,10 +665,10 @@ export default function ParkingPage() {
                                             type="tel"
                                             id="phone"
                                             placeholder="Phone number"
-                                            className="w-full px-4 py-3 rounded-r-md bg-transparent border border-royalpurple border-l-0 text-white focus:border-royalpurple/80 focus:outline-none focus:ring-2 focus:ring-royalpurple/50"
+                                            className="w-full px-4 py-3 rounded-r-md bg-transparent border-2 border-white border-l-0 text-white focus:border-royalblue/80 focus:outline-none focus:ring-2 focus:ring-royalblue/50"
                                             whileFocus={{
-                                                borderColor: "#7928CA",
-                                                boxShadow: "0 0 0 3px rgba(121, 40, 202, 0.25)",
+                                                borderColor: "#014A7F",
+                                                boxShadow: "0 0 0 3px rgba(1, 74, 127, 0.6)",
                                             }}
                                         />
                                     </div>
@@ -683,10 +683,10 @@ export default function ParkingPage() {
                                         <motion.select
                                             id="duration"
                                             defaultValue=""
-                                            className="w-full px-4 py-3 rounded-md bg-transparent border border-royalpurple text-white appearance-none focus:border-royalpurple/80 focus:outline-none focus:ring-2 focus:ring-royalpurple/50"
+                                            className="w-full px-4 py-3 rounded-md bg-transparent border-2 border-white text-white appearance-none focus:border-royalblue/80 focus:outline-none focus:ring-2 focus:ring-royalblue/50"
                                             whileFocus={{
-                                                borderColor: "#7928CA",
-                                                boxShadow: "0 0 0 3px rgba(121, 40, 202, 0.25)",
+                                                borderColor: "#014A7F",
+                                                boxShadow: "0 0 0 3px rgba(1, 74, 127, 0.6)",
                                             }}
                                         >
                                             <option value="" disabled className="bg-[#0B0428]">
@@ -698,7 +698,7 @@ export default function ParkingPage() {
                                                 </option>
                                             ))}
                                         </motion.select>
-                                        <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-royalpurple w-5 h-5 pointer-events-none" />
+                                        <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-royalblue w-5 h-5 pointer-events-none" />
                                     </div>
                                 </motion.div>
 
@@ -711,10 +711,10 @@ export default function ParkingPage() {
                                         type="text"
                                         id="company"
                                         placeholder="MD"
-                                        className="w-full px-4 py-3 rounded-md bg-transparent border border-royalpurple text-white focus:border-royalpurple/80 focus:outline-none focus:ring-2 focus:ring-royalpurple/50"
+                                        className="w-full px-4 py-3 rounded-md bg-transparent border-2 border-white text-white focus:border-royalblue/80 focus:outline-none focus:ring-2 focus:ring-royalblue/50"
                                         whileFocus={{
-                                            borderColor: "#7928CA",
-                                            boxShadow: "0 0 0 3px rgba(121, 40, 202, 0.25)",
+                                            borderColor: "#014A7F",
+                                            boxShadow: "0 0 0 3px rgba(1, 74, 127, 0.6)",
                                         }}
                                     />
                                 </motion.div>
@@ -729,10 +729,10 @@ export default function ParkingPage() {
                                     id="message"
                                     rows={5}
                                     placeholder="Tell us more"
-                                    className="w-full px-4 py-3 rounded-md bg-transparent border border-royalpurple text-white focus:border-royalpurple/80 focus:outline-none focus:ring-2 focus:ring-royalpurple/50"
+                                    className="w-full px-4 py-3 rounded-md bg-transparent border-2 border-white text-white focus:border-royalblue/80 focus:outline-none focus:ring-2 focus:ring-royalblue/50"
                                     whileFocus={{
-                                        borderColor: "#7928CA",
-                                        boxShadow: "0 0 0 3px rgba(121, 40, 202, 0.25)",
+                                        borderColor: "#014A7F",
+                                        boxShadow: "0 0 0 3px rgba(1, 74, 127, 0.6)",
                                     }}
                                 />
                             </motion.div>
@@ -741,7 +741,7 @@ export default function ParkingPage() {
                             <motion.div className="flex justify-center mt-6" variants={formItemVariants}>
                                 <motion.button
                                     type="submit"
-                                    className="bg-gradient-to-r from-[rgba(46,27,82,0.12)] to-[rgba(103,61,184,0.72)] shadow-[0px_0px_4px_#5A2F99] rounded-lg text-white px-8 py-3 transition w-48 text-center font-medium"
+                                    className="bg-blue shadow-[0px_0px_4px_#014A7F] rounded-lg text-white px-8 py-3 transition w-48 text-center font-medium"
                                     variants={buttonVariants}
                                     whileHover="hover"
                                     whileTap="tap"
@@ -778,7 +778,7 @@ export default function ParkingPage() {
                         transition={{ duration: 0.8, delay: 0.3 }}
                     >
                         <motion.h2
-                            className="text-royalpurple text-3xl md:text-4xl font-black px-4"
+                            className="text-royalblue text-3xl md:text-4xl font-black px-4"
                             initial={{ opacity: 0 }}
                             animate={isBannerInView ? { opacity: 1 } : { opacity: 0 }}
                             transition={{ duration: 0.5, delay: 0.6 }}

@@ -30,7 +30,7 @@ const serviceCards = [
 function ServiceCard({ title, description, image, link, index = 0 }) {
     return (
         <motion.div
-            className="overflow-hidden border-4 border-royalpurple relative group bg-[rgba(83,5,184,0.4)] shadow-[0_0_4px_4px_#5305B8] rounded-[20px]"
+            className="overflow-hidden border-4 border-royalblue relative group bg-[rgba(1,74,127,0.6)] shadow-[0_0_4px_4px_#014A7F] rounded-[20px]"
             initial={{ opacity: 0, y: 50 }}
             animate={{
                 opacity: 1,
@@ -43,7 +43,7 @@ function ServiceCard({ title, description, image, link, index = 0 }) {
             }}
             whileHover={{
                 scale: 1.03,
-                boxShadow: "0 0 20px 4px #5305B8",
+                boxShadow: "0 0 20px 4px #014A7F",
                 transition: { type: "spring", stiffness: 400, damping: 10 },
             }}
         >
@@ -193,10 +193,10 @@ export default function TruckParkingSection() {
 
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
                 <motion.div className="text-center mb-8" variants={containerVariants}>
-                    <motion.h2 className="text-royalpurple text-3xl md:text-5xl font-bold mb-4" variants={itemVariants}>
+                    <motion.h2 className="text-white text-3xl md:text-5xl font-bold mb-4" variants={itemVariants}>
                         Truck Parking Now Available
                     </motion.h2>
-                    <motion.p className="text-white font-light md:text-lg max-w-4xl mx-auto" variants={itemVariants}>
+                    <motion.p className="text-white/80 font-light md:text-lg max-w-4xl mx-auto" variants={itemVariants}>
                         DTL Transport offers 24/7 guarded truck parking at our Fresno facility — with controlled access, wide lanes,
                         and unbeatable convenience.
                     </motion.p>
@@ -214,7 +214,7 @@ export default function TruckParkingSection() {
                             <InteractiveButton>
                                 <Link
                                     href="/driver"
-                                    className="inline-block bg-[linear-gradient(90deg,rgba(46,27,82,0.12)_0%,rgba(103,61,184,0.72)_100%)] shadow-[0_0_4px_#5A2F99] text-white px-6 py-3 rounded-md transition"
+                                    className="inline-block bg-[linear-gradient(90deg,rgba(46,27,82,0.12)_0%,rgba(1,74,127,0.6)_100%)] shadow-[0_0_4px_#014A7F] text-white px-6 py-3 rounded-md transition"
                                 >
                                     <span className="py-1 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full">
                                         Drive With Us
@@ -231,7 +231,7 @@ export default function TruckParkingSection() {
                             <InteractiveButton>
                                 <Link
                                     href="/"
-                                    className="bg-royalpurple hidden md:inline-block shadow-[0_0_4px_#5A2F99] hover:bg-[#4D3A6E] text-white px-6 py-3 rounded-md transition"
+                                    className="bg-royalblue hidden md:inline-block shadow-[0_0_4px_#014A7F] hover:bg-blue text-white px-6 py-3 rounded-md transition"
                                 >
                                     <span className="py-1 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full">
                                         Ship with Us
@@ -245,7 +245,7 @@ export default function TruckParkingSection() {
                         <InteractiveButton>
                             <Link
                                 href="/services"
-                                className="inline-block relative z-50 bg-[linear-gradient(90deg,rgba(46,27,82,0.12)_0%,rgba(103,61,184,0.72)_100%)] shadow-[0_0_4px_#5A2F99] text-white px-6 py-3 rounded-md transition"
+                                className="inline-block relative z-50 bg-[linear-gradient(90deg,rgba(46,27,82,0.12)_0%,rgba(1,74,127,0.6)_100%)] shadow-[0_0_4px_#014A7F] text-white px-6 py-3 rounded-md transition"
                             >
                                 <span className="py-1 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full">
                                     Explore More

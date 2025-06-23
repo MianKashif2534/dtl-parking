@@ -221,13 +221,13 @@ export default function ServicesSection({
 
             {/* Radial Gradient Blur */}
             <motion.div
-                className="absolute right-1/4 top-[10%] w-40 h-40 z-0 bg-[radial-gradient(41.25%_76.79%_at_37.43%_47.02%,_rgba(255,255,255,0.4)_0%,_rgba(40,4,98,0.4)_100%)] blur-[76px]"
+                className="absolute right-1/4 top-[10%] w-40 h-40 z-0 bg-blue blur-[76px]"
                 variants={blurVariants}
             />
 
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
                 <div className="mb-8">
-                    <motion.h2 className="text-royalpurple text-3xl font-medium mb-2" variants={itemVariants}>
+                    <motion.h2 className="text-white text-3xl font-medium mb-2" variants={itemVariants}>
                         {heading}
                     </motion.h2>
                     <div className="flex flex-col sm:flex-row mb-4 sm:mb-0 justify-between items-start">
@@ -238,7 +238,7 @@ export default function ServicesSection({
                             <InteractiveButton>
                                 <Link
                                     href={ctaLink}
-                                    className="inline-block bg-[linear-gradient(90deg,_rgba(46,27,82,0.12)_0%,_rgba(103,61,184,0.72)_100%)] shadow-[0_0_4px_#5A2F99] rounded-[8px] text-white px-5 py-3 transition"
+                                    className="inline-block bg-blue shadow-[0_0_4px_#014A7F] rounded-[8px] text-white px-5 py-3 transition"
                                 >
                                     <span className="py-1 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full">
                                         {ctaText}
@@ -247,7 +247,7 @@ export default function ServicesSection({
                             </InteractiveButton>
                         </motion.div>
                     </div>
-                    <motion.p className="text-white/90 font-light md:text-lg max-w-2xl" variants={itemVariants}>
+                    <motion.p className="text-white/80 font-light md:text-lg max-w-2xl" variants={itemVariants}>
                         {description}
                     </motion.p>
                 </div>
@@ -269,14 +269,14 @@ export default function ServicesSection({
                             variants={statsContainerVariants}
                         >
                             <motion.div
-                                className="h-2 w-48 bg-gradient-to-r from-[#964FFF] to-[#5A2F99] rounded-[20px]"
+                                className="h-2 w-48 bg-royalblue rounded-[20px]"
                                 variants={lineVariants}
                             ></motion.div>
                             <motion.h2 className="text-white text-2xl md:text-3xl font-bold mx-4 py-2" variants={itemVariants}>
                                 DTL BY NUMBERS
                             </motion.h2>
                             <motion.div
-                                className="h-2 w-48 bg-gradient-to-r from-[#964FFF] to-[#5A2F99] rounded-[20px]"
+                                className="h-2 w-48 bg-royalblue rounded-[20px]"
                                 variants={lineVariants}
                             ></motion.div>
                         </motion.div>
@@ -285,11 +285,11 @@ export default function ServicesSection({
                             {stats.map((stat, index) => (
                                 <motion.div
                                     key={index}
-                                    className="p-6 flex flex-col items-center justify-center border-2 border-[#5305B8] shadow-[0_0_16px_rgba(255,255,255,0.4)] rounded-[20px]"
+                                    className="p-6 flex flex-col items-center justify-center border-2 border-royalblue shadow-[0_0_16px_rgba(1, 74, 127, 0.6)] rounded-[20px]"
                                     variants={statsItemVariants}
                                     whileHover={{
                                         scale: 1.05,
-                                        boxShadow: "0 0 25px rgba(255,255,255,0.6)",
+                                        boxShadow: "0 0 25px rgba(1, 74, 127, 0.6)",
                                         transition: { type: "spring", stiffness: 400, damping: 10 },
                                     }}
                                 >
@@ -316,7 +316,7 @@ export default function ServicesSection({
                                             />
                                         )}
                                     </motion.h3>
-                                    <motion.p className="text-purple text-sm md:text-lg text-center uppercase tracking-wider">
+                                    <motion.p className="text-royalblue text-sm md:text-lg text-center uppercase tracking-wider">
                                         {stat.label}
                                     </motion.p>
                                 </motion.div>
@@ -354,7 +354,7 @@ function ServiceCard({ title, description, image, link, index }) {
             onHoverEnd={() => setIsHovered(false)}
             whileHover={{
                 scale: 1.03,
-                boxShadow: "0 0 20px rgba(255,255,255,0.3)",
+                boxShadow: "0 0 20px rgba(1, 74, 127, 0.6)",
                 transition: { type: "spring", stiffness: 400, damping: 10 },
             }}
         >

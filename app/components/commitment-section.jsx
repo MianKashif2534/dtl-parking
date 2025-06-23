@@ -121,7 +121,7 @@ export default function CommitmentSection() {
             </motion.div>
 
             {/* Purple Overlay Layers with dynamic opacity */}
-            <motion.div className="absolute inset-0 bg-[#231544] z-10" style={{ opacity: overlayOpacity }}></motion.div>
+            <motion.div className="absolute inset-0 bg-blue z-10" style={{ opacity: overlayOpacity }}></motion.div>
 
             {/* Star SVG decoration with floating animation */}
             <motion.div
@@ -133,13 +133,13 @@ export default function CommitmentSection() {
             </motion.div>
 
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-30">
-                <motion.h2 className="text-3xl text-royalpurple font-medium mb-2" variants={itemVariants}>
+                <motion.h2 className="text-3xl text-white font-medium mb-2" variants={itemVariants}>
                     Our Commitment
                 </motion.h2>
                 <motion.h3 className="text-3xl md:text-4xl font-bold mb-3 leading-tight" variants={itemVariants}>
                     Where Reliability Meets Responsibility
                 </motion.h3>
-                <motion.p className="md:text-lg mb-10 max-w-3xl mx-auto font-light" variants={itemVariants}>
+                <motion.p className="md:text-lg mb-10 max-w-3xl mx-auto font-light text-white/80" variants={itemVariants}>
                     DTL is committed to delivering your cargo with integrity, speed, and safety. Our fleet is modern, our drivers
                     are trained professionals, and our team works with laser focus to meet your delivery needs — whether it's
                     coast-to-coast or just across the state.
@@ -153,7 +153,7 @@ export default function CommitmentSection() {
                     <InteractiveButton>
                         <Link
                             href="/driver"
-                            className="bg-[linear-gradient(90deg,_rgba(46,27,82,0.12)_0%,_rgba(103,61,184,0.72)_100%)] shadow-[0_0_4px_#5A2F99] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32"
+                            className="bg-blue shadow-[0_0_4px_#014A7F] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32"
                         >
                             <span className="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full text-center">
                                 Driver <br />
@@ -164,7 +164,7 @@ export default function CommitmentSection() {
                     <InteractiveButton>
                         <Link
                             href="tel:18004262895"
-                            className="bg-royalpurple shadow-[0_0_4px_#5A2F99] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32"
+                            className="bg-royalblue shadow-[0_0_4px_#014A7F] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32"
                         >
                             <span className="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full">
                                 Talk to a Recruiter <br /> 1 (800) 426-2895

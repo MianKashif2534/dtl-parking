@@ -13,7 +13,7 @@ export default function HeroSection({
   subHeading,
   ctaText,
   ctaLink,
-  height = 'h-[700px] md:h-[1050px]',
+  height = 'h-[700px] md:h-[900px]',
 }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
@@ -45,7 +45,7 @@ export default function HeroSection({
     initial: { scale: 1 },
     hover: {
       scale: 1.05,
-      boxShadow: '0 0 8px rgba(90, 47, 153, 0.8)',
+      boxShadow: '0 0 8px rgba(1, 74, 127, 0.6)',
       transition: { type: 'spring', stiffness: 400, damping: 10 },
     },
     tap: { scale: 0.98 },
@@ -73,14 +73,14 @@ export default function HeroSection({
       </motion.div>
 
       {/* Content Container */}
-      <div className='relative z-10 h-full flex flex-col items-center mt-24 md:mt-36 text-white text-center px-4'>
+      <div className='relative z-10 h-full flex flex-col items-center mt-24 md:mt-[15%] text-white text-center px-4'>
         {/* Welcome Text with Lines */}
         <motion.div
           className='flex flex-col md:flex-row items-center justify-center mb-3 md:mb-4 space-x-3'
           variants={itemVariants}
         >
           <motion.div
-            className='w-36 md:w-48 h-1 md:h-2 bg-[linear-gradient(90deg,_#964FFF_0%,_#5A2F99_100%)] rounded-2xl'
+            className='w-36 md:w-48 h-1 md:h-2 bg-blue rounded-2xl'
             initial={{ width: 0 }}
             animate={{
               width: '9rem',
@@ -89,13 +89,13 @@ export default function HeroSection({
             viewport={{ once: true }}
           ></motion.div>
           <motion.h2
-            className='font-bold text-3xl md:text-4xl leading-[40px] text-center text-royalpurple'
+            className='font-bold text-3xl md:text-4xl leading-[40px] text-center text-white'
             variants={itemVariants}
           >
             {welcomeText}
           </motion.h2>
           <motion.div
-            className='w-36 md:w-48 h-1 md:h-2 bg-[linear-gradient(90deg,_#964FFF_0%,_#5A2F99_100%)] rounded-2xl'
+            className='w-36 md:w-48 h-1 md:h-2 bg-blue rounded-2xl'
             initial={{ width: 0 }}
             animate={{
               width: '9rem',
@@ -131,7 +131,7 @@ export default function HeroSection({
           >
             <Link
               href={ctaLink}
-              className='inline-block text-white px-6 py-4 md:py-5 rounded-md shadow-[0_0_4px_#5A2F99] bg-[linear-gradient(90deg,_rgba(46,27,82,0.12)_0%,_rgba(103,61,184,0.72)_100%)]'
+              className='inline-block text-white px-6 py-4 md:py-5 rounded-md shadow-[0_0_4px_#0B0428] bg-blue'
             >
               <span className='py-1 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full'>
                 {ctaText}

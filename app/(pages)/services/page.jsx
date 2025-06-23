@@ -198,11 +198,11 @@ export default function ServicesPage() {
                                         animate={isTeamDriverInView ? "visible" : "hidden"}
                                     >
                                         <motion.div
-                                            className="bg-white border-2 border-royalpurple rounded-full w-5 h-5 md:w-6 md:h-6 mt-0.5 flex items-center justify-center mr-2 md:mr-3 flex-shrink-0"
+                                            className="bg-white border-2 border-royalblue rounded-full w-5 h-5 md:w-6 md:h-6 mt-0.5 flex items-center justify-center mr-2 md:mr-3 flex-shrink-0"
                                             whileHover={{ scale: 1.2, backgroundColor: "#5305B8", borderColor: "#ffffff" }}
                                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                                         >
-                                            <Check className="w-3 h-3 md:w-4 md:h-4 text-royalpurple" strokeWidth={3} />
+                                            <Check className="w-3 h-3 md:w-4 md:h-4 text-royalblue" strokeWidth={3} />
                                         </motion.div>
                                         <span className="text-white text-sm md:text-base">{item}</span>
                                     </motion.li>
@@ -211,14 +211,14 @@ export default function ServicesPage() {
                         </motion.div>
                         <motion.div className="order-1" variants={imageVariants}>
                             <motion.div
-                                className="rounded-[24px] overflow-hidden border border-royalpurple h-full"
+                                className="rounded-[24px] overflow-hidden border-4 border-royalblue h-full"
                                 whileHover={{ scale: 1.02, boxShadow: "0 0 20px rgba(83, 5, 184, 0.5)" }}
                                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
                             >
                                 <motion.img
                                     src="/Team-drivers-working-together.png"
                                     alt="Team drivers working together"
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover scale-105"
                                     whileHover={{ scale: 1.05 }}
                                     transition={{ duration: 0.5 }}
                                 />
@@ -258,11 +258,11 @@ export default function ServicesPage() {
                                         animate={isSingleDriverInView ? "visible" : "hidden"}
                                     >
                                         <motion.div
-                                            className="bg-white border-2 border-royalpurple rounded-full w-5 h-5 md:w-6 md:h-6 mt-0.5 flex items-center justify-center mr-2 md:mr-3 flex-shrink-0"
+                                            className="bg-white border-2 border-royalblue rounded-full w-5 h-5 md:w-6 md:h-6 mt-0.5 flex items-center justify-center mr-2 md:mr-3 flex-shrink-0"
                                             whileHover={{ scale: 1.2, backgroundColor: "#5305B8", borderColor: "#ffffff" }}
                                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                                         >
-                                            <Check className="w-3 h-3 md:w-4 md:h-4 text-royalpurple" strokeWidth={3} />
+                                            <Check className="w-3 h-3 md:w-4 md:h-4 text-royalblue" strokeWidth={3} />
                                         </motion.div>
                                         <span className="text-white text-sm md:text-base">{item}</span>
                                     </motion.li>
@@ -271,14 +271,14 @@ export default function ServicesPage() {
                         </motion.div>
                         <motion.div className="order-2" variants={imageVariants}>
                             <motion.div
-                                className="rounded-[24px] overflow-hidden border border-royalpurple h-full"
+                                className="rounded-[24px] overflow-hidden border-4 border-royalblue h-full"
                                 whileHover={{ scale: 1.02, boxShadow: "0 0 20px rgba(83, 5, 184, 0.5)" }}
                                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
                             >
                                 <motion.img
                                     src="/Single-driver-in-truck.png"
                                     alt="Single driver in truck"
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover scale-105"
                                     whileHover={{ scale: 1.05 }}
                                     transition={{ duration: 0.5 }}
                                 />
@@ -297,14 +297,14 @@ export default function ServicesPage() {
                 >
                     <motion.div variants={imageVariants}>
                         <motion.div
-                            className="rounded-[24px] overflow-hidden border border-royalpurple"
+                            className="rounded-[24px] overflow-hidden border-4 border-royalblue"
                             whileHover={{ scale: 1.02, boxShadow: "0 0 20px rgba(83, 5, 184, 0.5)" }}
                             transition={{ type: "spring", stiffness: 300, damping: 15 }}
                         >
                             <motion.img
                                 src="/Thermo-King.png"
                                 alt="Thermo King refrigerated trailer unit"
-                                className="w-full h-auto object-cover"
+                                className="w-full h-auto object-cover scale-105"
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ duration: 0.5 }}
                             />
@@ -345,11 +345,11 @@ export default function ServicesPage() {
                                     animate={isTempControlledInView ? "visible" : "hidden"}
                                 >
                                     <motion.div
-                                        className="bg-white border-2 border-royalpurple rounded-full w-6 h-6 mt-1 flex items-center justify-center mr-3"
+                                        className="bg-white border-2 border-royalblue rounded-full w-6 h-6 mt-1 flex items-center justify-center mr-3"
                                         whileHover={{ scale: 1.2, backgroundColor: "#5305B8", borderColor: "#ffffff" }}
                                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
                                     >
-                                        <Check className="w-4 h-4 text-royalpurple" strokeWidth={3} />
+                                        <Check className="w-4 h-4 text-royalblue" strokeWidth={3} />
                                     </motion.div>
                                     <span className="text-white text-sm md:text-base">{item}</span>
                                 </motion.li>
@@ -368,14 +368,14 @@ export default function ServicesPage() {
                 >
                     <motion.div className="md:order-2" variants={imageVariants}>
                         <motion.div
-                            className="rounded-[24px] overflow-hidden border border-royalpurple"
+                            className="rounded-[24px] overflow-hidden border-4 border-royalblue"
                             whileHover={{ scale: 1.02, boxShadow: "0 0 20px rgba(83, 5, 184, 0.5)" }}
                             transition={{ type: "spring", stiffness: 300, damping: 15 }}
                         >
                             <motion.img
                                 src="/semi-truck.png"
                                 alt="DTL Transport semi-truck"
-                                className="w-full h-auto object-cover"
+                                className="w-full h-auto object-cover scale-105"
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ duration: 0.5 }}
                             />
@@ -415,11 +415,11 @@ export default function ServicesPage() {
                                     animate={isDryFreightInView ? "visible" : "hidden"}
                                 >
                                     <motion.div
-                                        className="bg-white border-2 border-royalpurple rounded-full w-6 h-6 mt-1 flex items-center justify-center mr-3"
+                                        className="bg-white border-2 border-royalblue rounded-full w-6 h-6 mt-1 flex items-center justify-center mr-3"
                                         whileHover={{ scale: 1.2, backgroundColor: "#5305B8", borderColor: "#ffffff" }}
                                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
                                     >
-                                        <Check className="w-4 h-4 text-royalpurple" strokeWidth={3} />
+                                        <Check className="w-4 h-4 text-royalblue" strokeWidth={3} />
                                     </motion.div>
                                     <span className="text-white">{item}</span>
                                 </motion.li>
@@ -432,7 +432,7 @@ export default function ServicesPage() {
             {/* Nationwide Logistics Coverage Section */}
             <motion.div
                 ref={nationwideRef}
-                className="relative overflow-hidden border-4 border-royalpurple mt-16 font-light"
+                className="relative overflow-hidden border-4 border-royalblue mt-16 font-light"
                 initial={{ opacity: 0 }}
                 animate={isNationwideInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 1 }}
@@ -451,13 +451,13 @@ export default function ServicesPage() {
                     initial="hidden"
                     animate={isNationwideInView ? "visible" : "hidden"}
                 >
-                    <motion.h2 className="text-purple text-2xl md:text-3xl font-bold mb-6" variants={mapTextVariants}>
+                    <motion.h2 className="text-white text-2xl md:text-3xl font-bold mb-6" variants={mapTextVariants}>
                         Nationwide Logistics Coverage
                     </motion.h2>
                     <motion.h3 className="text-white text-2xl md:text-4xl font-bold mb-6 text-center" variants={mapTextVariants}>
                         From Coast to Coast — We've Got You Covered
                     </motion.h3>
-                    <motion.p className="text-white text-sm md:text-base max-w-3xl text-center" variants={mapTextVariants}>
+                    <motion.p className="text-white/80 text-sm md:text-base max-w-3xl text-center" variants={mapTextVariants}>
                         With pickups typically from the West Coast and deliveries spanning the East Coast and all regions in
                         between, DTL Transport is your partner in nationwide logistics. Our experienced team uses modern tech and
                         industry insight to coordinate the safest and most efficient freight movement for your business.

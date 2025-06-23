@@ -58,7 +58,7 @@ export default function NavBar() {
     <div
       ref={navRef}
       className={cn(
-        'bg-[linear-gradient(90deg,_rgba(0,0,0,0.5)_0%,_rgba(98,45,192,0.15)_100%)] fixed inset-x-0 top-0 z-50 h-16 md:h-20 lg:h-24 2xl:h-32 w-full transition-all duration-700 px-4 md:px-0',
+        'bg-[linear-gradient(90deg,_rgba(0,0,0,0.5)_0%,_rgba(1,74,127,0.15)_100%)] fixed inset-x-0 top-0 z-50 h-16 md:h-20 lg:h-24 2xl:h-32 w-full transition-all duration-700 px-4 md:px-0',
         isFloating ? 'bg-background/80 shadow-md backdrop-blur-sm' : '',
         isNavVisible
           ? 'translate-y-0 opacity-100'
@@ -84,7 +84,7 @@ export default function NavBar() {
                 <Link
                   href={item.href}
                   className={cn(
-                    'bg-gradient-to-b from-[rgba(83,5,184,0.28)] to-[rgba(103,61,184,0.72)] text-white hover:bg-royalpurple/60 shadow-[0px_0px_4px_#5A2F99] rounded-sm px-4 py-1 text-sm 2xl:text-lg font-medium transition-all flex items-center h-10 justify-center'
+                    'bg-blue text-white hover:bg-royalblue shadow-[0px_0px_4px_#014A7F99] rounded-sm px-4 py-1 text-sm 2xl:text-lg font-medium transition-all flex items-center h-10 justify-center'
                   )}
                 >
                   <span className='relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full'>
@@ -100,7 +100,7 @@ export default function NavBar() {
                         <Link
                           key={service.slug}
                           href={`/services/${service.slug}`}
-                          className='px-4 py-2 text-sm text-gray-800 font-bold rounded-md transition-all duration-300 transform hover:translate-x-1 hover:text-royalpurple'
+                          className='px-4 py-2 text-sm text-gray-800 font-bold rounded-md transition-all duration-300 transform hover:translate-x-1 hover:text-royalblue'
                         >
                           {service.title}
                         </Link>
@@ -117,7 +117,7 @@ export default function NavBar() {
             <div>
               <Link
                 href='/driver'
-                className='bg-[linear-gradient(90deg,_rgba(46,27,82,0.12)_0%,_rgba(103,61,184,0.72)_100%)] shadow-[0_0_4px_#5A2F99] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
+                className='bg-blue hover:bg-royalblue shadow-[0_0_4px_#014A7F] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
               >
                 <span className='relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full text-center'>
                   Driver <br />
@@ -128,7 +128,7 @@ export default function NavBar() {
             <div>
               <Link
                 href="tel:18004262895"
-                className='bg-[#5305B8] shadow-[0_0_4px_#5A2F99] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
+                className='bg-royalblue shadow-[0_0_4px_#014A7F] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
               >
                 <span className='relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full'>
                   Talk to a Recruiter <br />1 (800) 426-2895
@@ -140,7 +140,7 @@ export default function NavBar() {
           {/* Mobile Navigation Button */}
           <button
             onClick={toggleMobileMenu}
-            className='lg:hidden text-white hover:text-royalpurple bg-royalpurple hover:bg-white p-2 rounded-xl focus:outline-none transition-colors'
+            className='lg:hidden text-white hover:text-royalblue bg-royalblue hover:bg-white p-2 rounded-xl focus:outline-none transition-colors'
             aria-label='Toggle menu'
           >
             <Menu className='h-5 w-5' />
@@ -168,7 +168,7 @@ export default function NavBar() {
           </Link>
           <button
             onClick={toggleMobileMenu}
-            className='text-white hover:text-royalpurple bg-royalpurple hover:bg-white p-2 rounded-xl focus:outline-none'
+            className='text-white hover:text-royalblue bg-royalblue hover:bg-white p-2 rounded-xl focus:outline-none'
             aria-label='Close menu'
           >
             <X className='h-5 w-5' />
@@ -182,7 +182,7 @@ export default function NavBar() {
                 <>
                   <button
                     onClick={toggleServiceSubmenu}
-                    className='py-5 text-center text-sm font-medium text-white hover:text-purple flex items-center justify-center gap-1'
+                    className='py-5 text-center text-sm font-medium text-white hover:text-blue flex items-center justify-center gap-1'
                   >
                     {item.name}
                     <ChevronDown
@@ -200,7 +200,7 @@ export default function NavBar() {
                   >
                     <Link
                       href='/services'
-                      className='py-3 px-2 text-center text-sm font-medium text-white hover:text-purple block rounded'
+                      className='py-3 px-2 text-center text-sm font-medium text-white hover:text-blue block rounded'
                       onClick={toggleMobileMenu}
                     >
                       All Services
@@ -210,7 +210,7 @@ export default function NavBar() {
                         <Link
                           key={service.slug}
                           href={`/services/${service.slug}`}
-                          className='py-3 px-2 text-center text-sm font-medium text-white hover:text-purple rounded'
+                          className='py-3 px-2 text-center text-sm font-medium text-white hover:text-blue rounded'
                           onClick={toggleMobileMenu}
                         >
                           {service.title}
@@ -223,9 +223,9 @@ export default function NavBar() {
                 <Link
                   href={item.href}
                   className={cn(
-                    'py-5 text-center text-sm font-medium hover:text-purple',
+                    'py-5 text-center text-sm font-medium hover:text-blue',
                     pathname === item.href
-                      ? 'bg-royalpurple text-white'
+                      ? 'bg-royalblue text-white'
                       : 'text-white'
                   )}
                   onClick={toggleMobileMenu}
@@ -241,7 +241,7 @@ export default function NavBar() {
               <div>
                 <Link
                   href='/appointment'
-                  className='bg-[linear-gradient(90deg,_rgba(46,27,82,0.12)_0%,_rgba(103,61,184,0.72)_100%)] shadow-[0_0_4px_#5A2F99] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
+                  className='bg-[linear-gradient(90deg,_rgba(46,27,82,0.12)_0%,_rgba(103,61,184,0.72)_100%)] shadow-[0_0_4px_#014A7F] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
                 >
                   <span className='relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full text-center'>
                     Driver <br />
@@ -252,7 +252,7 @@ export default function NavBar() {
               <div>
                 <Link
                   href="tel:18004262895"
-                  className='bg-[#5305B8] shadow-[0_0_4px_#5A2F99] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
+                  className='bg-[#5305B8] shadow-[0_0_4px_#014A7F] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
                 >
                   <span className='relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full'>
                     Talk to a Recruiter <br />1 (800) 426-2895

@@ -87,7 +87,7 @@ export default function PageHeader({ title, subtitle, imageSrc, imageAlt, button
             >
                 <div className="flex flex-col md:flex-row items-center justify-center mb-2 md:mb-4 space-x-0 md:space-x-3">
                     <motion.div
-                        className="w-36 md:w-48 h-1 md:h-2 bg-[linear-gradient(90deg,_#964FFF_0%,_#5A2F99_100%)] rounded-2xl"
+                        className="w-36 md:w-48 h-1 md:h-2 bg-blue rounded-2xl"
                         initial={{ width: 0, opacity: 0 }}
                         animate={{ width: "9rem", opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
@@ -101,7 +101,7 @@ export default function PageHeader({ title, subtitle, imageSrc, imageAlt, button
                         {title}
                     </motion.h1>
                     <motion.div
-                        className="w-36 md:w-48 h-1 md:h-2 bg-[linear-gradient(90deg,_#964FFF_0%,_#5A2F99_100%)] rounded-2xl"
+                        className="w-36 md:w-48 h-1 md:h-2 bg-blue rounded-2xl"
                         initial={{ width: 0, opacity: 0 }}
                         animate={{ width: "9rem", opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
@@ -132,7 +132,7 @@ export default function PageHeader({ title, subtitle, imageSrc, imageAlt, button
                         >
                             <Link
                                 href="/driver"
-                                className="bg-[linear-gradient(90deg,rgba(46,27,82,0.12)_0%,rgba(103,61,184,0.72)_100%)] shadow-[0_0_4px_#5A2F99] text-white px-6 py-3 rounded-md transition-all hover:shadow-[0_0_8px_#5A2F99] group"
+                                className="bg-blue shadow-[0_0_4px_#014A7F] text-white px-6 py-3 rounded-md transition-all hover:shadow-[0_0_8px_#014A7F] group"
                             >
                                 <span className="relative z-10">Drive With Us</span>
                             </Link>
@@ -168,7 +168,7 @@ export default function PageHeader({ title, subtitle, imageSrc, imageAlt, button
                         >
                             <Link
                                 href="/"
-                                className="bg-royalpurple shadow-[0_0_4px_#5A2F99] hover:bg-[#4D3A6E] text-white px-6 py-3 rounded-md transition-all hover:shadow-[0_0_8px_#5A2F99] group"
+                                className="bg-royalblue shadow-[0_0_4px_#014A7F] hover:bg-blue text-white px-6 py-3 rounded-md transition-all hover:shadow-[0_0_8px_#014A7F] group"
                             >
                                 <span className="relative z-10">Ship with Us</span>
                             </Link>

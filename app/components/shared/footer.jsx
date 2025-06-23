@@ -33,7 +33,7 @@ export default function Footer() {
       id='footer-contact'
     >
       {/* Main Footer Content */}
-      <div className='bg-royalpurple'>
+      <div className='bg-royalblue/40'>
         <div className='max-w-7xl mx-auto px-4 py-8 lg:px-8'>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 relative'>
             {/* Left Column - Contact Info */}
@@ -157,18 +157,18 @@ function ContactInfo() {
 
       <div className='space-y-4'>
         <ContactItem
-          icon={<MapPin className='text-royalpurple h-6 w-6' />}
+          icon={<MapPin className='text-royalblue h-6 w-6' />}
           text='Headquarters: Fresno, California'
           delay={0.3}
         />
         <ContactItem
-          icon={<Phone className='text-royalpurple h-6 w-6' />}
+          icon={<Phone className='text-royalblue h-6 w-6' />}
           text='(559) 289-4424'
           href='tel:+15592894424'
           delay={0.4}
         />
         <ContactItem
-          icon={<Mail className='text-royalpurple h-6 w-6' />}
+          icon={<Mail className='text-royalblue h-6 w-6' />}
           text='lucky@dtltrans.com'
           href='mailto:lucky@dtltrans.com'
           delay={0.5}
@@ -199,7 +199,7 @@ const FooterLink = ({ href, children, delay = 0 }) => (
   >
     <Link
       href={href}
-      className='md:text-lg hover:text-purple border-b-2 border-white hover:border-purple transition-colors'
+      className='md:text-lg border-b-2 border-white hover:border-none transition-colors'
     >
       {children}
     </Link>
@@ -214,7 +214,7 @@ function FooterBottom() {
   return (
     <motion.div
       ref={bottomRef}
-      className='py-6 px-4'
+      className='py-6 px-4 bg-blue'
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.7, delay: 0.5 }}
@@ -258,17 +258,17 @@ function FooterBottom() {
             >
               <SocialLink
                 href='https://facebook.com/dtltransport'
-                icon={<Facebook className='w-5 h-5 text-royalpurple' />}
+                icon={<Facebook className='w-5 h-5 text-royalblue' />}
                 delay={0.9}
               />
               <SocialLink
                 href='mailto:info@dtltrans.com'
-                icon={<Mail className='w-5 h-5 text-royalpurple' />}
+                icon={<Mail className='w-5 h-5 text-royalblue' />}
                 delay={1.0}
               />
               <SocialLink
                 href='https://instagram.com/dtltransport'
-                icon={<Instagram className='w-5 h-5 text-royalpurple' />}
+                icon={<Instagram className='w-5 h-5 text-royalblue' />}
                 delay={1.1}
               />
             </motion.div>
@@ -282,7 +282,7 @@ function FooterBottom() {
             transition={{ duration: 0.7, delay: 0.7 }}
           >
             <motion.h3
-              className='text-3xl font-bold text-[rgba(103,61,184,0.72)]'
+              className='text-3xl font-bold text-white'
               initial={{ opacity: 0, y: -20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
               transition={{ duration: 0.5, delay: 0.8 }}
@@ -290,7 +290,7 @@ function FooterBottom() {
               About Us
             </motion.h3>
             <motion.p
-              className='md:text-lg font-light'
+              className='md:text-lg font-light text-white/80'
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.5, delay: 0.9 }}
@@ -307,8 +307,8 @@ function FooterBottom() {
         <motion.div
           className='flex flex-wrap justify-center gap-x-2 md:gap-x-8 gap-y-2 py-4'
           style={{
-            borderBottom: '2px solid',
-            borderImage: 'linear-gradient(90deg, #5305B8 0%, #250252 100%) 1',
+            borderBottom: '4px solid',
+            borderImage: 'linear-gradient(90deg, #014A7F 0%, #250252 100%) 1',
           }}
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -343,7 +343,7 @@ function FooterBottom() {
         >
           <p>
             © {currentYear} DTL Parking, LLC. All Rights Reserved.{" "}
-            <Link href='https://www.timexsolutioninc.com/' target='_blank'>
+            <Link href='https://www.timexsolutioninc.com/' className='hover:text-white' target='_blank'>
               Designed by Timex Solutions Inc.
             </Link>
           </p>
@@ -393,13 +393,13 @@ function QuoteForm() {
       }
       
       .form-input:hover {
-        border-color: #7928CA !important;
-        box-shadow: 0 0 0 1px rgba(121, 40, 202, 0.1);
+        border-color: #014A7F !important;
+        box-shadow: 0 0 0 1px rgba(1, 74, 127, 0.6);
       }
       
       .form-input:focus {
-        border-color: #7928CA !important;
-        box-shadow: 0 0 0 3px rgba(121, 40, 202, 0.25);
+        border-color: #014A7F !important;
+        box-shadow: 0 0 0 3px rgba(1, 74, 127, 0.6);
         outline: none;
       }
       
@@ -409,7 +409,7 @@ function QuoteForm() {
       
       .form-input:focus + .input-icon-wrapper .input-icon,
       .form-input-focused .input-icon {
-        color: #7928CA !important;
+        color: #014A7F !important;
         transform: scale(1.1);
       }
       
@@ -420,13 +420,13 @@ function QuoteForm() {
       }
       
       .form-select:hover {
-        border-color: #7928CA !important;
-        box-shadow: 0 0 0 1px rgba(121, 40, 202, 0.1);
+        border-color: #014A7F !important;
+        box-shadow: 0 0 0 1px rgba(1, 74, 127, 0.6);
       }
       
       .form-select:focus {
-        border-color: #7928CA !important;
-        box-shadow: 0 0 0 3px rgba(121, 40, 202, 0.25);
+        border-color: #014A7F !important;
+        box-shadow: 0 0 0 3px rgba(1, 74, 127, 0.6);
         outline: none;
       }
       
@@ -436,22 +436,22 @@ function QuoteForm() {
       }
       
       .react-date-picker__wrapper {
-        border: 2px solid #5305B8 !important;
+        border: 2px solid #014A7F !important;
         border-radius: 0.75rem;
         padding: 0.5rem 0.75rem;
         background: transparent;
-        color: #5305B8;
+        color: #014A7F;
         transition: all 0.2s ease-in-out;
       }
       
       .react-date-picker__wrapper:hover {
-        border-color: #7928CA !important;
-        box-shadow: 0 0 0 1px rgba(121, 40, 202, 0.1);
+        border-color: #014A7F !important;
+        box-shadow: 0 0 0 1px rgba(1, 74, 127, 0.6);
       }
       
       .react-date-picker--focused .react-date-picker__wrapper {
-        border-color: #7928CA !important;
-        box-shadow: 0 0 0 3px rgba(121, 40, 202, 0.25);
+        border-color: #014A7F !important;
+        box-shadow: 0 0 0 3px rgba(1, 74, 127, 0.6);
       }
       
       .react-date-picker__inputGroup {
@@ -460,13 +460,13 @@ function QuoteForm() {
       }
       
       .react-date-picker__inputGroup input {
-        color: #5305B8;
+        color: #014A7F;
         font-weight: 500;
       }
       
       .react-date-picker__inputGroup__divider,
       .react-date-picker__inputGroup__leadingZero {
-        color: #5305B8;
+        color: #014A7F;
       }
       
       .react-date-picker__button {
@@ -474,13 +474,13 @@ function QuoteForm() {
       }
       
       .react-date-picker__inputGroup__input::placeholder {
-        color: #5305B8;
+        color: #014A7F;
         opacity: 0.7;
       }
       
       .react-calendar {
         border-radius: 0.75rem;
-        border: 2px solid #7928CA;
+        border: 2px solid #014A7F;
         background-color: #f3f4f6;
         position: absolute;
         z-index: 10;
@@ -490,7 +490,7 @@ function QuoteForm() {
       }
       
       .react-calendar__tile--active {
-        background-color: #7928CA !important;
+        background-color: #014A7F !important;
       }
       
       .react-calendar__tile--now {
@@ -503,7 +503,7 @@ function QuoteForm() {
       
       .react-calendar__navigation button:hover,
       .react-calendar__navigation button:focus {
-        background-color: rgba(121, 40, 202, 0.1);
+        background-color: rgba(1, 74, 127, 0.6);
       }
       
       /* Fix for the Fit component warning */
@@ -546,10 +546,10 @@ function QuoteForm() {
         width: 18px;
         height: 18px;
         border-radius: 50%;
-        background: #7928CA;
+        background: #014A7F;
         cursor: pointer;
         border: 2px solid white;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 5px rgba(1, 74, 127, 0.6);
         transition: all 0.2s ease-in-out;
       }
       
@@ -561,10 +561,10 @@ function QuoteForm() {
         width: 18px;
         height: 18px;
         border-radius: 50%;
-        background: #7928CA;
+        background: #014A7F;
         cursor: pointer;
         border: 2px solid white;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 5px rgba(1, 74, 127, 0.6);
         transition: all 0.2s ease-in-out;
       }
       
@@ -575,7 +575,7 @@ function QuoteForm() {
       /* Select options */
       select option {
         background-color: #f3f4f6;
-        color: #5305B8;
+        color: #014A7F;
         padding: 10px;
       }
       
@@ -586,7 +586,7 @@ function QuoteForm() {
       }
       
       .distance-display:hover {
-        border-color: #7928CA !important;
+        border-color: #014A7F !important;
         background-color: rgba(121, 40, 202, 0.05);
       }
     `
@@ -643,7 +643,7 @@ function QuoteForm() {
     },
     hover: {
       scale: 1.05,
-      boxShadow: '0 5px 15px rgba(83, 5, 184, 0.3)',
+      boxShadow: '0 5px 15px rgba(1, 74, 127, 0.6)',
       transition: { type: 'spring', stiffness: 400, damping: 10 },
     },
     tap: { scale: 0.95 },
@@ -658,7 +658,7 @@ function QuoteForm() {
       variants={formVariants}
     >
       <motion.h2
-        className='text-royalpurple text-3xl font-bold text-center mb-6'
+        className='text-royalblue text-3xl font-bold text-center mb-6'
         variants={inputVariants}
       >
         Request a Quote
@@ -677,7 +677,7 @@ function QuoteForm() {
             <input
               type='text'
               placeholder='Name'
-              className='form-input w-full p-3 border-2 border-royalpurple rounded-xl bg-transparent text-royalpurple placeholder-royalpurple/70'
+              className='form-input w-full p-3 border-2 border-royalblue rounded-xl bg-transparent text-royalblue placeholder-royalblue/70'
               required
               onFocus={() => setFocusedInput('name')}
               onBlur={() => setFocusedInput(null)}
@@ -687,7 +687,7 @@ function QuoteForm() {
                 focusedInput === 'name' ? 'form-input-focused' : ''
               }`}
             >
-              <User className='input-icon w-5 h-5 text-royalpurple' />
+              <User className='input-icon w-5 h-5 text-royalblue' />
             </div>
           </motion.div>
 
@@ -696,7 +696,7 @@ function QuoteForm() {
             <input
               type='email'
               placeholder='Email'
-              className='form-input w-full p-3 border-2 border-royalpurple rounded-xl bg-transparent text-royalpurple placeholder-royalpurple/70'
+              className='form-input w-full p-3 border-2 border-royalblue rounded-xl bg-transparent text-royalblue placeholder-royalblue/70'
               required
               onFocus={() => setFocusedInput('email')}
               onBlur={() => setFocusedInput(null)}
@@ -706,7 +706,7 @@ function QuoteForm() {
                 focusedInput === 'email' ? 'form-input-focused' : ''
               }`}
             >
-              <Mail className='input-icon w-5 h-5 text-royalpurple' />
+              <Mail className='input-icon w-5 h-5 text-royalblue' />
             </div>
           </motion.div>
 
@@ -715,7 +715,7 @@ function QuoteForm() {
             <input
               type='tel'
               placeholder='Phone'
-              className='form-input w-full p-3 border-2 border-royalpurple rounded-xl bg-transparent text-royalpurple placeholder-royalpurple/70'
+              className='form-input w-full p-3 border-2 border-royalblue rounded-xl bg-transparent text-royalblue placeholder-royalblue/70'
               required
               onFocus={() => setFocusedInput('phone')}
               onBlur={() => setFocusedInput(null)}
@@ -725,7 +725,7 @@ function QuoteForm() {
                 focusedInput === 'phone' ? 'form-input-focused' : ''
               }`}
             >
-              <Phone className='input-icon w-5 h-5 text-royalpurple' />
+              <Phone className='input-icon w-5 h-5 text-royalblue' />
             </div>
           </motion.div>
 
@@ -747,7 +747,7 @@ function QuoteForm() {
               dayPlaceholder='DD'
               monthPlaceholder='MM'
               yearPlaceholder='YYYY'
-              className='w-full rounded-xl bg-transparent text-royalpurple'
+              className='w-full rounded-xl bg-transparent text-royalblue'
               isOpen={calendarOpen}
               onCalendarClose={() => setCalendarOpen(false)}
               onCalendarOpen={() => setCalendarOpen(true)}
@@ -760,7 +760,7 @@ function QuoteForm() {
                 focusedInput === 'date' ? 'form-input-focused' : ''
               }`}
             >
-              <Calendar className='input-icon w-5 h-5 text-royalpurple' />
+              <Calendar className='input-icon w-5 h-5 text-royalblue' />
             </div>
           </motion.div>
         </motion.div>
@@ -769,7 +769,7 @@ function QuoteForm() {
         <motion.div className='space-y-2' variants={inputVariants}>
           <label
             htmlFor='distance-slider'
-            className='text-royalpurple font-medium'
+            className='text-royalblue font-medium'
           >
             Distance (Miles):
           </label>
@@ -788,7 +788,7 @@ function QuoteForm() {
               onFocus={() => setFocusedInput('distance')}
               onBlur={() => setFocusedInput(null)}
             />
-            <motion.div className='distance-display border-2 border-royalpurple rounded-xl px-4 py-2 text-royalpurple min-w-24 text-center'>
+            <motion.div className='distance-display border-2 border-royalblue rounded-xl px-4 py-2 text-royalblue min-w-24 text-center'>
               {distance} Miles
             </motion.div>
           </div>
@@ -801,7 +801,7 @@ function QuoteForm() {
         >
           <motion.div className='relative' variants={inputVariants}>
             <select
-              className='form-select w-full p-3 border-2 border-royalpurple rounded-xl bg-transparent text-royalpurple appearance-none'
+              className='form-select w-full p-3 border-2 border-royalblue rounded-xl bg-transparent text-royalblue appearance-none'
               aria-label='Freight Type'
               onFocus={() => setFocusedInput('freight')}
               onBlur={() => setFocusedInput(null)}
@@ -817,13 +817,13 @@ function QuoteForm() {
                 focusedInput === 'freight' ? 'form-input-focused' : ''
               }`}
             >
-              <ChevronDown className='input-icon w-5 h-5 text-royalpurple' />
+              <ChevronDown className='input-icon w-5 h-5 text-royalblue' />
             </div>
           </motion.div>
 
           <motion.div className='relative' variants={inputVariants}>
             <select
-              className='form-select w-full p-3 border-2 border-royalpurple rounded-xl bg-transparent text-royalpurple appearance-none'
+              className='form-select w-full p-3 border-2 border-royalblue rounded-xl bg-transparent text-royalblue appearance-none'
               aria-label='Load Type'
               onFocus={() => setFocusedInput('load')}
               onBlur={() => setFocusedInput(null)}
@@ -839,7 +839,7 @@ function QuoteForm() {
                 focusedInput === 'load' ? 'form-input-focused' : ''
               }`}
             >
-              <ChevronDown className='input-icon w-5 h-5 text-royalpurple' />
+              <ChevronDown className='input-icon w-5 h-5 text-royalblue' />
             </div>
           </motion.div>
         </motion.div>
@@ -848,7 +848,7 @@ function QuoteForm() {
         <motion.div className='flex' variants={inputVariants}>
           <motion.button
             type='submit'
-            className='bg-royalpurple text-white px-8 py-3 rounded-lg font-medium hover:bg-royalpurple/80 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200'
+            className='bg-royalblue text-white px-8 py-3 rounded-lg font-medium hover:bg-royalblue/80 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200'
             variants={buttonVariants}
             whileHover='hover'
             whileTap='tap'

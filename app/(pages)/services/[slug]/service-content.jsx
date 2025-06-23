@@ -132,7 +132,7 @@ export default function ServiceContent({ service, allServices }) {
                 >
                     <div className="sticky top-8">
                         <motion.div
-                            className="bg-[#1A0E2E] rounded-[24px] p-6 border-2 border-royalpurple"
+                            className="bg-[#1A0E2E] rounded-[24px] p-6 border-2 border-royalblue"
                             initial={{ opacity: 0, y: 20 }}
                             animate={isSidebarInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                             transition={{ duration: 0.7, delay: 0.2 }}
@@ -156,8 +156,8 @@ export default function ServiceContent({ service, allServices }) {
                                         <Link
                                             href={`/services/${navService.slug}`}
                                             className={`flex items-center justify-between p-3 rounded-lg transition-colors ${service.slug === navService.slug
-                                                    ? "bg-royalpurple text-white"
-                                                    : "text-white/80 hover:bg-royalpurple/20"
+                                                ? "bg-royalblue text-white"
+                                                : "text-white/80 hover:bg-royalblue/20"
                                                 }`}
                                         >
                                             <span>{navService.navTitle || navService.title}</span>
@@ -171,7 +171,7 @@ export default function ServiceContent({ service, allServices }) {
                         </motion.div>
 
                         <motion.div
-                            className="mt-8 rounded-[24px] overflow-hidden relative h-[400px] border-2 border-royalpurple"
+                            className="mt-8 rounded-[24px] overflow-hidden relative h-[400px] border-2 border-royalblue"
                             initial={{ opacity: 0, y: 20 }}
                             animate={isSidebarInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                             transition={{ duration: 0.7, delay: 0.6 }}
@@ -187,7 +187,7 @@ export default function ServiceContent({ service, allServices }) {
                                     transition={{ duration: 1 }}
                                     whileHover={{ scale: 1.05 }}
                                 />
-                                <div className="absolute inset-0 bg-royalpurple/10"></div>
+                                <div className="absolute inset-0 bg-royalblue/10"></div>
                             </div>
                             <motion.div
                                 className="relative z-10 px-8 flex items-center justify-center flex-col h-full"
@@ -210,7 +210,7 @@ export default function ServiceContent({ service, allServices }) {
                                 >
                                     <Link
                                         href="#footer-contact"
-                                        className="block text-center bg-royalpurple hover:bg-royalpurple/80 text-white px-4 py-2 rounded-lg mt-4 transition-colors"
+                                        className="block text-center bg-royalblue hover:bg-royalblue/80 text-white px-4 py-2 rounded-lg mt-4 transition-colors"
                                     >
                                         Contact Us
                                     </Link>
@@ -231,7 +231,7 @@ export default function ServiceContent({ service, allServices }) {
                         animate={isOverviewInView ? "visible" : "hidden"}
                     >
                         <motion.div
-                            className="inline-flex items-center mb-4 bg-royalpurple rounded-full w-fit px-4 py-1"
+                            className="inline-flex items-center mb-4 bg-royalblue rounded-full w-fit px-4 py-1"
                             variants={iconContainerVariants}
                             whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -260,7 +260,7 @@ export default function ServiceContent({ service, allServices }) {
                         animate={isBenefitsInView ? "visible" : "hidden"}
                     >
                         <motion.div
-                            className="inline-flex items-center mb-4 bg-royalpurple rounded-full w-fit px-4 py-1"
+                            className="inline-flex items-center mb-4 bg-royalblue rounded-full w-fit px-4 py-1"
                             variants={iconContainerVariants}
                             whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -283,8 +283,8 @@ export default function ServiceContent({ service, allServices }) {
                                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                                 >
                                     <motion.div
-                                        className="bg-royalpurple rounded-full w-6 h-6 mt-1 flex items-center justify-center mr-3 shrink-0"
-                                        whileHover={{ scale: 1.2, backgroundColor: "#7928CA" }}
+                                        className="bg-royalblue rounded-full w-6 h-6 mt-1 flex items-center justify-center mr-3 shrink-0"
+                                        whileHover={{ scale: 1.2, backgroundColor: "#014A7F" }}
                                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
                                     >
                                         <span className="text-white font-bold text-sm">{index + 1}</span>
@@ -307,7 +307,7 @@ export default function ServiceContent({ service, allServices }) {
                         animate={isIdealForInView ? "visible" : "hidden"}
                     >
                         <motion.div
-                            className="inline-flex items-center mb-4 bg-royalpurple rounded-full w-fit px-4 py-1"
+                            className="inline-flex items-center mb-4 bg-royalblue rounded-full w-fit px-4 py-1"
                             variants={iconContainerVariants}
                             whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -328,11 +328,11 @@ export default function ServiceContent({ service, allServices }) {
                                     animate={isIdealForInView ? "visible" : "hidden"}
                                 >
                                     <motion.div
-                                        className="bg-white border border-royalpurple rounded-full w-5 h-5 mt-1 flex items-center justify-center mr-3"
-                                        whileHover={{ scale: 1.2, backgroundColor: "#5305B8", borderColor: "#ffffff" }}
+                                        className="bg-white border border-royalblue rounded-full w-5 h-5 mt-1 flex items-center justify-center mr-3"
+                                        whileHover={{ scale: 1.2, backgroundColor: "#014A7F", borderColor: "#ffffff", color: "#ffffff" }}
                                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
                                     >
-                                        <Check className="w-3 h-3 text-royalpurple" />
+                                        <Check className="w-3 h-3 text-royalblue hover:text-white" />
                                     </motion.div>
                                     <span className="text-white text-sm md:text-base">{item}</span>
                                 </motion.li>
@@ -358,7 +358,7 @@ export default function ServiceContent({ service, allServices }) {
                         >
                             <Link
                                 href="#footer-contact"
-                                className="inline-block bg-royalpurple hover:bg-royalpurple/80 text-white px-8 py-3 rounded-full font-medium transition-colors text-sm md:text-base"
+                                className="inline-block bg-royalblue hover:bg-royalblue/80 text-white px-8 py-3 rounded-full font-medium transition-colors text-sm md:text-base"
                             >
                                 Request {service.title} Service
                             </Link>

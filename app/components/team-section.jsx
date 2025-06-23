@@ -122,13 +122,13 @@ export default function TeamSection() {
           {/* Background Gradient */}
           <linearGradient id="fillGradient" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#0B0428" />
-            <stop offset="100%" stopColor="#250252" />
+            <stop offset="100%" stopColor="#014A7F" />
           </linearGradient>
 
           {/* Border Stroke Gradient */}
           <linearGradient id="strokeGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#5305B8" />
-            <stop offset="100%" stopColor="#250252" />
+            <stop offset="0%" stopColor="#014A7F" />
+            <stop offset="100%" stopColor="#014A7F" />
           </linearGradient>
         </defs>
 
@@ -178,14 +178,14 @@ export default function TeamSection() {
         <defs>
           {/* Background Gradient */}
           <linearGradient id="fillGradient5" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#461094" />
+            <stop offset="0%" stopColor="#014A7F" />
             <stop offset="30%" stopColor="#16052E" />
           </linearGradient>
 
           {/* Border Stroke Gradient */}
           <linearGradient id="strokeGradient5" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#5305B8" />
-            <stop offset="100%" stopColor="#250252" />
+            <stop offset="0%" stopColor="#014A7F" />
+            <stop offset="100%" stopColor="#014A7F" />
           </linearGradient>
         </defs>
 
@@ -202,7 +202,7 @@ export default function TeamSection() {
 
       <div className="absolute inset-0 flex flex-col justify-center items-center">
         <motion.h3
-          className="text-royalpurple text-lg sm:text-xl md:text-2xl font-bold text-center"
+          className="text-white text-lg sm:text-xl md:text-2xl font-bold text-center"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.2 }}
@@ -210,7 +210,7 @@ export default function TeamSection() {
           Team
         </motion.h3>
         <motion.h3
-          className="text-royalpurple text-lg sm:text-xl md:text-2xl font-bold text-center"
+          className="text-white text-lg sm:text-xl md:text-2xl font-bold text-center"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.4 }}
@@ -224,7 +224,7 @@ export default function TeamSection() {
   return (
     <motion.section
       ref={sectionRef}
-      className="relative w-full py-8 md:py-16 overflow-hidden bg-[radial-gradient(23.41%_23.41%_at_52.42%_48.07%,_#5305B8_0%,_#0B0428_100%)] border-[4px] border-[rgba(58,25,100,0.4)]"
+      className="relative w-full py-8 md:py-16 overflow-hidden bg-[radial-gradient(23.41%_23.41%_at_52.42%_48.07%,_#014A7F_0%,_#0B0428_100%)] border-[4px] border-blue"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -236,7 +236,7 @@ export default function TeamSection() {
         variants={containerVariants}
       >
         <motion.h2
-          className="text-royalpurple text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 md:mb-16"
+          className="text-white text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 md:mb-16"
           variants={titleVariants}
         >
           Team Members
