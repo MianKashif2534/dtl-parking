@@ -158,7 +158,7 @@ function ContactInfo() {
       <div className='space-y-4'>
         <ContactItem
           icon={<MapPin className='text-royalblue h-6 w-6' />}
-          text='Headquarters: Fresno, California'
+          text='Address: Fresno, California'
           delay={0.3}
         />
         <ContactItem
@@ -342,7 +342,7 @@ function FooterBottom() {
           transition={{ duration: 0.5, delay: 1.4 }}
         >
           <p>
-            © {currentYear} DTL Parking, LLC. All Rights Reserved.{" "}
+            © {currentYear} DTL Transport, LLC. All Rights Reserved.{" "}
             <Link href='https://www.timexsolutioninc.com/' className='hover:text-white' target='_blank'>
               Designed by Timex Solutions Inc.
             </Link>

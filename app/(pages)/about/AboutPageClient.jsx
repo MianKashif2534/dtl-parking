@@ -9,7 +9,7 @@ import { useRef } from "react"
 
 const panelData = [
     {
-        image: "/about/image-1.png",
+        image: "/about/image-11.png",
         alt: "A New Era of Transport",
         title: "A New Era of Transport Begins",
         content: [
@@ -71,7 +71,7 @@ const InfoPanel = ({ image, alt, title, content, index }) => {
                 transition={{ duration: 0.8, delay: 0.2 + index * 0.2 }}
             >
                 <motion.h3
-                    className="text-2xl font-bold text-white mb-2"
+                    className="md:text-2xl font-bold text-white mb-2"
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.6, delay: 0.3 + index * 0.2 }}
@@ -81,7 +81,7 @@ const InfoPanel = ({ image, alt, title, content, index }) => {
                 {content.map((text, idx) => (
                     <motion.p
                         key={idx}
-                        className="text-white text-sm mb-2"
+                        className="text-white text-xs md:text-sm mb-2"
                         initial={{ opacity: 0 }}
                         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                         transition={{ duration: 0.6, delay: 0.4 + index * 0.2 + idx * 0.1 }}

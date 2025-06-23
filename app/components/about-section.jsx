@@ -210,7 +210,7 @@ export default function AboutSection() {
                             variants={badgeVariants}
                         >
                             <p className="text-center">
-                                <span className="block text-2xl font-bold">Running DLT</span>
+                                <span className="block text-2xl font-bold">Running DTL</span>
                                 <span className="block text-2xl font-bold">Since 2013</span>
                             </p>
                         </motion.div>

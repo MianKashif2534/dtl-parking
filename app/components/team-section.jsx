@@ -35,10 +35,10 @@ export default function TeamSection() {
 
   // Team members data
   const teamMembers = [
-    { id: "hr-dept", title: "HR Dept", image: "/team-1.png" },
+    { id: "hr-dept", title: "HR Dept", image: "/user1.png" },
     { id: "hr", title: "HR", image: "/team-1.png" },
     { id: "accounting", title: "Accounting Manager", image: "/team-1.png" },
-    { id: "ceo-1", title: "CEO/Outbound Team", image: "/team-1.png" },
+    { id: "ceo-1", title: "CEO/Outbound Team", image: "/user1.png" },
     { id: "ceo-2", title: "CEO/Outbound Team", image: "/team-1.png" },
     { id: "outbound", title: "Outbound Team", image: "/team-1.png" },
     { id: "inbound", title: "Inbound Team", image: "/team-1.png" },
@@ -273,7 +273,7 @@ export default function TeamSection() {
               {/* HR DEPT - Left side */}
               <div className="col-start-1 row-start-2 flex justify-center">
                 <div className="w-full max-w-[180px]">
-                  <TeamHexagon title="HR Dept" image="/team-1.png" index={0} />
+                  <TeamHexagon title="HR Dept" image="/staff/user1.png" index={0} />
                 </div>
               </div>
 

@@ -189,9 +189,8 @@ const DriverForm = () => {
         >
           {message.text && (
             <div
-              className={`mb-4 p-4 rounded ${
-                message.type === 'success' ? 'bg-green-500/20' : 'bg-red-500/20'
-              }`}
+              className={`mb-4 p-4 rounded ${message.type === 'success' ? 'bg-green-500/20' : 'bg-red-500/20'
+                }`}
             >
               {message.text}
             </div>
@@ -284,7 +283,7 @@ const DriverForm = () => {
               >
                 <option value=''>Select City</option>
                 {cities.map((city) => (
-                  <option className='text-[#5305B8]' key={city} value={city}>
+                  <option className='text-royalblue' key={city} value={city}>
                     {city}
                   </option>
                 ))}
@@ -308,7 +307,7 @@ const DriverForm = () => {
                 ) : (
                   states.map((state) => (
                     <option
-                      className='text-[#5305B8]'
+                      className='text-royalblue'
                       key={state.name}
                       value={state.name}
                     >
@@ -339,7 +338,7 @@ const DriverForm = () => {
                   <input
                     type='radio'
                     name='age21'
-                    style={{ accentColor: '#5305B8' }}
+                    className='accent-royalblue'
                     checked={formData.age21 === 'Yes'}
                     onChange={handleInputChange}
                   />{' '}
@@ -349,7 +348,7 @@ const DriverForm = () => {
                   <input
                     type='radio'
                     name='age21'
-                    style={{ accentColor: '#5305B8' }}
+                    className='accent-royalblue'
                     checked={formData.age21 === 'No'}
                     onChange={handleInputChange}
                   />{' '}
@@ -366,7 +365,7 @@ const DriverForm = () => {
                   <input
                     type='radio'
                     name='military'
-                    style={{ accentColor: '#5305B8' }}
+                    style={{ accentColor: '#014A7F' }}
                     checked={formData.military === 'Yes'}
                     onChange={handleInputChange}
                   />{' '}
@@ -376,7 +375,7 @@ const DriverForm = () => {
                   <input
                     type='radio'
                     name='military'
-                    style={{ accentColor: '#5305B8' }}
+                    style={{ accentColor: '#014A7F' }}
                     checked={formData.military === 'No'}
                     onChange={handleInputChange}
                   />{' '}
@@ -419,7 +418,7 @@ const DriverForm = () => {
                   <input
                     type='radio'
                     name='dui'
-                    style={{ accentColor: '#5305B8' }}
+                    style={{ accentColor: '#014A7F' }}
                     checked={formData.dui === 'Yes'}
                     onChange={handleInputChange}
                   />{' '}
@@ -429,7 +428,7 @@ const DriverForm = () => {
                   <input
                     type='radio'
                     name='dui'
-                    style={{ accentColor: '#5305B8' }}
+                    style={{ accentColor: '#014A7F' }}
                     checked={formData.dui === 'No'}
                     onChange={handleInputChange}
                   />{' '}
@@ -446,7 +445,7 @@ const DriverForm = () => {
                   <input
                     type='radio'
                     name='citations'
-                    style={{ accentColor: '#5305B8' }}
+                    style={{ accentColor: '#014A7F' }}
                     checked={formData.citations === 'Yes'}
                     onChange={handleInputChange}
                   />{' '}
@@ -456,7 +455,7 @@ const DriverForm = () => {
                   <input
                     type='radio'
                     name='citations'
-                    style={{ accentColor: '#5305B8' }}
+                    style={{ accentColor: '#014A7F' }}
                     checked={formData.citations === 'No'}
                     onChange={handleInputChange}
                   />{' '}
@@ -482,7 +481,7 @@ const DriverForm = () => {
             <div className='flex flex-wrap gap-4 mb-2'>
               {documents.map((doc) => (
                 <label key={doc.name} className='flex items-center gap-1'>
-                  <input type='checkbox' style={{ accentColor: '#5305B8' }} />{' '}
+                  <input type='checkbox' style={{ accentColor: '#014A7F' }} />{' '}
                   {doc.name}
                 </label>
               ))}
@@ -500,7 +499,7 @@ const DriverForm = () => {
                   <input
                     type='radio'
                     name='hearAbout'
-                    style={{ accentColor: '#5305B8' }}
+                    style={{ accentColor: '#014A7F' }}
                     checked={formData.hearAbout === opt}
                     onChange={handleInputChange}
                   />{' '}
@@ -512,9 +511,8 @@ const DriverForm = () => {
           <button
             type='submit'
             disabled={loading}
-            className={`mt-8 w-full bg-blue hover:bg-blue/80 text-white font-bold py-3 rounded transition ${
-              loading ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
+            className={`mt-8 w-full bg-blue hover:bg-blue/80 text-white font-bold py-3 rounded transition ${loading ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
           >
             {loading ? 'Submitting...' : 'Submit'}
           </button>

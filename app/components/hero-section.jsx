@@ -11,7 +11,7 @@ export default function HomeHeroSection() {
     subHeading:
       'From full truckloads to specialized freight, DTL delivers seamless, secure, and on-time transportation services across the nation.',
     ctaText: 'Request a Quote',
-    ctaLink: '/contact',
+    ctaLink: '/driver',
   }
 
   return <HeroSection {...heroProps} />

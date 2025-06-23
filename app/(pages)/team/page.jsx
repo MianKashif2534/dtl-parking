@@ -23,7 +23,7 @@ const BenefitCard = ({
   return (
     <motion.div
       ref={cardRef}
-      className='relative pt-10 pb-6'
+      className='relative pt-10 mb-4 md:pb-6'
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{
@@ -56,12 +56,12 @@ const BenefitCard = ({
       </motion.div>
 
       <motion.div
-        className='bg-white min-h-[500px] rounded-md rounded-b-none border-b-8 border-royalpurple/90 p-6 h-full flex flex-col'
+        className='bg-white md:min-h-[500px] rounded-md rounded-b-none border-b-8 border-royalblue/90 p-6 h-full flex flex-col'
         whileHover={{ y: -5, boxShadow: '0 10px 25px rgba(90, 47, 153, 0.3)' }}
         transition={{ type: 'spring', stiffness: 300, damping: 15 }}
       >
         <motion.h3
-          className='text-2xl md:text-3xl font-bold text-royalpurple text-center mb-1'
+          className='text-2xl md:text-3xl font-bold text-royalblue text-center mb-1'
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.4 + index * 0.2 }}
@@ -69,7 +69,7 @@ const BenefitCard = ({
           {title}
         </motion.h3>
         <motion.p
-          className='text-lg md:text-xl text-royalpurple font-semibold text-center mb-4'
+          className='text-lg md:text-xl text-royalblue font-semibold text-center mb-4'
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
@@ -78,7 +78,7 @@ const BenefitCard = ({
         </motion.p>
 
         <motion.p
-          className='text-sm md:text-base mb-4 font-light text-royalpurple text-center'
+          className='text-sm md:text-base mb-4 font-light text-royalblue text-center'
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.6 + index * 0.2 }}
@@ -87,7 +87,7 @@ const BenefitCard = ({
         </motion.p>
 
         <motion.div
-          className='mt-auto italic text-xs md:text-sm text-royalpurple text-center'
+          className='mt-auto italic text-xs md:text-sm text-royalblue text-center'
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.7 + index * 0.2 }}
@@ -109,7 +109,7 @@ const TeamMemberCard = ({ name, role, email, image, description, index }) => {
   return (
     <motion.div
       ref={cardRef}
-      className='bg-royalpurple/40 px-3 py-4 md:p-6 rounded-md'
+      className='bg-royalblue/40 px-3 py-4 md:p-6 rounded-md'
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{
@@ -125,7 +125,7 @@ const TeamMemberCard = ({ name, role, email, image, description, index }) => {
     >
       <div className='flex flex-col sm:flex-row gap-6 items-center mb-6 md:mb-12'>
         <motion.div
-          className='w-40 h-40 rounded-full overflow-hidden flex-shrink-0 border-4 border-royalpurple'
+          className='w-40 h-40 rounded-full overflow-hidden flex-shrink-0 border-4 border-royalblue'
           initial={{ scale: 0.8, opacity: 0 }}
           animate={
             isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }
@@ -151,7 +151,7 @@ const TeamMemberCard = ({ name, role, email, image, description, index }) => {
             {name}
           </motion.h3>
           <motion.p
-            className='text-purple md:text-xl font-semibold text-center sm:text-left'
+            className='text-blue md:text-xl font-semibold text-center sm:text-left'
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
             transition={{ duration: 0.5, delay: 0.4 + index * 0.15 }}
@@ -160,7 +160,7 @@ const TeamMemberCard = ({ name, role, email, image, description, index }) => {
           </motion.p>
           <motion.a
             href={`mailto:${email}`}
-            className='text-sm md:text-xl text-center sm:text-left hover:text-purple transition-colors block'
+            className='text-sm md:text-xl text-center sm:text-left hover:text-blue transition-colors block'
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
             transition={{ duration: 0.5, delay: 0.5 + index * 0.15 }}
@@ -384,7 +384,7 @@ export default function TeamPage() {
                 animate={isHeroInView ? 'visible' : 'hidden'}
               >
                 <span className='text-white'>Keep Rolling and </span>
-                <span className='text-purple'>Get Paid</span>
+                <span className='text-blue'>Get Paid</span>
               </motion.h1>
               <motion.h2
                 className='text-xl md:text-3xl font-bold flex items-center gap-2'
@@ -449,7 +449,7 @@ export default function TeamPage() {
                 <p className='text-2xl font-semibold'>Talk to a Recruiter:</p>
                 <motion.a
                   href='tel:+15592894424'
-                  className='text-lg hover:text-purple transition-colors'
+                  className='text-lg hover:text-blue transition-colors'
                   whileHover={{ scale: 1.05, x: 5 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -467,7 +467,7 @@ export default function TeamPage() {
             whileHover='hover'
           >
             <Image
-              src='/about/about-left.png'
+              src='/about/about-left1.png'
               alt='DTL Transportation Driver'
               width={400}
               height={400}
@@ -492,7 +492,7 @@ export default function TeamPage() {
           What We Offer
         </motion.h2>
 
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-6'>
           {benefits.map((benefit, index) => (
             <BenefitCard
               key={index}
@@ -586,7 +586,7 @@ export default function TeamPage() {
                   Executive Team —
                 </motion.span>
                 <motion.span
-                  className='block text-purple'
+                  className='block text-blue'
                   initial={{ opacity: 0, x: -30 }}
                   animate={
                     isTeamSectionInView

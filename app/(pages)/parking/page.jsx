@@ -187,7 +187,7 @@ export default function ParkingPage() {
                 const formattedCountries = data
                     .filter((country) => country.idd && country.idd.root) // Filter out countries without dialing codes
                     .map((country) => {
-                        const code = country.idd.root + (country.idd.suffixes ? country.idd.suffixes[0] || "" : "")
+                        const code = country.idd.root
                         return {
                             code: code,
                             country: country.name.common,
@@ -441,7 +441,7 @@ export default function ParkingPage() {
                                 >
                                     <Link
                                         href="/driver"
-                                        className="inline-block bg-blue shadow-[0_0_4px_#014A7F] text-white px-10 py-5 rounded-md transition w-full md:w-auto text-center text-lg"
+                                        className="inline-block bg-gradient-to-r from-royalblue to-transparent shadow-[0_0_4px_#014A7F] text-white px-10 py-5 rounded-md transition w-full md:w-auto text-center text-lg"
                                     >
                                         Drive With Us
                                     </Link>
@@ -464,7 +464,7 @@ export default function ParkingPage() {
                                 >
                                     <Link
                                         href="/services"
-                                        className="inline-block bg-royalblue shadow-[0_0_4px_#014A7F] hover:bg-royalblue/80 text-white px-10 py-5 rounded-md transition w-full md:w-auto text-center text-lg"
+                                        className="inline-block bg-[linear-gradient(to_right,_rgba(0,0,0,0)_50%,_#338FC1_0%,_#014A7F99_90%)] shadow-[0_0_4px_#014A7F] hover:bg-royalblue/80 text-white px-10 py-5 rounded-md transition w-full md:w-auto text-center text-lg"
                                     >
                                         Ship with Us
                                     </Link>
@@ -488,7 +488,7 @@ export default function ParkingPage() {
                         className="overflow-hidden border-4 border-royalblue bg-gradient-to-b from-black to-[#250252] shadow-[0px_0px_80px_16px_rgba(147,122,65,0.25)] rounded-[20px] px-4 py-6 md:p-12"
                         variants={formVariants}
                     >
-                        <motion.h2 className="text-royalblue text-4xl font-bold text-center mb-8" variants={titleVariants}>
+                        <motion.h2 className="text-white text-4xl font-bold text-center mb-8" variants={titleVariants}>
                             How to Reserve Your Space
                         </motion.h2>
 

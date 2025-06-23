@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ChevronDown, Menu, X } from 'lucide-react'
@@ -68,12 +69,10 @@ export default function NavBar() {
       <header className='lg:px-12 relative h-full'>
         <nav className='flex h-full w-full items-center justify-between'>
           <Link href='/' className='flex items-center space-x-2'>
-            <Image
-              className='h-12 w-auto'
-              src='/logo.png'
+            <img
+              className='h-12 md:h-16 w-auto'
+              src='/logo.webp'
               alt='DTL Parkings'
-              width={500}
-              height={500}
             />
           </Link>
 
@@ -176,72 +175,98 @@ export default function NavBar() {
         </div>
 
         <div className='flex flex-col mt-5 max-h-[calc(100vh-100px)] overflow-y-auto'>
-          {navItems.map((item) => (
-            <div key={item.name} className='flex flex-col'>
-              {item.hasDropdown ? (
-                <>
-                  <button
-                    onClick={toggleServiceSubmenu}
-                    className='py-5 text-center text-sm font-medium text-white hover:text-blue flex items-center justify-center gap-1'
-                  >
-                    {item.name}
-                    <ChevronDown
-                      className={cn(
-                        'h-4 w-4 transition-transform',
-                        isServiceSubmenuOpen ? 'rotate-180' : ''
-                      )}
-                    />
-                  </button>
-                  <div
-                    className={cn(
-                      'overflow-hidden transition-all duration-300 bg-gray-950',
-                      isServiceSubmenuOpen ? 'max-h-[1000px] p-2' : 'max-h-0'
-                    )}
-                  >
+          {navItems.map((item, index) => {
+            // Insert "Our Staff" and "Our Team" before "Contact"
+            const isContact = item.name.toLowerCase() === 'contact';
+
+            return (
+              <React.Fragment key={item.name}>
+                {isContact && (
+                  <>
                     <Link
-                      href='/services'
-                      className='py-3 px-2 text-center text-sm font-medium text-white hover:text-blue block rounded'
+                      href='/staff'
+                      className='py-5 text-center text-sm font-medium text-white hover:text-blue'
                       onClick={toggleMobileMenu}
                     >
-                      All Services
+                      Our Staff
                     </Link>
-                    <div className='grid grid-cols-2 gap-1 px-2'>
-                      {services.map((service) => (
+                    <Link
+                      href='/team'
+                      className='py-5 text-center text-sm font-medium text-white hover:text-blue'
+                      onClick={toggleMobileMenu}
+                    >
+                      Our Team
+                    </Link>
+                  </>
+                )}
+
+                <div className='flex flex-col'>
+                  {item.hasDropdown ? (
+                    <>
+                      <button
+                        onClick={toggleServiceSubmenu}
+                        className='py-5 text-center text-sm font-medium text-white hover:text-blue flex items-center justify-center gap-1'
+                      >
+                        {item.name}
+                        <ChevronDown
+                          className={cn(
+                            'h-4 w-4 transition-transform',
+                            isServiceSubmenuOpen ? 'rotate-180' : ''
+                          )}
+                        />
+                      </button>
+                      <div
+                        className={cn(
+                          'overflow-hidden transition-all duration-300 bg-gray-950',
+                          isServiceSubmenuOpen ? 'max-h-[1000px] p-2' : 'max-h-0'
+                        )}
+                      >
                         <Link
-                          key={service.slug}
-                          href={`/services/${service.slug}`}
-                          className='py-3 px-2 text-center text-sm font-medium text-white hover:text-blue rounded'
+                          href='/services'
+                          className='py-3 px-2 text-center text-sm font-medium text-white hover:text-blue block rounded'
                           onClick={toggleMobileMenu}
                         >
-                          {service.title}
+                          All Services
                         </Link>
-                      ))}
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <Link
-                  href={item.href}
-                  className={cn(
-                    'py-5 text-center text-sm font-medium hover:text-blue',
-                    pathname === item.href
-                      ? 'bg-royalblue text-white'
-                      : 'text-white'
+                        <div className='grid grid-cols-2 gap-1 px-2'>
+                          {services.map((service) => (
+                            <Link
+                              key={service.slug}
+                              href={`/services/${service.slug}`}
+                              className='py-3 px-2 text-center text-sm font-medium text-white hover:text-blue rounded'
+                              onClick={toggleMobileMenu}
+                            >
+                              {service.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        'py-5 text-center text-sm font-medium hover:text-blue',
+                        pathname === item.href
+                          ? 'bg-royalblue text-white'
+                          : 'text-white'
+                      )}
+                      onClick={toggleMobileMenu}
+                    >
+                      {item.name}
+                    </Link>
                   )}
-                  onClick={toggleMobileMenu}
-                >
-                  {item.name}
-                </Link>
-              )}
-            </div>
-          ))}
+                </div>
+              </React.Fragment>
+            );
+          })}
 
-          <div className='mx-auto mt-5'>
+          <div className='mx-auto mt-5 mb-10'>
             <div className='flex items-center space-x-3 text-white'>
               <div>
                 <Link
-                  href='/appointment'
-                  className='bg-[linear-gradient(90deg,_rgba(46,27,82,0.12)_0%,_rgba(103,61,184,0.72)_100%)] shadow-[0_0_4px_#014A7F] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
+                  href='/driver'
+                  className='bg-blue shadow-[0_0_4px_#014A7F] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
                 >
                   <span className='relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full text-center'>
                     Driver <br />
@@ -252,7 +277,7 @@ export default function NavBar() {
               <div>
                 <Link
                   href="tel:18004262895"
-                  className='bg-[#5305B8] shadow-[0_0_4px_#014A7F] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
+                  className='bg-royalblue shadow-[0_0_4px_#014A7F] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
                 >
                   <span className='relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full'>
                     Talk to a Recruiter <br />1 (800) 426-2895
