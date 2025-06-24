@@ -5,6 +5,7 @@ import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import InteractiveButton from "./animation/interactive-button"
+import OffsetButton from "./ui/OffsetButton"
 
 const serviceCards = [
     {
@@ -209,48 +210,51 @@ export default function TruckParkingSection() {
                 </div>
 
                 <motion.div className="flex flex-col items-center justify-center" variants={buttonContainerVariants}>
-                    <motion.div className="flex flex-col md:flex-row items-center gap-4 mb-4" variants={containerVariants}>
+                    <motion.div className="flex flex-col md:flex-row items-center gap-6 mb-6" variants={containerVariants}>
                         <motion.div variants={itemVariants}>
                             <InteractiveButton>
-                                <Link
+                                {/* <Link
                                     href="/driver"
                                     className="inline-block bg-[linear-gradient(90deg,rgba(46,27,82,0.12)_0%,rgba(1,74,127,0.6)_100%)] shadow-[0_0_4px_#014A7F] text-white px-6 py-3 rounded-md transition"
                                 >
                                     <span className="py-1 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full">
                                         Drive With Us
                                     </span>
-                                </Link>
+                                </Link> */}
+                                <OffsetButton href="/driver" buttonText="Drive With Us" height='h-12' width='w-36' />
                             </InteractiveButton>
                         </motion.div>
 
-                        <motion.span className="text-white text-lg font-medium hidden md:flex" variants={itemVariants}>
+                        <motion.span className="text-white text-lg font-medium hidden md:flex mr-2" variants={itemVariants}>
                             Or
                         </motion.span>
 
                         <motion.div variants={itemVariants}>
                             <InteractiveButton>
-                                <Link
+                                {/* <Link
                                     href="/"
                                     className="bg-royalblue hidden md:inline-block shadow-[0_0_4px_#014A7F] hover:bg-blue text-white px-6 py-3 rounded-md transition"
                                 >
                                     <span className="py-1 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full">
                                         Ship with Us
                                     </span>
-                                </Link>
+                                </Link> */}
+                                <OffsetButton href="/" buttonText="Ship with Us" height='h-12' width='w-36' />
                             </InteractiveButton>
                         </motion.div>
                     </motion.div>
 
                     <motion.div className="flex" variants={itemVariants} transition={{ delay: 0.3 }}>
                         <InteractiveButton>
-                            <Link
+                            {/* <Link
                                 href="/services"
                                 className="inline-block relative z-50 bg-[linear-gradient(90deg,rgba(46,27,82,0.12)_0%,rgba(1,74,127,0.6)_100%)] shadow-[0_0_4px_#014A7F] text-white px-6 py-3 rounded-md transition"
                             >
                                 <span className="py-1 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full">
                                     Explore More
                                 </span>
-                            </Link>
+                            </Link> */}
+                            <OffsetButton href="/services" buttonText="Explore More" height='h-12' width='w-36' />
                         </InteractiveButton>
                     </motion.div>
                 </motion.div>

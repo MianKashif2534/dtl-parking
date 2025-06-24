@@ -6,6 +6,8 @@ import { Check } from "lucide-react"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
+import OffsetButton from "@/app/components/ui/OffsetButton"
+import CustomBadge from "@/app/components/ui/button"
 
 export default function ServiceContent({ service, allServices }) {
     // Refs for scroll animations
@@ -132,7 +134,7 @@ export default function ServiceContent({ service, allServices }) {
                 >
                     <div className="sticky top-8">
                         <motion.div
-                            className="bg-[#1A0E2E] rounded-[24px] p-6 border-2 border-royalblue"
+                            className="rounded-[24px] p-6 border-[3px] border-royalblue"
                             initial={{ opacity: 0, y: 20 }}
                             animate={isSidebarInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                             transition={{ duration: 0.7, delay: 0.2 }}
@@ -196,7 +198,7 @@ export default function ServiceContent({ service, allServices }) {
                                 transition={{ duration: 0.7, delay: 0.8 }}
                             >
                                 <motion.h3
-                                    className="text-white text-2xl font-bold mb-2 text-center"
+                                    className="text-white text-2xl font-bold mb-6 text-center"
                                     initial={{ y: 20 }}
                                     animate={isSidebarInView ? { y: 0 } : { y: 20 }}
                                     transition={{ duration: 0.5, delay: 0.9 }}
@@ -208,12 +210,13 @@ export default function ServiceContent({ service, allServices }) {
                                     whileTap={{ scale: 0.98 }}
                                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                                 >
-                                    <Link
+                                    {/* <Link
                                         href="#footer-contact"
                                         className="block text-center bg-royalblue hover:bg-royalblue/80 text-white px-4 py-2 rounded-lg mt-4 transition-colors"
                                     >
                                         Contact Us
-                                    </Link>
+                                    </Link> */}
+                                    <OffsetButton href="#footer-contact" buttonText="Contact Us" height='h-12' width='w-36' />
                                 </motion.div>
                             </motion.div>
                         </motion.div>
@@ -231,15 +234,16 @@ export default function ServiceContent({ service, allServices }) {
                         animate={isOverviewInView ? "visible" : "hidden"}
                     >
                         <motion.div
-                            className="inline-flex items-center mb-4 bg-royalblue rounded-full w-fit px-4 py-1"
+                            className="inline-flex items-center mb-4 w-fit"
                             variants={iconContainerVariants}
                             whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         >
-                            <div className="w-6 h-6 flex items-center justify-center mr-3">
+                            {/* <div className="w-6 h-6 flex items-center justify-center mr-3">
                                 <img src="/icon-1.png" alt="icon" />
                             </div>
-                            <h2 className="text-white text-xl font-bold">Overview</h2>
+                            <h2 className="text-white text-xl font-bold">Overview</h2> */}
+                            <CustomBadge text="Overview" />
                         </motion.div>
                         <motion.p
                             className="text-white/80 md:text-lg"
@@ -260,15 +264,16 @@ export default function ServiceContent({ service, allServices }) {
                         animate={isBenefitsInView ? "visible" : "hidden"}
                     >
                         <motion.div
-                            className="inline-flex items-center mb-4 bg-royalblue rounded-full w-fit px-4 py-1"
+                            className="inline-flex items-center mb-4 w-fit"
                             variants={iconContainerVariants}
                             whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         >
-                            <div className="w-6 h-6 flex items-center justify-center mr-3">
+                            {/* <div className="w-6 h-6 flex items-center justify-center mr-3">
                                 <img src="/icon-1.png" alt="icon" />
                             </div>
-                            <h2 className="text-white md:text-xl font-bold">Why Choose DTL's {service.title} Service?</h2>
+                            <h2 className="text-white md:text-xl font-bold">Why Choose DTL's {service.title} Service?</h2> */}
+                            <CustomBadge text={<>Why Choose DTL's {service.title} Service?</>} />
                         </motion.div>
                         <ul className="space-y-4">
                             {service.benefits.map((benefit, index) => (
@@ -307,15 +312,16 @@ export default function ServiceContent({ service, allServices }) {
                         animate={isIdealForInView ? "visible" : "hidden"}
                     >
                         <motion.div
-                            className="inline-flex items-center mb-4 bg-royalblue rounded-full w-fit px-4 py-1"
+                            className="inline-flex items-center mb-4 w-fit"
                             variants={iconContainerVariants}
                             whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         >
-                            <div className="w-6 h-6 flex items-center justify-center mr-3">
+                            {/* <div className="w-6 h-6 flex items-center justify-center mr-3">
                                 <img src="/icon-1.png" alt="icon" />
                             </div>
-                            <h2 className="text-white text-xl font-bold">Ideal for:</h2>
+                            <h2 className="text-white text-xl font-bold">Ideal for:</h2> */}
+                            <CustomBadge text="Ideal for:" />
                         </motion.div>
                         <ul className="space-y-3">
                             {service.idealFor.map((item, index) => (
@@ -356,12 +362,13 @@ export default function ServiceContent({ service, allServices }) {
                             animate={isCtaInView ? "visible" : "hidden"}
                             className="inline-block rounded-full"
                         >
-                            <Link
+                            {/* <Link
                                 href="#footer-contact"
                                 className="inline-block bg-royalblue hover:bg-royalblue/80 text-white px-8 py-3 rounded-full font-medium transition-colors text-sm md:text-base"
                             >
                                 Request {service.title} Service
-                            </Link>
+                            </Link> */}
+                            <OffsetButton href="#footer-contact" buttonText={<>Request {service.title} Service</>} height='h-14' width='w-64' />
                         </motion.div>
                     </motion.div>
                 </div>

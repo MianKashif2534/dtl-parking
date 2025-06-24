@@ -26,8 +26,8 @@ const documents = [
 ]
 
 const hearAboutUs = [
-  'Ad on Facebook',
-  'Goulet Facebook Page',
+  // 'Ad on Facebook',
+  // 'Goulet Facebook Page',
   'Craigslist',
   'Saw our Trucks / Spoke with a driver',
   'Ad on another site',
@@ -332,26 +332,33 @@ const DriverForm = () => {
           </div>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'>
             <div>
-              <label className='block mb-1'>Atleast 21 years old</label>
+              <label className='block mb-1'>At least 21 years old</label>
               <div className='flex gap-4 mt-1'>
-                <label className='flex items-center gap-1'>
+                <label
+                  className={`flex items-center gap-1 cursor-pointer`}
+                >
                   <input
                     type='radio'
                     name='age21'
+                    value='Yes'
                     className='accent-royalblue'
                     checked={formData.age21 === 'Yes'}
                     onChange={handleInputChange}
-                  />{' '}
+                  />
                   Yes
                 </label>
-                <label className='flex items-center gap-1'>
+
+                <label
+                  className={`flex items-center gap-1 cursor-pointer `}
+                >
                   <input
                     type='radio'
                     name='age21'
+                    value='No'
                     className='accent-royalblue'
                     checked={formData.age21 === 'No'}
                     onChange={handleInputChange}
-                  />{' '}
+                  />
                   No
                 </label>
               </div>
@@ -361,24 +368,31 @@ const DriverForm = () => {
                 Currently serving or a military veteran?
               </label>
               <div className='flex gap-4 mt-1'>
-                <label className='flex items-center gap-1'>
+                <label
+                  className={`flex items-center gap-1 cursor-pointer`}
+                >
                   <input
                     type='radio'
                     name='military'
+                    value='Yes'
                     style={{ accentColor: '#014A7F' }}
                     checked={formData.military === 'Yes'}
                     onChange={handleInputChange}
-                  />{' '}
+                  />
                   Yes
                 </label>
-                <label className='flex items-center gap-1'>
+
+                <label
+                  className={`flex items-center gap-1 cursor-pointer`}
+                >
                   <input
                     type='radio'
                     name='military'
+                    value='No'
                     style={{ accentColor: '#014A7F' }}
                     checked={formData.military === 'No'}
                     onChange={handleInputChange}
-                  />{' '}
+                  />
                   No
                 </label>
               </div>
@@ -414,51 +428,66 @@ const DriverForm = () => {
                 Have you ever been charged/convicted of a DUI/OWI?
               </label>
               <div className='flex gap-4 mt-1'>
-                <label className='flex items-center gap-1'>
+                <label
+                  className={`flex items-center gap-1 cursor-pointer`}
+                >
                   <input
                     type='radio'
                     name='dui'
+                    value='Yes'
                     style={{ accentColor: '#014A7F' }}
                     checked={formData.dui === 'Yes'}
                     onChange={handleInputChange}
-                  />{' '}
+                  />
                   Yes
                 </label>
-                <label className='flex items-center gap-1'>
+
+                <label
+                  className={`flex items-center gap-1 cursor-pointer`}
+                >
                   <input
                     type='radio'
                     name='dui'
+                    value='No'
                     style={{ accentColor: '#014A7F' }}
                     checked={formData.dui === 'No'}
                     onChange={handleInputChange}
-                  />{' '}
+                  />
                   No
                 </label>
               </div>
             </div>
+
             <div>
               <label className='block mb-1'>
                 Have you had any CITATIONS in the last 5 years?
               </label>
               <div className='flex gap-4 mt-1'>
-                <label className='flex items-center gap-1'>
+                <label
+                  className={`flex items-center gap-1 cursor-pointer`}
+                >
                   <input
                     type='radio'
                     name='citations'
+                    value='Yes'
                     style={{ accentColor: '#014A7F' }}
                     checked={formData.citations === 'Yes'}
                     onChange={handleInputChange}
-                  />{' '}
+                  />
                   Yes
                 </label>
-                <label className='flex items-center gap-1'>
+
+                <label
+                  className={`flex items-center gap-1 cursor-pointer`}
+                >
                   <input
                     type='radio'
                     name='citations'
+                    value='No'
                     style={{ accentColor: '#014A7F' }}
                     checked={formData.citations === 'No'}
                     onChange={handleInputChange}
-                  />{' '}
+                  />
                   No
                 </label>
               </div>
@@ -495,14 +524,18 @@ const DriverForm = () => {
             <label className='block mb-1'>How did you hear about us?</label>
             <div className='flex flex-col gap-2'>
               {hearAboutUs.map((opt) => (
-                <label key={opt} className='flex items-center gap-1'>
+                <label
+                  key={opt}
+                  className={`flex items-center gap-1 cursor-pointer`}
+                >
                   <input
                     type='radio'
                     name='hearAbout'
+                    value={opt}
                     style={{ accentColor: '#014A7F' }}
                     checked={formData.hearAbout === opt}
                     onChange={handleInputChange}
-                  />{' '}
+                  />
                   {opt}
                 </label>
               ))}

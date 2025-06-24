@@ -6,6 +6,7 @@ import Image from "next/image"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import InteractiveButton from "./animation/interactive-button"
+import OffsetButton from "./ui/OffsetButton"
 
 export default function AboutSection() {
     const sectionRef = useRef(null)
@@ -153,14 +154,15 @@ export default function AboutSection() {
                         </motion.p>
                         <motion.div variants={itemVariants}>
                             <InteractiveButton className="inline-block">
-                                <Link
+                                {/* <Link
                                     href="/about"
                                     className="inline-block bg-blue shadow-[0_0_4px_#0B0428] rounded-[8px] text-white px-8 py-3 transition-colors"
                                 >
                                     <span className="py-1 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full">
                                         Read More
                                     </span>
-                                </Link>
+                                </Link> */}
+                                <OffsetButton href="/about" buttonText="Read More" height='h-12' width='w-36' />
                             </InteractiveButton>
                         </motion.div>
                     </div>

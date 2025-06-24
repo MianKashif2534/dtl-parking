@@ -82,7 +82,7 @@ const services= [
         slug: "satellite-tracking",
         title: "Satellite Tracking",
         navTitle: "Satellite Tracking",
-        headerImage: "/services/satellite-tracking.png",
+        headerImage: "/services/satellite-tracking2.png",
         overview:
             "DTL Transport integrates Satellite Tracking technology to bring you real-time visibility and peace of mind. Our advanced tracking systems monitor your shipments from pickup to delivery, providing accurate location data, status updates, and security assurance.",
         benefits: [
@@ -118,7 +118,7 @@ const services= [
         slug: "power-only",
         title: "Power Only",
         navTitle: "Power Only",
-        headerImage: "/services/power-only.png",
+        headerImage: "/services/power-only1.png",
         overview:
             "At DTL Transport, our Power Only service provides the power unit (tractor) and a professional driver to haul your trailer or container. This flexible logistics solution is ideal for shippers and carriers who already own trailers but need reliable transport power to move freight efficiently.",
         benefits: [

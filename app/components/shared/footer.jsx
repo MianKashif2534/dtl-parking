@@ -342,7 +342,7 @@ function FooterBottom() {
           transition={{ duration: 0.5, delay: 1.4 }}
         >
           <p>
-            © {currentYear} DTL Transport, LLC. All Rights Reserved.{" "}
+            © {currentYear} DTL Transport LLC. All Rights Reserved.{" "}
             <Link href='https://www.timexsolutioninc.com/' className='hover:text-white' target='_blank'>
               Designed by Timex Solutions Inc.
             </Link>

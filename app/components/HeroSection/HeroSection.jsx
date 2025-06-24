@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import OffsetButton from '../ui/OffsetButton'
 
 export default function HeroSection({
   backgroundImage,
@@ -129,14 +130,15 @@ export default function HeroSection({
             whileHover='hover'
             whileTap='tap'
           >
-            <Link
+            {/* <Link
               href={ctaLink}
               className='inline-block text-white px-6 py-4 md:py-5 rounded-md shadow-[0_0_4px_#0B0428] bg-blue'
             >
               <span className='py-1 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full'>
                 {ctaText}
               </span>
-            </Link>
+            </Link> */}
+            <OffsetButton href={ctaLink} buttonText={ctaText} height='h-16' width='w-44' />
           </motion.div>
         </motion.div>
       </div>

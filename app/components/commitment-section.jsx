@@ -6,6 +6,7 @@ import Link from "next/link"
 import { motion, useInView, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
 import InteractiveButton from "./animation/interactive-button"
+import OffsetButton from "./ui/OffsetButton"
 
 export const StarPattern = ({ className }) => {
     return (
@@ -146,12 +147,12 @@ export default function CommitmentSection() {
                 </motion.p>
 
                 <motion.div
-                    className="flex flex-col sm:flex-row justify-center gap-4"
+                    className="flex flex-col sm:flex-row justify-center gap-6"
                     variants={itemVariants}
                     transition={{ delay: 0.4 }}
                 >
                     <InteractiveButton>
-                        <Link
+                        {/* <Link
                             href="/driver"
                             className="bg-blue shadow-[0_0_4px_#014A7F] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32"
                         >
@@ -159,17 +160,25 @@ export default function CommitmentSection() {
                                 Driver <br />
                                 Apply Now
                             </span>
-                        </Link>
+                        </Link> */}
+                        <OffsetButton href="/driver" buttonText={<>Driver <br /> Apply Now</>} height='h-14' width='w-36' />
                     </InteractiveButton>
                     <InteractiveButton>
-                        <Link
+                        {/* <Link
                             href="tel:18004262895"
                             className="bg-royalblue shadow-[0_0_4px_#014A7F] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32"
                         >
                             <span className="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full">
                                 Talk to a Recruiter <br /> 1 (800) 426-2895
                             </span>
-                        </Link>
+                        </Link> */}
+                        <OffsetButton
+                            href="tel:18004262895"
+                            buttonText={<>Talk to a Recruiter <br /> 1 (800) 426-2895</>}
+                            height='h-14'
+                            width='w-36'
+                            classname="bg-[linear-gradient(90deg,_rgba(0,0,0,0.5)_0%,_#014A7F_100%)]"
+                        />
                     </InteractiveButton>
                 </motion.div>
             </div>

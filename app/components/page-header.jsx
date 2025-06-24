@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import OffsetButton from "./ui/OffsetButton"
 
 export default function PageHeader({ title, subtitle, imageSrc, imageAlt, button = false }) {
     return (
@@ -130,12 +131,13 @@ export default function PageHeader({ title, subtitle, imageSrc, imageAlt, button
                             whileTap={{ scale: 0.98 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         >
-                            <Link
+                            {/* <Link
                                 href="/driver"
                                 className="bg-blue shadow-[0_0_4px_#014A7F] text-white px-6 py-3 rounded-md transition-all hover:shadow-[0_0_8px_#014A7F] group"
                             >
                                 <span className="relative z-10">Drive With Us</span>
-                            </Link>
+                            </Link> */}
+                            <OffsetButton href="/driver" buttonText="Drive With Us" height='h-12' width='w-36' />
                         </motion.div>
 
                         <div className="flex flex-col md:flex-row items-center justify-center space-x-0 md:space-x-3">
@@ -166,12 +168,13 @@ export default function PageHeader({ title, subtitle, imageSrc, imageAlt, button
                             whileTap={{ scale: 0.98 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         >
-                            <Link
+                            {/* <Link
                                 href="/"
                                 className="bg-royalblue shadow-[0_0_4px_#014A7F] hover:bg-blue text-white px-6 py-3 rounded-md transition-all hover:shadow-[0_0_8px_#014A7F] group"
                             >
                                 <span className="relative z-10">Ship with Us</span>
-                            </Link>
+                            </Link> */}
+                            <OffsetButton href="/" buttonText="Ship with Us" height='h-12' width='w-36' />
                         </motion.div>
                     </motion.div>
                 )}

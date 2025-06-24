@@ -21,7 +21,7 @@ export default function Page() {
       title: 'CEO/Outbound Team',
       email: 'lucky@dtltransport.com',
       bio: 'Lucky leads DTL Transport with a sharp eye for operations and growth. As CEO, he guides the outbound team and company strategy, ensuring every shipment meets our commitment to reliability and performance. His leadership drives innovation and customer satisfaction across all departments.',
-      imageSrc: '/staff/user1.png',
+      imageSrc: '/about/image-11.png',
     },
     {
       id: 2,
@@ -278,13 +278,13 @@ export default function Page() {
               {teamMembers.map((member, index) => (
                 <motion.div
                   key={member.id}
-                  className='bg-royalpurple/40 rounded-lg p-4 md:p-6 flex flex-col'
+                  className='bg-royalblue/40 rounded-lg p-4 md:p-6 flex flex-col'
                   variants={cardVariants}
                   custom={index}
                   whileHover={{
                     scale: 1.02,
-                    boxShadow: '0 10px 30px -10px rgba(83, 5, 184, 0.5)',
-                    backgroundColor: 'rgba(83, 5, 184, 0.5)',
+                    boxShadow: '0 10px 30px -10px rgba(1, 74, 127, 0.6)',
+                    backgroundColor: 'rgba(1, 74, 127, 0.6)',
                   }}
                   transition={{ type: 'spring', stiffness: 300, damping: 15 }}
                 >
@@ -316,7 +316,7 @@ export default function Page() {
                         {member.name}
                       </motion.h3>
                       <motion.p
-                        className='text-purple text-lg md:font-bold'
+                        className='text-white/70 text-lg md:font-bold'
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{

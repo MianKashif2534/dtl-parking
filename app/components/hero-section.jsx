@@ -4,7 +4,7 @@ import HeroSection from './HeroSection/HeroSection'
 
 export default function HomeHeroSection() {
   const heroProps = {
-    backgroundImage: '/home-hero2.png',
+    backgroundImage: '/home-hero3.png',
     welcomeText: 'Welcome to DTL',
     mainHeading:
       'Trusted Freight Solutions Across America Powered by Precision',

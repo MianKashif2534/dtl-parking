@@ -50,7 +50,7 @@ const InfoPanel = ({ image, alt, title, content, index }) => {
     return (
         <motion.div
             ref={panelRef}
-            className="relative md:h-[600px] overflow-hidden border-4 rounded-[24px] border-royalblue"
+            className="relative w-full h-auto md:h-[600px] overflow-hidden border-4 rounded-[24px] border-royalblue"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
@@ -64,8 +64,14 @@ const InfoPanel = ({ image, alt, title, content, index }) => {
                 animate={isInView ? { scale: 1.05 } : { scale: 1.2 }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
             />
+
+            {/* 👉 Overlay color layer only for index === 0 */}
+            {index === 0 && (
+                <div className="absolute inset-0 bg-black/50 pointer-events-none z-10" />
+            )}
+
             <motion.div
-                className="absolute inset-0 p-6 flex flex-col justify-end"
+                className="absolute inset-0 p-6 flex flex-col justify-end z-20"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.8, delay: 0.2 + index * 0.2 }}
