@@ -255,7 +255,7 @@ export default function AboutPageClient() {
                                     animate={isTaglineInView ? { opacity: 1 } : { opacity: 0 }}
                                     transition={{ duration: 0.8, delay: 0.8 }}
                                 >
-                                    DTL Transport, Inc. — One Call Does It All.
+                                    DTL Transport Inc. — One Call Does It All.
                                 </motion.p>
                             </motion.div>
                         </div>

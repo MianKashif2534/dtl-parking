@@ -14,7 +14,9 @@ const navItems = [
   { name: 'About Us', href: '/about' },
   { name: 'Services', href: '/services', hasDropdown: true },
   { name: 'Book Parking', href: '/parking' },
-  { name: 'Contact', href: '#footer-contact' },
+  { name: 'Staff', href: '/staff' },
+  { name: 'Team', href: '/team' },
+  { name: 'Contact', href: 'contact' },
 ]
 
 export default function NavBar() {
@@ -83,7 +85,7 @@ export default function NavBar() {
                 <Link
                   href={item.href}
                   className={cn(
-                    'bg-blue text-white hover:bg-royalblue shadow-[0px_0px_4px_#014A7F99] rounded-sm px-4 py-1 text-sm 2xl:text-lg font-medium transition-all flex items-center h-10 justify-center'
+                    'bg-blue text-white hover:bg-royalblue shadow-[0px_0px_4px_#014A7F99] rounded-sm px-3 text-sm 2xl:text-lg font-medium transition-all flex items-center h-9 justify-center'
                   )}
                 >
                   <span className='relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full'>
@@ -125,14 +127,14 @@ export default function NavBar() {
               </Link>
             </div>
             <div>
-              <Link
-                href="tel:18004262895"
+              <a
+                href="tel:+18004262895"
                 className='bg-royalblue shadow-[0_0_4px_#014A7F] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
               >
                 <span className='relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full'>
                   Talk to a Recruiter <br />1 (800) 426-2895
                 </span>
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -176,36 +178,15 @@ export default function NavBar() {
 
         <div className='flex flex-col mt-5 max-h-[calc(100vh-100px)] overflow-y-auto'>
           {navItems.map((item, index) => {
-            // Insert "Our Staff" and "Our Team" before "Contact"
-            const isContact = item.name.toLowerCase() === 'contact';
 
             return (
               <React.Fragment key={item.name}>
-                {isContact && (
-                  <>
-                    <Link
-                      href='/staff'
-                      className='py-5 text-center text-sm font-medium text-white hover:text-blue'
-                      onClick={toggleMobileMenu}
-                    >
-                      Our Staff
-                    </Link>
-                    <Link
-                      href='/team'
-                      className='py-5 text-center text-sm font-medium text-white hover:text-blue'
-                      onClick={toggleMobileMenu}
-                    >
-                      Our Team
-                    </Link>
-                  </>
-                )}
-
                 <div className='flex flex-col'>
                   {item.hasDropdown ? (
                     <>
                       <button
                         onClick={toggleServiceSubmenu}
-                        className='py-5 text-center text-sm font-medium text-white hover:text-blue flex items-center justify-center gap-1'
+                        className='py-5 text-center text-sm font-medium text-white hover:underline flex items-center justify-center gap-1'
                       >
                         {item.name}
                         <ChevronDown
@@ -223,7 +204,7 @@ export default function NavBar() {
                       >
                         <Link
                           href='/services'
-                          className='py-3 px-2 text-center text-sm font-medium text-white hover:text-blue block rounded'
+                          className='py-3 px-2 text-center text-sm font-medium text-white hover:underline block rounded'
                           onClick={toggleMobileMenu}
                         >
                           All Services
@@ -233,7 +214,7 @@ export default function NavBar() {
                             <Link
                               key={service.slug}
                               href={`/services/${service.slug}`}
-                              className='py-3 px-2 text-center text-sm font-medium text-white hover:text-blue rounded'
+                              className='py-3 px-2 text-center text-sm font-medium text-white hover:underline rounded'
                               onClick={toggleMobileMenu}
                             >
                               {service.title}
@@ -246,7 +227,7 @@ export default function NavBar() {
                     <Link
                       href={item.href}
                       className={cn(
-                        'py-5 text-center text-sm font-medium hover:text-blue',
+                        'py-5 text-center text-sm font-medium hover:underline',
                         pathname === item.href
                           ? 'bg-royalblue text-white'
                           : 'text-white'

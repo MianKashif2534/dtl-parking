@@ -216,7 +216,7 @@ export default function ServiceContent({ service, allServices }) {
                                     >
                                         Contact Us
                                     </Link> */}
-                                    <OffsetButton href="#footer-contact" buttonText="Contact Us" height='h-12' width='w-36' />
+                                    <OffsetButton href="/contact" buttonText="Contact Us" height='h-12' width='w-36' />
                                 </motion.div>
                             </motion.div>
                         </motion.div>

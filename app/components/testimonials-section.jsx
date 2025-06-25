@@ -289,7 +289,7 @@ export default function TestimonialsSection() {
                   variants={titleVariants}
                 >
                   <motion.div
-                    className='h-2 w-36 bg-blue rounded-[20px]'
+                    className='h-2 w-36 bg-white rounded-[20px]'
                     variants={lineVariants}
                   ></motion.div>
                   <motion.h2
@@ -299,7 +299,7 @@ export default function TestimonialsSection() {
                     Testimonials
                   </motion.h2>
                   <motion.div
-                    className='h-2 w-36 bg-blue rounded-[20px]'
+                    className='h-2 w-36 bg-white rounded-[20px]'
                     variants={lineVariants}
                   ></motion.div>
                 </motion.div>

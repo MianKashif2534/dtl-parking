@@ -38,20 +38,20 @@ const services = [
 const stats = [
     {
         icon: "/stat-1.png",
-        value: "300+",
-        numericValue: 300,
+        value: "120+",
+        numericValue: 120,
         label: "Trucks",
     },
     {
         icon: "/stat-2.png",
-        value: "350+",
-        numericValue: 350,
+        value: "245+",
+        numericValue: 245,
         label: "Trailers",
     },
     {
         icon: "/stat-3.png",
-        value: "90M+",
-        numericValue: 90,
+        value: "8M+",
+        numericValue: 8,
         label: "Miles Driven",
         suffix: "M+",
     },
@@ -277,14 +277,14 @@ export default function ServicesSection({
                             variants={statsContainerVariants}
                         >
                             <motion.div
-                                className="h-2 w-48 bg-royalblue rounded-[20px]"
+                                className="h-2 w-48 bg-white rounded-[20px]"
                                 variants={lineVariants}
                             ></motion.div>
                             <motion.h2 className="text-white text-2xl md:text-3xl font-bold mx-4 py-2" variants={itemVariants}>
                                 DTL BY NUMBERS
                             </motion.h2>
                             <motion.div
-                                className="h-2 w-48 bg-royalblue rounded-[20px]"
+                                className="h-2 w-48 bg-white rounded-[20px]"
                                 variants={lineVariants}
                             ></motion.div>
                         </motion.div>
@@ -293,7 +293,7 @@ export default function ServicesSection({
                             {stats.map((stat, index) => (
                                 <motion.div
                                     key={index}
-                                    className="p-6 flex flex-col items-center justify-center border-2 border-royalblue shadow-[0_0_16px_rgba(1, 74, 127, 0.6)] rounded-[20px]"
+                                    className="p-6 flex flex-col items-center justify-center border-2 border-white shadow-[0_0_16px_rgba(1, 74, 127, 0.6)] rounded-[20px]"
                                     variants={statsItemVariants}
                                     whileHover={{
                                         scale: 1.05,
@@ -324,7 +324,7 @@ export default function ServicesSection({
                                             />
                                         )}
                                     </motion.h3>
-                                    <motion.p className="text-royalblue text-sm md:text-lg text-center uppercase tracking-wider">
+                                    <motion.p className="text-white text-sm md:text-lg text-center uppercase tracking-wider">
                                         {stat.label}
                                     </motion.p>
                                 </motion.div>

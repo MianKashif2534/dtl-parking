@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import OffsetButton from '../ui/OffsetButton'
+import CustomBadge from '../ui/button'
 
 export default function HeroSection({
   backgroundImage,
@@ -80,7 +81,7 @@ export default function HeroSection({
           className='flex flex-col md:flex-row items-center justify-center mb-3 md:mb-4 space-x-3'
           variants={itemVariants}
         >
-          <motion.div
+          {/* <motion.div
             className='w-36 md:w-48 h-1 md:h-2 bg-blue rounded-2xl'
             initial={{ width: 0 }}
             animate={{
@@ -103,7 +104,8 @@ export default function HeroSection({
               transition: { delay: 0.5, duration: 0.8 },
             }}
             viewport={{ once: true }}
-          ></motion.div>
+          ></motion.div> */}
+          <CustomBadge text={welcomeText} />
         </motion.div>
 
         {/* Main Heading */}

@@ -18,3 +18,23 @@ body {
   border: none !important;
   background: transparent;
 }
+
+
+.hexagon-wrapper {
+  clip-path: polygon(25% 0%, 75% 0%,
+      100% 50%, 75% 100%,
+      25% 100%, 0% 50%);
+  background: #014A7F;
+  padding: 4px;
+}
+
+.hexagon-shape {
+  clip-path: polygon(25% 0%, 75% 0%,
+      100% 50%, 75% 100%,
+      25% 100%, 0% 50%);
+  background: linear-gradient(to bottom, #0B0428, #014A7F);
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: visible;
+}

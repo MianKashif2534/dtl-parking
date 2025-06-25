@@ -7,6 +7,7 @@ import { Mail, MapPin, Phone, ChevronDown, Check, Search, Loader2 } from "lucide
 import PageHeader from "@/app/components/page-header"
 import { useState, useEffect, useRef } from "react"
 import { motion, useInView, AnimatePresence } from "framer-motion"
+import OffsetButton from "@/app/components/ui/OffsetButton"
 
 // Feature card data
 const features = [
@@ -23,6 +24,7 @@ const features = [
             "24-hour camera coverage and guards on patrol. Your equipment and cargo remain safe with our comprehensive security system.",
         image: "/Security-monitoring.png",
         link: "/services/security-monitoring",
+        classname: "col-span-2"
     },
     {
         title: "Magnetic Gate Entry",
@@ -86,14 +88,14 @@ const truckTypes = ["Semi-Truck", "Box Truck", "Flatbed", "Refrigerated", "Tanke
 const parkingDurations = ["Daily (24 hours)", "Weekly (7 days)", "Monthly (30 days)", "3 Months", "6 Months", "Annual"]
 
 // Feature Card Component
-function FeatureCard({ title, description, image, link, index }) {
+function FeatureCard({ title, description, image, link, index, classname = "", }) {
     const cardRef = useRef(null)
     const isInView = useInView(cardRef, { once: true, amount: 0.3 })
 
     return (
         <motion.div
             ref={cardRef}
-            className="overflow-hidden border-4 border-royalblue relative group bg-royalblue shadow-[0_0_4px_4px_#014A7F] rounded-[20px]"
+            className={`overflow-hidden border-4 border-white relative group bg-royalblue shadow-[0_0_4px_4px_#014A7F] rounded-[20px] ${classname}`}
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{
@@ -391,9 +393,9 @@ export default function ParkingPage() {
                         </motion.p>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:mb-12">
                         {/* Feature Cards */}
-                        {features.slice(0, 3).map((feature, index) => (
+                        {features.map((feature, index) => (
                             <FeatureCard
                                 key={index}
                                 title={feature.title}
@@ -401,12 +403,12 @@ export default function ParkingPage() {
                                 image={feature.image}
                                 link={feature.link}
                                 index={index}
+                                classname={feature.classname}
                             />
                         ))}
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:mb-12">
-                        {/* Additional Feature Cards */}
+                    {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:mb-12">
                         {features.slice(3, 5).map((feature, index) => (
                             <FeatureCard
                                 key={index}
@@ -415,63 +417,66 @@ export default function ParkingPage() {
                                 image={feature.image}
                                 link={feature.link}
                                 index={index + 3}
+                                classname={feature.classname}
                             />
                         ))}
-                        <motion.div
-                            className="flex flex-col items-center justify-center mt-6 md:mt-0"
-                            initial={{ opacity: 0, y: 50 }}
-                            animate={isFeaturesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                            transition={{
-                                duration: 0.8,
-                                delay: 0.6,
-                                ease: "easeOut",
-                                type: "spring",
-                                stiffness: 50,
-                                damping: 15,
-                            }}
-                        >
-                            <div className="flex flex-col items-center gap-6 mb-4">
-                                <motion.div
-                                    whileHover={{
-                                        scale: 1.05,
-                                        boxShadow: "0 0 15px rgba(83, 5, 184, 0.7)",
-                                    }}
-                                    whileTap={{ scale: 0.98 }}
-                                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                                >
-                                    <Link
+                    </div> */}
+                    <motion.div
+                        className="flex flex-col items-center justify-center mt-6 md:mt-0"
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={isFeaturesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                        transition={{
+                            duration: 0.8,
+                            delay: 0.6,
+                            ease: "easeOut",
+                            type: "spring",
+                            stiffness: 50,
+                            damping: 15,
+                        }}
+                    >
+                        <div className="flex items-center gap-6 mb-4">
+                            <motion.div
+                                whileHover={{
+                                    scale: 1.05,
+                                    boxShadow: "0 0 15px rgba(83, 5, 184, 0.7)",
+                                }}
+                                whileTap={{ scale: 0.98 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                            >
+                                {/* <Link
                                         href="/driver"
                                         className="inline-block bg-gradient-to-r from-royalblue to-transparent shadow-[0_0_4px_#014A7F] text-white px-10 py-5 rounded-md transition w-full md:w-auto text-center text-lg"
                                     >
                                         Drive With Us
-                                    </Link>
-                                </motion.div>
-                                <motion.span
-                                    className="text-white text-2xl font-bold"
-                                    initial={{ opacity: 0 }}
-                                    animate={isFeaturesInView ? { opacity: 1 } : { opacity: 0 }}
-                                    transition={{ duration: 0.5, delay: 0.8 }}
-                                >
-                                    Or
-                                </motion.span>
-                                <motion.div
-                                    whileHover={{
-                                        scale: 1.05,
-                                        boxShadow: "0 0 15px rgba(83, 5, 184, 0.7)",
-                                    }}
-                                    whileTap={{ scale: 0.98 }}
-                                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                                >
-                                    <Link
+                                    </Link> */}
+                                <OffsetButton href="/driver" buttonText="Drive With Us" height='h-16' width='w-44' classname="md:text-[17px]" />
+                            </motion.div>
+                            <motion.span
+                                className="text-white text-2xl font-bold mr-2"
+                                initial={{ opacity: 0 }}
+                                animate={isFeaturesInView ? { opacity: 1 } : { opacity: 0 }}
+                                transition={{ duration: 0.5, delay: 0.8 }}
+                            >
+                                Or
+                            </motion.span>
+                            <motion.div
+                                whileHover={{
+                                    scale: 1.05,
+                                    boxShadow: "0 0 15px rgba(83, 5, 184, 0.7)",
+                                }}
+                                whileTap={{ scale: 0.98 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                            >
+                                {/* <Link
                                         href="/services"
                                         className="inline-block bg-[linear-gradient(to_right,_rgba(0,0,0,0)_50%,_#338FC1_0%,_#014A7F99_90%)] shadow-[0_0_4px_#014A7F] hover:bg-royalblue/80 text-white px-10 py-5 rounded-md transition w-full md:w-auto text-center text-lg"
                                     >
                                         Ship with Us
-                                    </Link>
-                                </motion.div>
-                            </div>
-                        </motion.div>
-                    </div>
+                                    </Link> */}
+                                <OffsetButton href="/" buttonText="Ship with Us" height='h-16' width='w-44' classname="md:text-[17px]" />
+                            </motion.div>
+                        </div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -485,7 +490,7 @@ export default function ParkingPage() {
             >
                 <div className="max-w-5xl mx-auto px-4 md:px-6 lg:px-8">
                     <motion.div
-                        className="overflow-hidden border-4 border-royalblue bg-gradient-to-b from-black to-[#250252] shadow-[0px_0px_80px_16px_rgba(147,122,65,0.25)] rounded-[20px] px-4 py-6 md:p-12"
+                        className="overflow-hidden border-4 border-white bg-gradient-to-b from-black to-blue shadow-[0px_0px_40px_8px_rgba(1,74,127,0.6)] rounded-[20px] px-4 py-6 md:p-12"
                         variants={formVariants}
                     >
                         <motion.h2 className="text-white text-4xl font-bold text-center mb-8" variants={titleVariants}>
@@ -505,7 +510,7 @@ export default function ParkingPage() {
                                         placeholder="John"
                                         className="w-full px-4 py-3 rounded-md bg-transparent border-2 border-white text-white focus:border-royalblue/80 focus:outline-none focus:ring-2 focus:ring-royalblue/50"
                                         whileFocus={{
-                                            borderColor: "#014A7F",
+
                                             boxShadow: "0 0 0 3px rgba(1, 74, 127, 0.6)",
                                         }}
                                     />
@@ -514,7 +519,7 @@ export default function ParkingPage() {
                                 {/* Type Of Truck */}
                                 <motion.div variants={formItemVariants}>
                                     <label htmlFor="truckType" className="block text-white mb-2">
-                                        Type Of Truck
+                                        Type of Truck
                                     </label>
                                     <div className="relative">
                                         <motion.select
@@ -522,15 +527,15 @@ export default function ParkingPage() {
                                             defaultValue=""
                                             className="w-full px-4 py-3 rounded-md bg-transparent border-2 border-white text-white appearance-none focus:border-royalblue/80 focus:outline-none focus:ring-2 focus:ring-royalblue/50"
                                             whileFocus={{
-                                                borderColor: "#014A7F",
+
                                                 boxShadow: "0 0 0 3px rgba(1, 74, 127, 0.6)",
                                             }}
                                         >
-                                            <option value="" disabled className="bg-[#0B0428]">
+                                            <option value="" disabled className="bg-white text-royalblue">
                                                 Select
                                             </option>
                                             {truckTypes.map((type, index) => (
-                                                <option key={index} value={type} className="bg-[#0B0428]">
+                                                <option key={index} value={type} className="bg-[#0B0428] text-white">
                                                     {type}
                                                 </option>
                                             ))}
@@ -550,7 +555,7 @@ export default function ParkingPage() {
                                         placeholder="john@email.com"
                                         className="w-full px-4 py-3 rounded-md bg-transparent border-2 border-white text-white focus:border-royalblue/80 focus:outline-none focus:ring-2 focus:ring-royalblue/80"
                                         whileFocus={{
-                                            borderColor: "#014A7F",
+
                                             boxShadow: "0 0 0 3px rgba(1, 74, 127, 0.6)",
                                         }}
                                     />
@@ -607,7 +612,7 @@ export default function ParkingPage() {
                                                                     animate={{ opacity: 1 }}
                                                                     transition={{ duration: 0.3, delay: 0.1 }}
                                                                     whileFocus={{
-                                                                        borderColor: "#014A7F",
+
                                                                         boxShadow: "0 0 0 3px rgba(1, 74, 127, 0.6)",
                                                                     }}
                                                                 />
@@ -667,7 +672,7 @@ export default function ParkingPage() {
                                             placeholder="Phone number"
                                             className="w-full px-4 py-3 rounded-r-md bg-transparent border-2 border-white border-l-0 text-white focus:border-royalblue/80 focus:outline-none focus:ring-2 focus:ring-royalblue/50"
                                             whileFocus={{
-                                                borderColor: "#014A7F",
+
                                                 boxShadow: "0 0 0 3px rgba(1, 74, 127, 0.6)",
                                             }}
                                         />
@@ -685,15 +690,15 @@ export default function ParkingPage() {
                                             defaultValue=""
                                             className="w-full px-4 py-3 rounded-md bg-transparent border-2 border-white text-white appearance-none focus:border-royalblue/80 focus:outline-none focus:ring-2 focus:ring-royalblue/50"
                                             whileFocus={{
-                                                borderColor: "#014A7F",
+
                                                 boxShadow: "0 0 0 3px rgba(1, 74, 127, 0.6)",
                                             }}
                                         >
-                                            <option value="" disabled className="bg-[#0B0428]">
+                                            <option value="" disabled className="bg-royalblue text-white">
                                                 Select
                                             </option>
                                             {parkingDurations.map((duration, index) => (
-                                                <option key={index} value={duration} className="bg-[#0B0428]">
+                                                <option key={index} value={duration} className="bg-[#0B0428] text-white">
                                                     {duration}
                                                 </option>
                                             ))}
@@ -713,7 +718,7 @@ export default function ParkingPage() {
                                         placeholder="MD"
                                         className="w-full px-4 py-3 rounded-md bg-transparent border-2 border-white text-white focus:border-royalblue/80 focus:outline-none focus:ring-2 focus:ring-royalblue/50"
                                         whileFocus={{
-                                            borderColor: "#014A7F",
+
                                             boxShadow: "0 0 0 3px rgba(1, 74, 127, 0.6)",
                                         }}
                                     />
@@ -731,7 +736,7 @@ export default function ParkingPage() {
                                     placeholder="Tell us more"
                                     className="w-full px-4 py-3 rounded-md bg-transparent border-2 border-white text-white focus:border-royalblue/80 focus:outline-none focus:ring-2 focus:ring-royalblue/50"
                                     whileFocus={{
-                                        borderColor: "#014A7F",
+
                                         boxShadow: "0 0 0 3px rgba(1, 74, 127, 0.6)",
                                     }}
                                 />
@@ -739,7 +744,7 @@ export default function ParkingPage() {
 
                             {/* Submit Button */}
                             <motion.div className="flex justify-center mt-6" variants={formItemVariants}>
-                                <motion.button
+                                {/* <motion.button
                                     type="submit"
                                     className="bg-blue shadow-[0px_0px_4px_#014A7F] rounded-lg text-white px-8 py-3 transition w-48 text-center font-medium"
                                     variants={buttonVariants}
@@ -747,7 +752,8 @@ export default function ParkingPage() {
                                     whileTap="tap"
                                 >
                                     Book Now
-                                </motion.button>
+                                </motion.button> */}
+                                <OffsetButton buttonText="Book Now" height='h-12' width='w-36' />
                             </motion.div>
                         </motion.form>
                     </motion.div>
@@ -783,7 +789,7 @@ export default function ParkingPage() {
                             animate={isBannerInView ? { opacity: 1 } : { opacity: 0 }}
                             transition={{ duration: 0.5, delay: 0.6 }}
                         >
-                            DTL Transport, Inc. — One Call Does It All.
+                            DTL Transport Inc. — One Call Does It All.
                         </motion.h2>
                     </motion.div>
                 </div>

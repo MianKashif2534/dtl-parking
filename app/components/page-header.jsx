@@ -2,6 +2,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import OffsetButton from "./ui/OffsetButton"
+import CustomBadge from "./ui/button"
 
 export default function PageHeader({ title, subtitle, imageSrc, imageAlt, button = false }) {
     return (
@@ -87,7 +88,7 @@ export default function PageHeader({ title, subtitle, imageSrc, imageAlt, button
                 transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
             >
                 <div className="flex flex-col md:flex-row items-center justify-center mb-2 md:mb-4 space-x-0 md:space-x-3">
-                    <motion.div
+                    {/* <motion.div
                         className="w-36 md:w-48 h-1 md:h-2 bg-blue rounded-2xl"
                         initial={{ width: 0, opacity: 0 }}
                         animate={{ width: "9rem", opacity: 1 }}
@@ -106,7 +107,8 @@ export default function PageHeader({ title, subtitle, imageSrc, imageAlt, button
                         initial={{ width: 0, opacity: 0 }}
                         animate={{ width: "9rem", opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-                    ></motion.div>
+                    ></motion.div> */}
+                    <CustomBadge text={title} />
                 </div>
                 {subtitle && (
                     <motion.p

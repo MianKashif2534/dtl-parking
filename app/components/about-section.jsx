@@ -171,11 +171,11 @@ export default function AboutSection() {
                     <div className="relative w-full h-[500px]">
                         {/* Purple highlight lines */}
                         <motion.div
-                            className="absolute top-0 right-[40%] left-0 h-4 bg-royalblue rounded-full"
+                            className="absolute top-0 right-[40%] left-0 h-4 bg-white rounded-full"
                             variants={lineVariants}
                         ></motion.div>
                         <motion.div
-                            className="absolute bottom-8 right-0 w-4 h-3/4 bg-royalblue rounded-full"
+                            className="absolute bottom-8 right-0 w-4 h-3/4 bg-white rounded-full"
                             variants={verticalLineVariants}
                         ></motion.div>
 

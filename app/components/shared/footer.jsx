@@ -158,13 +158,13 @@ function ContactInfo() {
       <div className='space-y-4'>
         <ContactItem
           icon={<MapPin className='text-royalblue h-6 w-6' />}
-          text='Address: Fresno, California'
+          text='Address: 4375 N Golden State Blvd, Fresno, CA 93722, USA'
           delay={0.3}
         />
         <ContactItem
           icon={<Phone className='text-royalblue h-6 w-6' />}
-          text='(559) 289-4424'
-          href='tel:+15592894424'
+          text='1 (800) 426-2895'
+          href="tel:18004262895"
           delay={0.4}
         />
         <ContactItem
@@ -182,9 +182,8 @@ const SocialLink = ({ href, icon }) => (
   <Link
     href={href}
     className='bg-white rounded-full p-2 hover:bg-gray-100 transition-colors'
-    aria-label={`Visit our ${
-      href.replace('https://', '').replace('www.', '').split('.')[0]
-    } page`}
+    aria-label={`Visit our ${href.replace('https://', '').replace('www.', '').split('.')[0]
+      } page`}
   >
     {icon}
   </Link>
@@ -342,7 +341,7 @@ function FooterBottom() {
           transition={{ duration: 0.5, delay: 1.4 }}
         >
           <p>
-            © {currentYear} DTL Transport LLC. All Rights Reserved.{" "}
+            © {currentYear} DTL Transport INC. All Rights Reserved.{" "}
             <Link href='https://www.timexsolutioninc.com/' className='hover:text-white' target='_blank'>
               Designed by Timex Solutions Inc.
             </Link>
@@ -683,9 +682,8 @@ function QuoteForm() {
               onBlur={() => setFocusedInput(null)}
             />
             <div
-              className={`absolute right-3 top-1/2 -translate-y-1/2 input-icon-wrapper ${
-                focusedInput === 'name' ? 'form-input-focused' : ''
-              }`}
+              className={`absolute right-3 top-1/2 -translate-y-1/2 input-icon-wrapper ${focusedInput === 'name' ? 'form-input-focused' : ''
+                }`}
             >
               <User className='input-icon w-5 h-5 text-royalblue' />
             </div>
@@ -702,9 +700,8 @@ function QuoteForm() {
               onBlur={() => setFocusedInput(null)}
             />
             <div
-              className={`absolute right-3 top-1/2 -translate-y-1/2 input-icon-wrapper ${
-                focusedInput === 'email' ? 'form-input-focused' : ''
-              }`}
+              className={`absolute right-3 top-1/2 -translate-y-1/2 input-icon-wrapper ${focusedInput === 'email' ? 'form-input-focused' : ''
+                }`}
             >
               <Mail className='input-icon w-5 h-5 text-royalblue' />
             </div>
@@ -721,9 +718,8 @@ function QuoteForm() {
               onBlur={() => setFocusedInput(null)}
             />
             <div
-              className={`absolute right-3 top-1/2 -translate-y-1/2 input-icon-wrapper ${
-                focusedInput === 'phone' ? 'form-input-focused' : ''
-              }`}
+              className={`absolute right-3 top-1/2 -translate-y-1/2 input-icon-wrapper ${focusedInput === 'phone' ? 'form-input-focused' : ''
+                }`}
             >
               <Phone className='input-icon w-5 h-5 text-royalblue' />
             </div>
@@ -756,9 +752,8 @@ function QuoteForm() {
             />
             <div
               onClick={handleIconClick}
-              className={`absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer input-icon-wrapper ${
-                focusedInput === 'date' ? 'form-input-focused' : ''
-              }`}
+              className={`absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer input-icon-wrapper ${focusedInput === 'date' ? 'form-input-focused' : ''
+                }`}
             >
               <Calendar className='input-icon w-5 h-5 text-royalblue' />
             </div>
@@ -813,9 +808,8 @@ function QuoteForm() {
               <option>Hazardous</option>
             </select>
             <div
-              className={`absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none input-icon-wrapper ${
-                focusedInput === 'freight' ? 'form-input-focused' : ''
-              }`}
+              className={`absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none input-icon-wrapper ${focusedInput === 'freight' ? 'form-input-focused' : ''
+                }`}
             >
               <ChevronDown className='input-icon w-5 h-5 text-royalblue' />
             </div>
@@ -835,9 +829,8 @@ function QuoteForm() {
               <option>Bulk</option>
             </select>
             <div
-              className={`absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none input-icon-wrapper ${
-                focusedInput === 'load' ? 'form-input-focused' : ''
-              }`}
+              className={`absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none input-icon-wrapper ${focusedInput === 'load' ? 'form-input-focused' : ''
+                }`}
             >
               <ChevronDown className='input-icon w-5 h-5 text-royalblue' />
             </div>

@@ -3,8 +3,8 @@ export default function CustomBadge({ text = "welcome to dtl", overlayIcon = "/s
     return (
         <div className="relative w-fit mx-auto">
             {/* Border image container */}
-            <div className="absolute inset-0 -inset-x-1.5 inset-y-2 md:inset-y-1.5 flex items-center justify-start pointer-events-none">
-                <img src="/services/border.svg" alt="" className="h-[110%]" />
+            <div className="absolute inset-0 -left-2 flex items-center justify-start pointer-events-none h-full">
+                <div className={`border-2 border-white rounded-full w-[80%] h-[94%]`} />
             </div>
 
             {/* Button content */}

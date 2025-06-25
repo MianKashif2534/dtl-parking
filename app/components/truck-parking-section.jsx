@@ -31,7 +31,7 @@ const serviceCards = [
 function ServiceCard({ title, description, image, link, index = 0 }) {
     return (
         <motion.div
-            className="overflow-hidden border-4 border-royalblue relative group bg-[rgba(1,74,127,0.6)] shadow-[0_0_4px_4px_#014A7F] rounded-[20px]"
+            className="overflow-hidden border-4 border-white relative group bg-[rgba(1,74,127,0.6)] shadow-[0_0_4px_4px_#014A7F] rounded-[20px]"
             initial={{ opacity: 0, y: 50 }}
             animate={{
                 opacity: 1,

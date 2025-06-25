@@ -109,7 +109,7 @@ export default function TeamSection() {
   // Hexagon component for team members
   const TeamHexagon = ({ title, image, index = 0 }) => (
     <motion.div
-      className="relative"
+      className="relative w-[180px] h-[160px]"
       variants={hexagonVariants}
       custom={index}
       whileHover={{
@@ -117,51 +117,37 @@ export default function TeamSection() {
         transition: { type: "spring", stiffness: 300, damping: 10 },
       }}
     >
-      <svg viewBox="0 0 180 160" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-        <defs>
-          {/* Background Gradient */}
-          <linearGradient id="fillGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#0B0428" />
-            <stop offset="100%" stopColor="#014A7F" />
-          </linearGradient>
+      <div className="hexagon-wrapper w-full h-full">
+        <div className="hexagon-shape relative w-full h-full">
+          <motion.div
+            className="w-full h-full"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+          >
+            <img
+              src={image || "/placeholder.svg"}
+              alt={title}
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
 
-          {/* Border Stroke Gradient */}
-          <linearGradient id="strokeGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#014A7F" />
-            <stop offset="100%" stopColor="#014A7F" />
-          </linearGradient>
-        </defs>
 
-        <motion.path
-          d="M45 0L135 0L180 80L135 160L45 160L0 80L45 0Z"
-          fill="url(#fillGradient)"
-          stroke="url(#strokeGradient)"
-          strokeWidth="4"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ duration: 1, delay: 0.2 + index * 0.1 }}
-        />
-      </svg>
-      <div className="absolute inset-0 flex flex-col items-center">
-        <motion.div
-          className="w-20 h-20 sm:w-28 sm:h-28 md:w-40 md:h-40 overflow-hidden rounded-full mt-2 mb-1"
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-        >
-          <img src={image || "/placeholder.svg"} alt={title} className="w-full h-full object-cover" />
-        </motion.div>
-        <motion.p
-          className="text-white text-[10px] sm:text-xs md:text-sm"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-        >
-          {title}
-        </motion.p>
+          {/* Improved Badge */}
+          <motion.div
+            className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-20"
+            initial={{ opacity: 0, y: 20, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+          >
+            <div className="bg-white/95 backdrop-blur-sm text-[#014A7F] px-3 py-2 rounded-full shadow-lg border border-[#014A7F]/20">
+              <span className="text-xs sm:text-sm font-semibold text-center block whitespace-nowrap">{title}</span>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </motion.div>
-  )
+  );
 
   // Team Members center hexagon
   const TeamMembersHexagon = () => (
@@ -224,7 +210,7 @@ export default function TeamSection() {
   return (
     <motion.section
       ref={sectionRef}
-      className="relative w-full py-8 md:py-16 overflow-hidden bg-[radial-gradient(23.41%_23.41%_at_52.42%_48.07%,_#014A7F_0%,_#0B0428_100%)] border-[4px] border-blue"
+      className="relative w-full py-8 md:py-16 overflow-hidden bg-[radial-gradient(23.41%_23.41%_at_52.42%_48.07%,_#014A7F_0%,_#0B0428_100%)] border-[4px] border-white"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -273,7 +259,7 @@ export default function TeamSection() {
               {/* HR DEPT - Left side */}
               <div className="col-start-1 row-start-2 flex justify-center">
                 <div className="w-full max-w-[180px]">
-                  <TeamHexagon title="HR Dept" image="/staff/user1.png" index={0} />
+                  <TeamHexagon title="HR Dept" image="/team/user9.png" index={0} />
                 </div>
               </div>
 
@@ -281,12 +267,12 @@ export default function TeamSection() {
               <div className="col-start-2 row-start-1 row-span-3 flex flex-col items-center justify-center gap-4">
                 {/* HR */}
                 <div className="w-full max-w-[180px]">
-                  <TeamHexagon title="HR" image="/team-1.png" index={1} />
+                  <TeamHexagon title="HR" image="/team/user8.png" index={1} />
                 </div>
 
                 {/* Accounting Manager */}
                 <div className="w-full max-w-[180px]">
-                  <TeamHexagon title="Accounting Manager" image="/team-1.png" index={2} />
+                  <TeamHexagon title="Accounting Manager" image="/team/user7.png" index={2} />
                 </div>
               </div>
 
@@ -294,7 +280,7 @@ export default function TeamSection() {
               <div className="col-start-3 row-start-1 row-span-3 flex flex-col items-center justify-center gap-4">
                 {/* CEO/Outbound Team (Top) */}
                 <div className="w-full max-w-[180px]">
-                  <TeamHexagon title="CEO/Outbound Team" image="/team-1.png" index={3} />
+                  <TeamHexagon title="CEO/Outbound Team" image="/team/user1.png" index={3} />
                 </div>
 
                 {/* Team Members (Center) */}
@@ -304,7 +290,7 @@ export default function TeamSection() {
 
                 {/* CEO/Outbound Team (Bottom) */}
                 <div className="w-full max-w-[180px]">
-                  <TeamHexagon title="CEO/Outbound Team" image="/team-1.png" index={4} />
+                  <TeamHexagon title="CEO/Outbound Team" image="/team/user4.png" index={4} />
                 </div>
               </div>
 
@@ -312,19 +298,19 @@ export default function TeamSection() {
               <div className="col-start-4 row-start-1 row-span-3 flex flex-col items-center justify-center gap-4">
                 {/* Outbound Team */}
                 <div className="w-full max-w-[180px]">
-                  <TeamHexagon title="Outbound Team" image="/team-1.png" index={5} />
+                  <TeamHexagon title="Outbound Team" image="/team/user3.png" index={5} />
                 </div>
 
                 {/* Inbound Team */}
                 <div className="w-full max-w-[180px]">
-                  <TeamHexagon title="Inbound Team" image="/team-1.png" index={6} />
+                  <TeamHexagon title="Inbound Team" image="/team/user5.png" index={6} />
                 </div>
               </div>
 
               {/* Maintenance / Safety - Right side */}
               <div className="col-start-5 row-start-2 flex justify-center">
                 <div className="w-full max-w-[180px]">
-                  <TeamHexagon title="Maintenance / Safety" image="/team-1.png" index={7} />
+                  <TeamHexagon title="Maintenance / Safety" image="/team/user6.png" index={7} />
                 </div>
               </div>
             </div>

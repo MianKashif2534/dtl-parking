@@ -21,7 +21,7 @@ export default function Page() {
       title: 'CEO/Outbound Team',
       email: 'lucky@dtltransport.com',
       bio: 'Lucky leads DTL Transport with a sharp eye for operations and growth. As CEO, he guides the outbound team and company strategy, ensuring every shipment meets our commitment to reliability and performance. His leadership drives innovation and customer satisfaction across all departments.',
-      imageSrc: '/about/image-11.png',
+      imageSrc: '/staff/user1.png',
     },
     {
       id: 2,
@@ -278,7 +278,7 @@ export default function Page() {
               {teamMembers.map((member, index) => (
                 <motion.div
                   key={member.id}
-                  className='bg-royalblue/40 rounded-lg p-4 md:p-6 flex flex-col'
+                  className='bg-royalblue/40 rounded-lg p-4 md:p-6 flex flex-col border-2 border-white'
                   variants={cardVariants}
                   custom={index}
                   whileHover={{

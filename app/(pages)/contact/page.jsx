@@ -505,7 +505,7 @@ export default function ContactPage() {
                             animate={isBannerInView ? { opacity: 1 } : { opacity: 0 }}
                             transition={{ duration: 0.5, delay: 0.6 }}
                         >
-                            DTL Transport, Inc. — One Call Does It All.
+                            DTL Transport Inc. — One Call Does It All.
                         </motion.h2>
                     </motion.div>
                 </div>

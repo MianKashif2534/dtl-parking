@@ -24,7 +24,7 @@ export const metadata = {
   ],
   authors: [{ name: 'DTL Transport' }],
   creator: 'Timex Solution',
-  publisher: 'DTL Transport, Inc.',
+  publisher: 'DTL Transport Inc.',
   formatDetection: {
     email: true,
     telephone: true,
