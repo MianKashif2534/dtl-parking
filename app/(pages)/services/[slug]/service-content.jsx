@@ -273,7 +273,7 @@ export default function ServiceContent({ service, allServices }) {
                                 <img src="/icon-1.png" alt="icon" />
                             </div>
                             <h2 className="text-white md:text-xl font-bold">Why Choose DTL's {service.title} Service?</h2> */}
-                            <CustomBadge text={<>Why Choose DTL's {service.title} Service?</>} />
+                            <CustomBadge text={<>{service.title} Service?</>} />
                         </motion.div>
                         <ul className="space-y-4">
                             {service.benefits.map((benefit, index) => (
