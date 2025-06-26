@@ -131,6 +131,7 @@ export default function ServicesPage() {
                 subtitle="Comprehensive freight solutions tailored to your business needs"
                 imageSrc="/service-hero.png"
                 imageAlt="DTL Transport truck on a mountain road"
+                button={true}
             />
             <ServicesSection
                 showStats={false}

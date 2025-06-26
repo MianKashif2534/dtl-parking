@@ -34,7 +34,7 @@ export default async function ServicePage({ params }) {
 
     return (
         <div className="min-h-screen">
-            <PageHeader title={service.title} subtitle="" imageSrc={service.headerImage} imageAlt={service.title} />
+            <PageHeader title={service.title} subtitle="" imageSrc={service.headerImage} imageAlt={service.title} button={true} />
 
             <ServiceContent service={service} allServices={allServices} />
         </div>

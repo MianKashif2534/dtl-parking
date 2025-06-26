@@ -362,6 +362,7 @@ export default function TeamPage() {
         subtitle=''
         imageSrc='/team-hero.png'
         imageAlt='DTL Transport truck parking facility'
+        button={true}
       />
       {/* Hero Section */}
       <motion.section

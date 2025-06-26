@@ -195,6 +195,7 @@ export default function ContactPage() {
                 subtitle="Reliable Support, Clear Communication, Always Here to Help"
                 imageSrc="/contact-hero.png"
                 imageAlt="DTL Transport contact"
+                button={true}
             />
 
             {/* Introduction Section */}

@@ -175,6 +175,7 @@ export default function Page() {
         subtitle=''
         imageSrc='/staff-hero.png'
         imageAlt='DTL Transport truck parking facility'
+        button={true}
       />
       <div className='max-w-6xl mx-auto'>
         <motion.div

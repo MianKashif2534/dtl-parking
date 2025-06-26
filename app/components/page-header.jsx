@@ -123,7 +123,7 @@ export default function PageHeader({ title, subtitle, imageSrc, imageAlt, button
 
                 {button && (
                     <motion.div
-                        className="flex flex-col-reverse items-center gap-4 mt-4 md:mt-8"
+                        className="flex flex-col-reverse md:flex-row-reverse items-center gap-4 mt-4 md:mt-8"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 1.4 }}
@@ -142,7 +142,7 @@ export default function PageHeader({ title, subtitle, imageSrc, imageAlt, button
                             <OffsetButton href="/driver" buttonText="Drive With Us" height='h-12' width='w-36' />
                         </motion.div>
 
-                        <div className="flex flex-col md:flex-row items-center justify-center space-x-0 md:space-x-3">
+                        <div className="flex flex-col md:flex-row items-center justify-center space-x-0 md:space-x-3 mr-2 mb-2 md:mb-0">
                             <motion.div
                                 className="w-12 h-1 bg-white rounded-2xl"
                                 initial={{ width: 0 }}

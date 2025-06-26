@@ -353,6 +353,7 @@ export default function ParkingPage() {
                 subtitle="Professional truck parking facility with 24/7 security and easy access"
                 imageSrc="/parking-hero.png"
                 imageAlt="DTL Transport truck parking facility"
+                button={true}
             />
 
             {/* Introduction Section */}
