@@ -35,14 +35,14 @@ export default function TeamSection() {
 
   // Team members data
   const teamMembers = [
-    { id: "hr-dept", title: "HR Dept", image: "/user1.png" },
-    { id: "hr", title: "HR", image: "/team-1.png" },
-    { id: "accounting", title: "Accounting Manager", image: "/team-1.png" },
-    { id: "ceo-1", title: "CEO/Outbound Team", image: "/user1.png" },
-    { id: "ceo-2", title: "CEO/Outbound Team", image: "/team-1.png" },
-    { id: "outbound", title: "Outbound Team", image: "/team-1.png" },
-    { id: "inbound", title: "Inbound Team", image: "/team-1.png" },
-    { id: "maintenance", title: "Maintenance / Safety", image: "/team-1.png" },
+    { id: "hr-dept", title: "HR Dept", image: "/team/user9.png" },
+    { id: "hr", title: "HR", image: "/team/user8.png" },
+    { id: "accounting", title: "Accounting Manager", image: "/team/user7.png" },
+    { id: "ceo-1", title: "CEO/Outbound Team", image: "/team/user1.png" },
+    { id: "ceo-2", title: "CEO/Outbound Team", image: "/team/user4.png" },
+    { id: "outbound", title: "Outbound Team", image: "/team/user3.png" },
+    { id: "inbound", title: "Inbound Team", image: "/team/user5.png" },
+    { id: "maintenance", title: "Maintenance / Safety", image: "/team/user6.png" },
   ]
 
   // Animation variants
@@ -117,37 +117,70 @@ export default function TeamSection() {
         transition: { type: "spring", stiffness: 300, damping: 10 },
       }}
     >
-      <div className="hexagon-wrapper w-full h-full">
-        <div className="hexagon-shape relative w-full h-full">
-          <motion.div
-            className="w-full h-full"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-          >
-            <img
-              src={image || "/placeholder.svg"}
-              alt={title}
-              className="w-full h-full object-cover"
+      <div className="hexagon-wrapper w-full h-[160px] relative">
+        {" "}
+        {/* Fixed hexagon height */}
+        <div className="hexagon-shape relative w-full h-full overflow-hidden">
+          {/* Hexagon SVG with proper clipping */}
+          <svg viewBox="0 0 180 160" className="w-full h-full absolute inset-0" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              {/* Clip path for hexagon shape */}
+              <clipPath id={`hexClip-${index}`}>
+                <path d="M45 0L135 0L180 80L135 160L45 160L0 80L45 0Z" />
+              </clipPath>
+
+              {/* Border gradient */}
+              <linearGradient id={`borderGradient-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#014A7F" />
+                <stop offset="50%" stopColor="#0066CC" />
+                <stop offset="100%" stopColor="#014A7F" />
+              </linearGradient>
+            </defs>
+
+            {/* Hexagon border */}
+            <path
+              d="M45 0L135 0L180 80L135 160L45 160L0 80L45 0Z"
+              fill="none"
+              stroke={`url(#borderGradient-${index})`}
+              strokeWidth="3"
+              className="drop-shadow-lg"
             />
-          </motion.div>
 
+            {/* Image inside hexagon */}
+            <image
+              href={image || "/placeholder.svg?height=160&width=180"}
+              x="0"
+              y="0"
+              width="180"
+              height="160"
+              clipPath={`url(#hexClip-${index})`}
+              className="object-cover"
+              preserveAspectRatio="xMidYMid slice"
+            />
 
-          {/* Improved Badge */}
-          <motion.div
-            className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-20"
-            initial={{ opacity: 0, y: 20, scale: 0.8 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-          >
-            <div className="bg-white/95 backdrop-blur-sm text-[#014A7F] px-3 py-2 rounded-full shadow-lg border border-[#014A7F]/20">
-              <span className="text-xs sm:text-sm font-semibold text-center block whitespace-nowrap">{title}</span>
-            </div>
-          </motion.div>
+            {/* Overlay for better contrast */}
+            <path
+              d="M45 0L135 0L180 80L135 160L45 160L0 80L45 0Z"
+              fill="rgba(1, 74, 127, 0.15)"
+              clipPath={`url(#hexClip-${index})`}
+            />
+          </svg>
         </div>
       </div>
+
+      {/* Fixed Badge - Positioned outside hexagon to avoid clipping */}
+      <motion.div
+        className="absolute bottom-0 left-7 z-30"
+        initial={{ opacity: 0, y: 20, scale: 0.8 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+      >
+        <div className="w-[120px] bg-white/95 backdrop-blur-sm text-royalblue px-2 py-1 rounded-full shadow-lg border border-royalblue/20">
+          <span className="text-xs font-semibold text-center block leading-tight truncate">{title}</span>
+        </div>
+      </motion.div>
     </motion.div>
-  );
+  )
 
   // Team Members center hexagon
   const TeamMembersHexagon = () => (

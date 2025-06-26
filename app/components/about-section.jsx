@@ -189,7 +189,7 @@ export default function AboutSection() {
                         </motion.div>
 
                         <motion.div
-                            className="absolute top-8 right-0 z-0 w-56 h-56 rounded-2xl overflow-hidden"
+                            className="absolute top-8 right-0 z-0 w-56 h-56 rounded-2xl overflow-hidden border-2 border-white"
                             variants={imageVariants}
                             custom={2}
                             transition={{ delay: 0.2 }}
