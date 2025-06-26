@@ -349,7 +349,7 @@ export default function ParkingPage() {
         <div className="min-h-screen font-light">
             {/* Header Section */}
             <PageHeader
-                title="Truck Parking Services at DTL Transport"
+                title="Parking Services"
                 subtitle="Professional truck parking facility with 24/7 security and easy access"
                 imageSrc="/parking-hero.png"
                 imageAlt="DTL Transport truck parking facility"
