@@ -8,6 +8,7 @@ import { ChevronDown, Menu, X } from 'lucide-react'
 import { useWindowScroll } from 'react-use'
 import { usePathname } from 'next/navigation'
 import { getAllServices } from '../lib/services'
+import OffsetButton from './ui/OffsetButton'
 
 const navItems = [
   { name: 'Home', href: '/' },
@@ -114,9 +115,9 @@ export default function NavBar() {
           </div>
 
           {/* Appointment Button */}
-          <div className='hidden lg:flex items-center space-x-3 text-white'>
+          <div className='hidden lg:flex items-center space-x-6 text-white'>
             <div>
-              <Link
+              {/* <Link
                 href='/driver'
                 className='bg-blue hover:bg-royalblue shadow-[0_0_4px_#014A7F] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
               >
@@ -124,17 +125,25 @@ export default function NavBar() {
                   Driver <br />
                   Apply Now
                 </span>
-              </Link>
+              </Link> */}
+              <OffsetButton href="/driver" buttonText={<>Driver <br /> Apply Now</>} height='h-12' width='w-32' />
             </div>
             <div>
-              <a
+              {/* <a
                 href="tel:+18004262895"
                 className='bg-royalblue shadow-[0_0_4px_#014A7F] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
               >
                 <span className='relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full'>
                   Talk to a Recruiter <br />1 (800) 426-2895
                 </span>
-              </a>
+              </a> */}
+              <OffsetButton
+                href="tel:+18004262895"
+                buttonText={<>Talk to a Recruiter <br /> 1 (800) 426-2895</>}
+                height='h-12'
+                width='w-32'
+                classname="bg-[linear-gradient(90deg,_rgba(0,0,0,0.5)_0%,_#014A7F_100%)] text-xs"
+              />
             </div>
           </div>
 
@@ -243,9 +252,9 @@ export default function NavBar() {
           })}
 
           <div className='mx-auto mt-5 mb-10'>
-            <div className='flex items-center space-x-3 text-white'>
+            <div className='flex items-center space-x-6 text-white'>
               <div>
-                <Link
+                {/* <Link
                   href='/driver'
                   className='bg-blue shadow-[0_0_4px_#014A7F] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
                 >
@@ -253,17 +262,25 @@ export default function NavBar() {
                     Driver <br />
                     Apply Now
                   </span>
-                </Link>
+                </Link> */}
+                <OffsetButton href="/driver" buttonText={<>Driver <br /> Apply Now</>} height='h-12' width='w-32' />
               </div>
               <div>
-                <Link
-                  href="tel:18004262895"
+                {/* <Link
+                  href="tel:+18004262895"
                   className='bg-royalblue shadow-[0_0_4px_#014A7F] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32'
                 >
                   <span className='relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full'>
                     Talk to a Recruiter <br />1 (800) 426-2895
                   </span>
-                </Link>
+                </Link> */}
+                <OffsetButton
+                  href="tel:+18004262895"
+                  buttonText={<>Talk to a Recruiter <br /> 1 (800) 426-2895</>}
+                  height='h-12'
+                  width='w-32'
+                  classname="bg-[linear-gradient(90deg,_rgba(0,0,0,0.5)_0%,_#014A7F_100%)] text-xs"
+                />
               </div>
             </div>
           </div>

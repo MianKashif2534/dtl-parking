@@ -165,7 +165,7 @@ export default function CommitmentSection() {
                     </InteractiveButton>
                     <InteractiveButton>
                         {/* <Link
-                            href="tel:18004262895"
+                            href="tel:+18004262895"
                             className="bg-royalblue shadow-[0_0_4px_#014A7F] rounded-sm px-4 py-1 text-sm font-medium cursor-pointer transition flex items-center min-h-10 justify-center min-w-32"
                         >
                             <span className="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full">
@@ -173,7 +173,7 @@ export default function CommitmentSection() {
                             </span>
                         </Link> */}
                         <OffsetButton
-                            href="tel:18004262895"
+                            href="tel:+18004262895"
                             buttonText={<>Talk to a Recruiter <br /> 1 (800) 426-2895</>}
                             height='h-14'
                             width='w-36'

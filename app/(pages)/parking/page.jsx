@@ -24,7 +24,7 @@ const features = [
             "24-hour camera coverage and guards on patrol. Your equipment and cargo remain safe with our comprehensive security system.",
         image: "/Security-monitoring.png",
         link: "/services/security-monitoring",
-        classname: "col-span-2"
+        classname: "lg:col-span-2"
     },
     {
         title: "Magnetic Gate Entry",
@@ -422,7 +422,7 @@ export default function ParkingPage() {
                         ))}
                     </div> */}
                     <motion.div
-                        className="flex flex-col items-center justify-center mt-6 md:mt-0"
+                        className="flex flex-col items-center justify-center mt-8 md:mt-0"
                         initial={{ opacity: 0, y: 50 }}
                         animate={isFeaturesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                         transition={{
@@ -434,7 +434,7 @@ export default function ParkingPage() {
                             damping: 15,
                         }}
                     >
-                        <div className="flex items-center gap-6 mb-4">
+                        <div className="flex items-center flex-col md:flex-row gap-3 md:gap-6 mb-4">
                             <motion.div
                                 whileHover={{
                                     scale: 1.05,
@@ -449,10 +449,10 @@ export default function ParkingPage() {
                                     >
                                         Drive With Us
                                     </Link> */}
-                                <OffsetButton href="/driver" buttonText="Drive With Us" height='h-16' width='w-44' classname="md:text-[17px]" />
+                                <OffsetButton href="/driver" buttonText="Drive With Us" height='h-12 md:h-16' width='w-36 md:w-44' classname="md:text-[17px]" />
                             </motion.div>
                             <motion.span
-                                className="text-white text-2xl font-bold mr-2"
+                                className="text-white text-2xl font-bold mr-2 mb-2 md:mb-0"
                                 initial={{ opacity: 0 }}
                                 animate={isFeaturesInView ? { opacity: 1 } : { opacity: 0 }}
                                 transition={{ duration: 0.5, delay: 0.8 }}
@@ -473,7 +473,7 @@ export default function ParkingPage() {
                                     >
                                         Ship with Us
                                     </Link> */}
-                                <OffsetButton href="/" buttonText="Ship with Us" height='h-16' width='w-44' classname="md:text-[17px]" />
+                                <OffsetButton href="/" buttonText="Ship with Us" height='h-12 md:h-16' width='w-36 md:w-44' classname="md:text-[17px]" />
                             </motion.div>
                         </div>
                     </motion.div>

@@ -226,7 +226,7 @@ export default function ContactPage() {
                         {/* Contact Form */}
                         <motion.div
                             ref={formRef}
-                            className="backdrop-blur-sm rounded-3xl p-6 md:p-8 border-[3px] border-royalblue h-full"
+                            className="backdrop-blur-sm rounded-3xl p-6 md:p-8 border-[3px] border-white h-full"
                             variants={formVariants}
                             initial="hidden"
                             animate={isFormInView ? 'visible' : 'hidden'}
@@ -385,7 +385,7 @@ export default function ContactPage() {
                             {/* Map */}
                             <motion.div
                                 ref={mapRef}
-                                className="backdrop-blur-sm rounded-3xl p-6 border-[3px] border-royalblue overflow-hidden"
+                                className="backdrop-blur-sm rounded-3xl p-6 border-[3px] border-white overflow-hidden"
                                 variants={mapVariants}
                                 initial="hidden"
                                 animate={isMapInView ? 'visible' : 'hidden'}
@@ -398,7 +398,7 @@ export default function ContactPage() {
                                 </motion.h3>
                                 <div className="w-full h-64 md:h-80 rounded-lg overflow-hidden">
                                     <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.8234567890123!2d-119.7871234567890!3d36.7477890123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDQ0JzUyLjAiTiAxMTnCsDQ3JzEzLjYiVw!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3194.8156785108604!2d-119.8685557!3d36.7989695!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80946611bf14e351%3A0x97b5901315290076!2sDTL%20Transport%2C%20Inc.!5e0!3m2!1sen!2s!4v1750957996521!5m2!1sen!2s"
                                         width="100%"
                                         height="100%"
                                         style={{ border: 0 }}
@@ -413,7 +413,7 @@ export default function ContactPage() {
                             {/* Contact Information */}
                             <motion.div
                                 ref={contactInfoRef}
-                                className="backdrop-blur-sm rounded-3xl p-6 border-[3px] border-royalblue"
+                                className="backdrop-blur-sm rounded-3xl p-6 border-[3px] border-white"
                                 variants={contactInfoVariants}
                                 initial="hidden"
                                 animate={isContactInfoInView ? 'visible' : 'hidden'}
@@ -431,7 +431,14 @@ export default function ContactPage() {
                                         </div>
                                         <div>
                                             <p className="text-white font-medium">Address</p>
-                                            <p className="text-white/80">Fresno, California</p>
+                                            <a
+                                                href="https://maps.app.goo.gl/RHuTBK8YXki5nd8n6"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-white/80 hover:underline"
+                                            >
+                                                4375 N Golden State Blvd, Fresno, CA 93722, USA
+                                            </a>
                                         </div>
                                     </motion.div>
 
@@ -441,8 +448,8 @@ export default function ContactPage() {
                                         </div>
                                         <div>
                                             <p className="text-white font-medium">Phone</p>
-                                            <a href="tel:+15592894424" className="text-white/80 hover:text-white transition-colors">
-                                                (559) 289-4424
+                                            <a href="tel:+18004262895" className="text-white/80 hover:underline transition-colors">
+                                                1 (800) 426-2895
                                             </a>
                                         </div>
                                     </motion.div>
@@ -453,7 +460,7 @@ export default function ContactPage() {
                                         </div>
                                         <div>
                                             <p className="text-white font-medium">Email</p>
-                                            <a href="mailto:lucky@dtltrans.com" className="text-white/80 hover:text-white transition-colors">
+                                            <a href="mailto:lucky@dtltrans.com" className="text-white/80 hover:underline transition-colors">
                                                 lucky@dtltrans.com
                                             </a>
                                         </div>

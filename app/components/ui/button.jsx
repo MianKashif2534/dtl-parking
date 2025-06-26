@@ -26,13 +26,13 @@ export default function CustomBadge({ text = "welcome to dtl", overlayIcon = "/s
                     <img src="/services/iconbg.svg" alt="" className="w-full h-full" />
 
                     {/* Overlay Icon */}
-                    <div className="absolute top-1/2 right-0 transform -translate-y-1/2 w-14 h-14 rounded-full flex items-center justify-center">
+                    {/* <div className="absolute top-1/2 right-0 transform -translate-y-1/2 w-14 h-14 rounded-full flex items-center justify-center">
                         <img
                             src={overlayIcon}
                             alt="Overlay Icon"
                             className={`${className} rounded-full`}
                         />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

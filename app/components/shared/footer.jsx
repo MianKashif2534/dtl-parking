@@ -83,7 +83,7 @@ const ContactItem = ({ icon, text, href, delay = 0 }) => (
     {href ? (
       <motion.a
         href={href}
-        className='text-lg md:text-xl hover:text-purple transition-colors'
+        className='text-lg md:text-xl hover:text-white transition-colors'
         whileHover={{ x: 5 }}
         transition={{ type: 'spring', stiffness: 400, damping: 10 }}
       >
@@ -159,12 +159,13 @@ function ContactInfo() {
         <ContactItem
           icon={<MapPin className='text-royalblue h-6 w-6' />}
           text='Address: 4375 N Golden State Blvd, Fresno, CA 93722, USA'
+          href="https://maps.app.goo.gl/RHuTBK8YXki5nd8n6"
           delay={0.3}
         />
         <ContactItem
           icon={<Phone className='text-royalblue h-6 w-6' />}
           text='1 (800) 426-2895'
-          href="tel:18004262895"
+          href="tel:+18004262895"
           delay={0.4}
         />
         <ContactItem
