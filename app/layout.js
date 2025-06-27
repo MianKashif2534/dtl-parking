@@ -1,9 +1,7 @@
 import localFont from 'next/font/local'
 import './globals.css'
-import NavBar from './components/nav-bar'
-import Footer from './components/shared/footer'
-import ClientLayout from './ClientLayout'
 import { futuraHeavy } from './font'
+import ClientLayout from './components/ClientLayout'
 
 // Default metadata for the entire site
 export const metadata = {
@@ -85,11 +83,7 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
         className={`${futuraHeavy.variable} container mx-auto`}
       >
-        {/* <AnimatePresence mode="wait"> */}
-        <NavBar />
-        {children}
-        <Footer />
-        {/* </AnimatePresence> */}
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   )
