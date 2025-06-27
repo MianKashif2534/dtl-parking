@@ -3,12 +3,18 @@
 
 import { useState, useEffect, useRef } from "react"
 import { motion, useInView, useAnimationControls } from "framer-motion"
+import { useRouter } from "next/navigation"
 
 export default function TeamSection() {
   const [isMobile, setIsMobile] = useState(false)
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 })
   const controls = useAnimationControls()
+  const router = useRouter()
+
+  const handleTeamMemberClick = () => {
+    router.push(`/staff`)
+  }
 
   // Check if we're on a mobile device
   useEffect(() => {
@@ -109,13 +115,14 @@ export default function TeamSection() {
   // Hexagon component for team members
   const TeamHexagon = ({ title, image, index = 0 }) => (
     <motion.div
-      className="relative w-[180px] h-[160px]"
+      className="relative w-[180px] h-[160px] cursor-pointer"
       variants={hexagonVariants}
       custom={index}
       whileHover={{
         scale: 1.05,
         transition: { type: "spring", stiffness: 300, damping: 10 },
       }}
+      onClick={() => handleTeamMemberClick()}
     >
       <div className="hexagon-wrapper w-full h-[160px] relative">
         {" "}
