@@ -173,7 +173,7 @@ export default function TruckParkingSection() {
     return (
         <motion.section
             ref={sectionRef}
-            className="relative w-full py-8 md:py-16"
+            className="relative w-full py-8 md:py-16 bg-gradient-to-b from-[#014A7F] to-[#0B0428]"
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={containerVariants}

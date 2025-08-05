@@ -152,7 +152,7 @@ export default function AboutPageClient() {
                         >
                             <div className="w-full h-full flex justify-center items-center">
                                 <motion.div
-                                    className="overflow-hidden shadow-xl"
+                                    className="overflow-hidden"
                                     whileHover={{ scale: 1.05, rotate: 2 }}
                                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                                 >

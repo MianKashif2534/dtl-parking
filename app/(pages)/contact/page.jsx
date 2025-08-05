@@ -371,7 +371,7 @@ export default function ContactPage() {
                                     <motion.button
                                         type="submit"
                                         disabled={loading || !formData.agreeToTerms}
-                                        className="w-full bg-royalblue hover:bg-blue text-white font-bold py-4 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="w-full bg-[#212950] text-white font-bold py-4 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
                                     >
@@ -397,7 +397,7 @@ export default function ContactPage() {
                                 >
                                     Our Location
                                 </motion.h3>
-                                <div className="w-full h-64 md:h-80 rounded-lg overflow-hidden">
+                                <div className="w-full h-64 md:h-80 rounded-lg overflow-hidden border-2 border-white">
                                     <iframe
                                         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3194.8156785108604!2d-119.8685557!3d36.7989695!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80946611bf14e351%3A0x97b5901315290076!2sDTL%20Transport%2C%20Inc.!5e0!3m2!1sen!2s!4v1750957996521!5m2!1sen!2s"
                                         width="100%"

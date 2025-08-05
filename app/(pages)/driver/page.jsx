@@ -1004,10 +1004,10 @@ const DriverForm = () => {
   return (
     <>
       <HeroSection {...driverHeroProps} />
-      <div id="driver-form" className="min-h-screen w-full flex items-center justify-center">
+      <div id="driver-form" className="min-h-screen w-full flex items-center justify-center ">
         <form
           onSubmit={handleSubmit}
-          className="w-full max-w-3xl bg-blue/40 p-8 rounded-xl shadow-lg backdrop-blur-md text-white my-5"
+          className="w-full max-w-3xl bg-[linear-gradient(180deg,_rgba(33,41,80,0.2)_0%,_#0B0428_100%)] p-8 rounded-xl shadow-lg backdrop-blur-md text-white my-5"
         >
           {message.text && (
             <div className={`mb-4 p-4 rounded ${message.type === "success" ? "bg-green-500/20" : "bg-red-500/20"}`}>

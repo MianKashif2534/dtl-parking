@@ -243,7 +243,7 @@ export default function TestimonialsSection() {
         >
           {/* Testimonial card */}
           <motion.div
-            className='bg-[#0F092F] backdrop-blur-sm border-8 border-[#CCCCCCCC] rounded-lg p-2 md:p-8'
+            className=' backdrop-blur-sm border-8 border-[#CCCCCCCC] rounded-lg p-2 md:p-8'
             variants={cardVariants}
           >
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6 items-center'>
@@ -283,7 +283,7 @@ export default function TestimonialsSection() {
               </div>
 
               {/* Quote */}
-              <div className='md:col-span-2 flex flex-col items-center text-center'>
+              <div className='md:col-span-2 flex flex-col items-center text-center bg-gradient-to-b from-[#014A7F] to-[#0B0428] p-8 rounded-lg'>
                 <motion.div
                   className='flex flex-col md:flex-row justify-center items-center mt-6 md:mt-0 mb-6'
                   variants={titleVariants}

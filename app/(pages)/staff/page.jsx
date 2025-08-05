@@ -279,7 +279,7 @@ export default function Page() {
               {teamMembers.map((member, index) => (
                 <motion.div
                   key={member.id}
-                  className='bg-royalblue/40 rounded-lg p-4 md:p-6 flex flex-col border-2 border-white'
+                  className='bg-[#21295066] rounded-lg p-4 md:p-6 flex flex-col'
                   variants={cardVariants}
                   custom={index}
                   whileHover={{

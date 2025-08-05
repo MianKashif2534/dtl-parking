@@ -491,7 +491,7 @@ export default function ParkingPage() {
             >
                 <div className="max-w-5xl mx-auto px-4 md:px-6 lg:px-8">
                     <motion.div
-                        className="overflow-hidden border-4 border-white bg-gradient-to-b from-black to-blue shadow-[0px_0px_40px_8px_rgba(1,74,127,0.6)] rounded-[20px] px-4 py-6 md:p-12"
+                        className="overflow-hidden border-4 border-white bg-[linear-gradient(180deg,_rgba(0,0,0,0.4)_24.31%,_rgba(33,41,80,0.4)_100%)] shadow-[0px_0px_40px_8px_rgba(1,74,127,0.6)] rounded-[20px] px-4 py-6 md:p-12"
                         variants={formVariants}
                     >
                         <motion.h2 className="text-white text-4xl font-bold text-center mb-8" variants={titleVariants}>

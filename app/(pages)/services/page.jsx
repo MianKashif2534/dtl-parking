@@ -452,7 +452,7 @@ export default function ServicesPage() {
                     initial="hidden"
                     animate={isNationwideInView ? "visible" : "hidden"}
                 >
-                    <motion.h2 className="text-white text-2xl md:text-3xl font-bold mb-6" variants={mapTextVariants}>
+                    <motion.h2 className="text-[#212950] text-2xl md:text-3xl font-bold mb-6" variants={mapTextVariants}>
                         Nationwide Logistics Coverage
                     </motion.h2>
                     <motion.h3 className="text-white text-2xl md:text-4xl font-bold mb-6 text-center" variants={mapTextVariants}>

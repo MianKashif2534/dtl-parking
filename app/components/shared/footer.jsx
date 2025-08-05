@@ -33,7 +33,7 @@ export default function Footer() {
       id='footer-contact'
     >
       {/* Main Footer Content */}
-      <div className='bg-royalblue/40'>
+      <div className='bg-[#21295066]'>
         <div className='max-w-7xl mx-auto px-4 py-8 lg:px-8'>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 relative'>
             {/* Left Column - Contact Info */}
@@ -102,7 +102,7 @@ function ContactInfo() {
   return (
     <motion.div
       ref={infoRef}
-      className='space-y-8'
+      className='space-y-8 '
       initial='hidden'
       animate={isInView ? 'visible' : 'hidden'}
       variants={{
@@ -214,7 +214,7 @@ function FooterBottom() {
   return (
     <motion.div
       ref={bottomRef}
-      className='py-6 px-4 bg-blue'
+      className='py-6 px-4 bg-[#21295099]'
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.7, delay: 0.5 }}
@@ -652,13 +652,13 @@ function QuoteForm() {
   return (
     <motion.div
       ref={formRef}
-      className='bg-gray-300 rounded-3xl p-4 md:p-8 shadow-lg'
+      className='bg-[#212950CC] rounded-3xl p-4 md:p-8 shadow-lg '
       initial='hidden'
       animate={isInView ? 'visible' : 'hidden'}
       variants={formVariants}
     >
       <motion.h2
-        className='text-royalblue text-3xl font-bold text-center mb-6'
+        className='text-white text-3xl font-bold text-center mb-6'
         variants={inputVariants}
       >
         Request a Quote
@@ -677,7 +677,7 @@ function QuoteForm() {
             <input
               type='text'
               placeholder='Name'
-              className='form-input w-full p-3 border-2 border-royalblue rounded-xl bg-transparent text-royalblue placeholder-royalblue/70'
+              className='text-white form-input w-full placeholder:text-white p-3 border-2 border-white rounded-xl bg-transparent text-royalblue placeholder-royalblue/70'
               required
               onFocus={() => setFocusedInput('name')}
               onBlur={() => setFocusedInput(null)}
@@ -695,7 +695,7 @@ function QuoteForm() {
             <input
               type='email'
               placeholder='Email'
-              className='form-input w-full p-3 border-2 border-royalblue rounded-xl bg-transparent text-royalblue placeholder-royalblue/70'
+              className='text-white form-input w-full placeholder:text-white p-3 border-2 border-white rounded-xl bg-transparent text-royalblue placeholder-royalblue/70'
               required
               onFocus={() => setFocusedInput('email')}
               onBlur={() => setFocusedInput(null)}
@@ -713,7 +713,7 @@ function QuoteForm() {
             <input
               type='tel'
               placeholder='Phone'
-              className='form-input w-full p-3 border-2 border-royalblue rounded-xl bg-transparent text-royalblue placeholder-royalblue/70'
+              className='text-white form-input w-full placeholder:text-white p-3 border-2 border-white rounded-xl bg-transparent text-royalblue placeholder-royalblue/70'
               required
               onFocus={() => setFocusedInput('phone')}
               onBlur={() => setFocusedInput(null)}
@@ -744,7 +744,7 @@ function QuoteForm() {
               dayPlaceholder='DD'
               monthPlaceholder='MM'
               yearPlaceholder='YYYY'
-              className='w-full rounded-xl bg-transparent text-royalblue'
+              className='text-white w-full placeholder:text-white  rounded-xl bg-transparent text-black border-2 border-white'
               isOpen={calendarOpen}
               onCalendarClose={() => setCalendarOpen(false)}
               onCalendarOpen={() => setCalendarOpen(true)}
@@ -753,10 +753,10 @@ function QuoteForm() {
             />
             <div
               onClick={handleIconClick}
-              className={`absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer input-icon-wrapper ${focusedInput === 'date' ? 'form-input-focused' : ''
+              className={`absolute right-3 top-1/2 bg-white  -translate-y-1/2 cursor-pointer input-icon-wrapper ${focusedInput === 'date' ? 'form-input-focused' : ''
                 }`}
             >
-              <Calendar className='input-icon w-5 h-5 text-royalblue' />
+              <Calendar className='input-icon w-5 h-5' />
             </div>
           </motion.div>
         </motion.div>
@@ -765,7 +765,7 @@ function QuoteForm() {
         <motion.div className='space-y-2' variants={inputVariants}>
           <label
             htmlFor='distance-slider'
-            className='text-royalblue font-medium'
+            className='text-white font-medium'
           >
             Distance (Miles):
           </label>
@@ -784,7 +784,7 @@ function QuoteForm() {
               onFocus={() => setFocusedInput('distance')}
               onBlur={() => setFocusedInput(null)}
             />
-            <motion.div className='distance-display border-2 border-royalblue rounded-xl px-4 py-2 text-royalblue min-w-24 text-center'>
+            <motion.div className='distance-display border-2 border-white rounded-xl px-4 py-2 text-white min-w-24 text-center'>
               {distance} Miles
             </motion.div>
           </div>
@@ -797,7 +797,7 @@ function QuoteForm() {
         >
           <motion.div className='relative' variants={inputVariants}>
             <select
-              className='form-select w-full p-3 border-2 border-royalblue rounded-xl bg-transparent text-royalblue appearance-none'
+              className='form-select w-full p-3 border-2 border-white rounded-xl bg-transparent text-white appearance-none'
               aria-label='Freight Type'
               onFocus={() => setFocusedInput('freight')}
               onBlur={() => setFocusedInput(null)}
@@ -812,13 +812,13 @@ function QuoteForm() {
               className={`absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none input-icon-wrapper ${focusedInput === 'freight' ? 'form-input-focused' : ''
                 }`}
             >
-              <ChevronDown className='input-icon w-5 h-5 text-royalblue' />
+              <ChevronDown className='input-icon w-5 h-5 text-white' />
             </div>
           </motion.div>
 
           <motion.div className='relative' variants={inputVariants}>
             <select
-              className='form-select w-full p-3 border-2 border-royalblue rounded-xl bg-transparent text-royalblue appearance-none'
+              className='form-select w-full p-3 border-2 border-white rounded-xl bg-transparent text-white appearance-none'
               aria-label='Load Type'
               onFocus={() => setFocusedInput('load')}
               onBlur={() => setFocusedInput(null)}
@@ -833,7 +833,7 @@ function QuoteForm() {
               className={`absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none input-icon-wrapper ${focusedInput === 'load' ? 'form-input-focused' : ''
                 }`}
             >
-              <ChevronDown className='input-icon w-5 h-5 text-royalblue' />
+              <ChevronDown className='input-icon w-5 h-5 text-white' />
             </div>
           </motion.div>
         </motion.div>

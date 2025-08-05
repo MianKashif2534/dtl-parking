@@ -109,7 +109,7 @@ const TeamMemberCard = ({ name, role, email, image, description, index }) => {
   return (
     <motion.div
       ref={cardRef}
-      className='bg-royalblue/40 px-3 py-4 md:p-6 rounded-md'
+      className='bg-[#21295066] px-3 py-4 md:p-6 rounded-md text-white'
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{
@@ -125,7 +125,7 @@ const TeamMemberCard = ({ name, role, email, image, description, index }) => {
     >
       <div className='flex flex-col sm:flex-row gap-6 items-center mb-6 md:mb-12'>
         <motion.div
-          className='w-40 h-40 rounded-full overflow-hidden flex-shrink-0 border-4 border-royalblue'
+          className='w-40 h-40 rounded-full overflow-hidden flex-shrink-0 border-4 border-white'
           initial={{ scale: 0.8, opacity: 0 }}
           animate={
             isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }
@@ -437,7 +437,7 @@ export default function TeamPage() {
               </motion.h3>
 
               <motion.div
-                className='border-l-4 border-white p-4 w-full md:w-1/2 bg-gradient-to-r from-blue to-transparent'
+                className='border-l-4 border-white p-4 w-full md:w-1/2 bg-[linear-gradient(90deg,_rgba(1,74,127,0.4)_0%,_#0B0428_100%)]'
                 initial={{ opacity: 0, x: -30 }}
                 animate={
                   isHeroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }
@@ -524,7 +524,7 @@ export default function TeamPage() {
           >
             <Link
               href='/'
-              className='inline-block bg-gradient-to-r from-transparent to-blue text-white font-bold py-4 px-8 rounded-md shadow-[0_0_4px_#5A2F99]'
+              className='inline-block bg-[linear-gradient(90deg,_rgba(0,0,0,0.5)_0%,_#014A7F_100%)] text-white font-bold py-4 px-8 rounded-md shadow-[0_0_4px_#5A2F99]'
             >
               Apply Now
             </Link>

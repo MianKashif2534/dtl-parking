@@ -250,7 +250,7 @@ export default function TeamSection() {
   return (
     <motion.section
       ref={sectionRef}
-      className="relative w-full py-8 md:py-16 overflow-hidden bg-[radial-gradient(23.41%_23.41%_at_52.42%_48.07%,_#014A7F_0%,_#0B0428_100%)] border-[4px] border-white"
+      className="relative w-full py-8 md:py-16 overflow-hidden  border-[4px] border-white"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}

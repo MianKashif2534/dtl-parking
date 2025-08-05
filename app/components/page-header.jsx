@@ -176,7 +176,7 @@ export default function PageHeader({ title, subtitle, imageSrc, imageAlt, button
                             >
                                 <span className="relative z-10">Ship with Us</span>
                             </Link> */}
-                            <OffsetButton href="/" buttonText="Ship with Us" height='h-12' width='w-36' />
+                            <OffsetButton href="/" buttonText="Ship with Us" height='h-12' width='w-36' classname="text-[#212950]" />
                         </motion.div>
                     </motion.div>
                 )}
