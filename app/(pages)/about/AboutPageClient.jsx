@@ -13,8 +13,8 @@ const panelData = [
         alt: "A New Era of Transport",
         title: "A New Era of Transport Begins",
         content: [
-            "In 2003, Lally Singh, a veteran in the trucking industry, recognized the need for a reliable carrier in the Central Valley. Using his previous experience in logistics and his strong ties to the community, he founded DTL Transport with a vision to provide exceptional service and set a new standard in the industry.",
-            "With a growing fleet, Lally built a reputation for strong customer relationships, on-time deliveries, and a commitment to excellence that continues to drive our business model today.",
+            "In 2003, Lakhvir Singh, a veteran in the trucking industry, recognized the need for a reliable carrier in the Central Valley. Using his previous experience in logistics and his strong ties to the community, he founded DTL Transport with a vision to provide exceptional service and set a new standard in the industry.",
+            "With a growing fleet, Lakhvir Singh built a reputation for strong customer relationships, on-time deliveries, and a commitment to excellence that continues to drive our business model today.",
         ],
     },
     // {

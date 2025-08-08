@@ -1,6 +1,6 @@
-/* eslint-disable react/no-unescaped-entities */
 'use client'
 
+/* eslint-disable react/no-unescaped-entities */
 import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ChevronDown, MapPin, Phone, Mail, Clock } from 'lucide-react'
