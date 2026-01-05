@@ -124,7 +124,7 @@ const TeamMemberCard = ({ name, role, email, image, description, index }) => {
       }}
     >
       <div className='flex flex-col sm:flex-row gap-6 items-center mb-6 md:mb-12'>
-        <motion.div
+        {/* <motion.div
           className='w-40 h-40 rounded-full overflow-hidden flex-shrink-0 border-4 border-white'
           initial={{ scale: 0.8, opacity: 0 }}
           animate={
@@ -140,7 +140,7 @@ const TeamMemberCard = ({ name, role, email, image, description, index }) => {
             height={96}
             className='w-full h-full object-cover'
           />
-        </motion.div>
+        </motion.div> */}
         <div className=''>
           <motion.h3
             className='text-xl md:text-3xl font-bold text-center sm:text-left'

@@ -291,7 +291,7 @@ export default function Page() {
                 >
                   {/* Top section with image, name, title */}
                   <div className='flex flex-col md:flex-row items-center md:items-start md:justify-normal mb-4'>
-                    <motion.div
+                    {/* <motion.div
                       className='w-40 h-40 mb-4 md:mb-0 md:mr-2 flex-shrink-0 overflow-hidden rounded-lg'
                       variants={imageVariants}
                     >
@@ -302,7 +302,7 @@ export default function Page() {
                         whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.5 }}
                       />
-                    </motion.div>
+                    </motion.div> */}
 
                     <div className='flex flex-col items-center md:items-start justify-center'>
                       <motion.h3

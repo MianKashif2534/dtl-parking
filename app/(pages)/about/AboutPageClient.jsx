@@ -9,7 +9,7 @@ import { useRef } from "react"
 
 const panelData = [
     {
-        image: "/about/image-11.png",
+        // image: "/about/image-11.png",
         alt: "A New Era of Transport",
         title: "A New Era of Transport Begins",
         content: [

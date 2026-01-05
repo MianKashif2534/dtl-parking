@@ -154,7 +154,7 @@ export default function TeamSection() {
             />
 
             {/* Image inside hexagon */}
-            <image
+            {/* <image
               href={image || "/placeholder.svg?height=160&width=180"}
               x="0"
               y="0"
@@ -163,7 +163,7 @@ export default function TeamSection() {
               clipPath={`url(#hexClip-${index})`}
               className="object-cover"
               preserveAspectRatio="xMidYMid slice"
-            />
+            /> */}
 
             {/* Overlay for better contrast */}
             <path
