@@ -11,27 +11,17 @@ export default function PartnersSection() {
     const isInView = useInView(sectionRef, { once: true, amount: 0.2 })
 
     const partners = [
-        { image: "/partners/partners_1.png" },
-        { image: "/partners/partners_2.png" },
-        { image: "/partners/partners_3.png" },
-        { image: "/partners/partners_4.png" },
-        { image: "/partners/partners_5.png" },
-        { image: "/partners/partners_6.png" },
-        { image: "/partners/partners_7.png" },
-        { image: "/partners/partners_8.png" },
-        { image: "/partners/partners_8.png" },
+        { image: "/section%20images/image001.png" },
+        { image: "/section%20images/image002.png" },
+        { image: "/section%20images/image003.png" },
+        { image: "/section%20images/image005.png" },
     ]
 
     const affiliations = [
-        { image: "/affiliations/affiliations_1.png" },
-        { image: "/affiliations/affiliations_2.png" },
-        { image: "/affiliations/affiliations_3.png" },
-        { image: "/affiliations/affiliations_4.png" },
-        { image: "/affiliations/affiliations_5.png" },
-        { image: "/affiliations/affiliations_6.png" },
-        { image: "/affiliations/affiliations_7.png" },
-        { image: "/affiliations/affiliations_8.png" },
-        { image: "/affiliations/affiliations_8.png" },
+        { image: "/section%20images/image006.png" },
+        { image: "/section%20images/image007.png" },
+        { image: "/section%20images/image008.png" },
+        { image: "/section%20images/image009.png" },
     ]
 
     // Animation variants
