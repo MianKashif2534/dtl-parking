@@ -81,7 +81,7 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body
         suppressHydrationWarning
-        className={`${futuraHeavy.variable} container mx-auto`}
+        className={`${futuraHeavy.variable} w-full min-h-screen overflow-x-hidden`}
       >
         <ClientLayout>{children}</ClientLayout>
       </body>

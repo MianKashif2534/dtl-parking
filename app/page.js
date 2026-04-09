@@ -33,16 +33,18 @@ export default function Home() {
   }
 
   return (
-    <motion.div className="container mx-auto" initial="initial" animate="animate" exit="exit" variants={pageVariants}>
+    <motion.div className="w-full" initial="initial" animate="animate" exit="exit" variants={pageVariants}>
       <HeroSection />
-      <div className="relative -top-28 2xl:-top-0 -mb-28 2xl:-mb-0">
-        <AboutSection />
-        <CommitmentSection />
-        <ServicesSection />
-        {/* <TeamSection /> */}
-        <TruckParkingSection />
-        <TestimonialsSection />
-        <PartnersSection />
+      <div className="container mx-auto">
+        <div className="relative -top-28 2xl:-top-0 -mb-28 2xl:-mb-0">
+          <AboutSection />
+          <CommitmentSection />
+          <ServicesSection />
+          {/* <TeamSection /> */}
+          <TruckParkingSection />
+          <TestimonialsSection />
+          <PartnersSection />
+        </div>
       </div>
     </motion.div>
   )
