@@ -2,7 +2,7 @@
 'use client'
 
 import { cn } from './../../lib/utils'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 export const InfiniteMovingCards = ({
   logos,
@@ -13,53 +13,49 @@ export const InfiniteMovingCards = ({
 }) => {
   const containerRef = React.useRef(null)
   const scrollerRef = React.useRef(null)
+  const didCloneRef = useRef(false)
+
+  const [start, setStart] = useState(false)
+
+  const applyDirectionAndSpeed = useCallback(() => {
+    const el = containerRef.current
+    if (!el) return
+
+    if (direction === 'left') {
+      el.style.setProperty('--animation-direction', 'forwards')
+    } else {
+      el.style.setProperty('--animation-direction', 'reverse')
+    }
+
+    if (speed === 'fast') {
+      el.style.setProperty('--animation-duration', '20s')
+    } else if (speed === 'normal') {
+      el.style.setProperty('--animation-duration', '40s')
+    } else {
+      el.style.setProperty('--animation-duration', '80s')
+    }
+  }, [direction, speed])
+
+  const addAnimation = useCallback(() => {
+    const container = containerRef.current
+    const scroller = scrollerRef.current
+    if (!container || !scroller) return
+
+    if (!didCloneRef.current) {
+      const scrollerContent = Array.from(scroller.children)
+      scrollerContent.forEach((item) => {
+        scroller.appendChild(item.cloneNode(true))
+      })
+      didCloneRef.current = true
+    }
+
+    applyDirectionAndSpeed()
+    setStart(true)
+  }, [applyDirectionAndSpeed])
 
   useEffect(() => {
     addAnimation()
-  }, [])
-  const [start, setStart] = useState(false)
-  function addAnimation() {
-    if (containerRef.current && scrollerRef.current) {
-      const scrollerContent = Array.from(scrollerRef.current.children)
-
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true)
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem)
-        }
-      })
-
-      getDirection()
-      getSpeed()
-      setStart(true)
-    }
-  }
-  const getDirection = () => {
-    if (containerRef.current) {
-      if (direction === 'left') {
-        containerRef.current.style.setProperty(
-          '--animation-direction',
-          'forwards'
-        )
-      } else {
-        containerRef.current.style.setProperty(
-          '--animation-direction',
-          'reverse'
-        )
-      }
-    }
-  }
-  const getSpeed = () => {
-    if (containerRef.current) {
-      if (speed === 'fast') {
-        containerRef.current.style.setProperty('--animation-duration', '20s')
-      } else if (speed === 'normal') {
-        containerRef.current.style.setProperty('--animation-duration', '40s')
-      } else {
-        containerRef.current.style.setProperty('--animation-duration', '80s')
-      }
-    }
-  }
+  }, [addAnimation])
   return (
     <div
       ref={containerRef}
