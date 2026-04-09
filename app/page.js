@@ -39,7 +39,7 @@ export default function Home() {
         <AboutSection />
         <CommitmentSection />
         <ServicesSection />
-        <TeamSection />
+        {/* <TeamSection /> */}
         <TruckParkingSection />
         <TestimonialsSection />
         <PartnersSection />
