@@ -140,7 +140,7 @@ export default function HeroSection({
                 {ctaText}
               </span>
             </Link> */}
-            <OffsetButton href={ctaLink} buttonText={ctaText} height='h-16' width='w-44' />
+            <OffsetButton href={ctaLink} buttonText={ctaText} height='h-10' width='w-44' />
           </motion.div>
         </motion.div>
       </div>

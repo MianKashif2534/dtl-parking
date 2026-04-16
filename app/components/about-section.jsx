@@ -4,13 +4,14 @@
 import Link from "next/link"
 import Image from "next/image"
 import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import InteractiveButton from "./animation/interactive-button"
 import OffsetButton from "./ui/OffsetButton"
 
 export default function AboutSection() {
     const sectionRef = useRef(null)
     const isInView = useInView(sectionRef, { once: true, amount: 0.2 })
+    const [hoveredImage, setHoveredImage] = useState(null)
 
     // Animation variants
     const containerVariants = {
@@ -55,27 +56,44 @@ export default function AboutSection() {
     }
 
     const imageVariants = {
-        hidden: { opacity: 0, scale: 0.9, y: 20 },
+        hidden: { opacity: 0, scale: 0.8, y: 30, rotate: -10 },
         visible: {
             opacity: 1,
             scale: 1,
             y: 0,
+            rotate: 0,
             transition: {
                 duration: 0.8,
                 ease: "easeOut",
                 type: "spring",
-                stiffness: 50,
+                stiffness: 100,
                 damping: 15,
             },
         },
     }
 
+    // New hover animation for images
+    const imageHoverVariants = {
+        initial: { scale: 1, rotate: 0, zIndex: 20 },
+        hover: {
+            scale: 1.05,
+            rotate: 2,
+            zIndex: 30,
+            transition: {
+                type: "spring",
+                stiffness: 300,
+                damping: 20,
+            },
+        },
+    }
+
     const badgeVariants = {
-        hidden: { opacity: 0, scale: 0.8, rotate: -5 },
+        hidden: { opacity: 0, scale: 0.8, rotate: -5, y: 20 },
         visible: {
             opacity: 1,
             scale: 1,
             rotate: 0,
+            y: 0,
             transition: {
                 duration: 0.8,
                 ease: "easeOut",
@@ -109,6 +127,18 @@ export default function AboutSection() {
                 duration: 1,
                 ease: "easeInOut",
                 delay: 0.5,
+            },
+        },
+    }
+
+    // Floating animation for images
+    const floatingAnimation = {
+        animate: {
+            y: [0, -10, 0],
+            transition: {
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
             },
         },
     }
@@ -154,15 +184,7 @@ export default function AboutSection() {
                         </motion.p>
                         <motion.div variants={itemVariants}>
                             <InteractiveButton className="inline-block">
-                                {/* <Link
-                                    href="/about"
-                                    className="inline-block bg-blue shadow-[0_0_4px_#0B0428] rounded-[8px] text-white px-8 py-3 transition-colors"
-                                >
-                                    <span className="py-1 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full">
-                                        Read More
-                                    </span>
-                                </Link> */}
-                                <OffsetButton href="/about" buttonText="Read More" height='h-12' width='w-36' />
+                                <OffsetButton href="/about" buttonText="Read More" height='h-10' width='w-36' />
                             </InteractiveButton>
                         </motion.div>
                     </div>
@@ -171,50 +193,148 @@ export default function AboutSection() {
                     <div className="relative w-full h-[500px]">
                         {/* Purple highlight lines */}
                         <motion.div
-                            className="absolute top-0 right-[40%] left-0 h-4 bg-white rounded-full"
+                            className="absolute top-0 right-[40%] left-0 h-4 bg-gradient-to-r from-purple-500 to-transparent rounded-full"
                             variants={lineVariants}
                         ></motion.div>
                         <motion.div
-                            className="absolute bottom-8 right-0 w-4 h-3/4 bg-white rounded-full"
+                            className="absolute bottom-8 right-0 w-4 h-3/4 bg-gradient-to-b from-purple-500 to-transparent rounded-full"
                             variants={verticalLineVariants}
                         ></motion.div>
 
-                        {/* Image collage with <Image /> */}
+                        {/* Image 1 - Top Right */}
                         <motion.div
-                            className="absolute top-0 right-[30%] z-20 w-56 h-56 rounded-2xl border-2 border-white overflow-hidden"
+                            className="absolute top-0 right-[30%] z-20 w-56 h-56 rounded-2xl border-2 border-white overflow-hidden shadow-2xl cursor-pointer"
                             variants={imageVariants}
+                            initial="initial"
+                            animate="visible"
+                            whileHover="hover"
                             custom={1}
+                            onMouseEnter={() => setHoveredImage(1)}
+                            onMouseLeave={() => setHoveredImage(null)}
                         >
-                            <Image src="/truck-about-1.png" alt="DTL Truck" fill className="object-cover scale-105" />
+                            <motion.div
+                                className="relative w-full h-full"
+                                animate={{
+                                    scale: hoveredImage === 1 ? 1.1 : 1,
+                                }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                <Image 
+                                    src="/truck-about-1.png" 
+                                    alt="DTL Truck" 
+                                    fill 
+                                    className="object-cover" 
+                                />
+                            </motion.div>
+                            {/* Overlay on hover */}
+                            <motion.div
+                                className="absolute inset-0 bg-gradient-to-t from-purple-600/50 to-transparent"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: hoveredImage === 1 ? 1 : 0 }}
+                                transition={{ duration: 0.3 }}
+                            />
                         </motion.div>
 
+                        {/* Image 2 - Right */}
                         <motion.div
-                            className="absolute top-8 right-0 z-0 w-56 h-56 rounded-2xl overflow-hidden border-2 border-white"
+                            className="absolute top-8 right-0 z-0 w-56 h-56 rounded-2xl overflow-hidden border-2 border-white shadow-xl cursor-pointer"
                             variants={imageVariants}
                             custom={2}
                             transition={{ delay: 0.2 }}
+                            whileHover="hover"
+                            onMouseEnter={() => setHoveredImage(2)}
+                            onMouseLeave={() => setHoveredImage(null)}
                         >
-                            <Image src="/truck-about-2.png" alt="DTL Truck Fleet" fill className="object-cover" />
+                            <motion.div
+                                className="relative w-full h-full"
+                                animate={{
+                                    scale: hoveredImage === 2 ? 1.1 : 1,
+                                    rotate: hoveredImage === 2 ? 5 : 0,
+                                }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                <Image 
+                                    src="/truck-about-2.png" 
+                                    alt="DTL Truck Fleet" 
+                                    fill 
+                                    className="object-cover" 
+                                />
+                            </motion.div>
+                            <motion.div
+                                className="absolute inset-0 bg-gradient-to-t from-purple-600/50 to-transparent"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: hoveredImage === 2 ? 1 : 0 }}
+                                transition={{ duration: 0.3 }}
+                            />
                         </motion.div>
 
+                        {/* Image 3 - Bottom Center */}
                         <motion.div
-                            className="absolute top-[200px] right-[15%] w-56 h-56 rounded-2xl border-2 border-white overflow-hidden"
+                            className="absolute top-[200px] right-[15%] w-56 h-56 rounded-2xl border-2 border-white overflow-hidden shadow-xl cursor-pointer"
                             variants={imageVariants}
                             custom={3}
                             transition={{ delay: 0.4 }}
+                            whileHover="hover"
+                            onMouseEnter={() => setHoveredImage(3)}
+                            onMouseLeave={() => setHoveredImage(null)}
+                            animate={{
+                                y: [0, -8, 0],
+                            }}
+                            transition={{
+                                y: {
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                    delay: 0.5,
+                                },
+                            }}
                         >
-                            <Image src="/truck-about-3.png" alt="DTL Facility" fill className="object-cover" />
+                            <motion.div
+                                className="relative w-full h-full"
+                                animate={{
+                                    scale: hoveredImage === 3 ? 1.1 : 1,
+                                }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                <Image 
+                                    src="/truck-about-3.png" 
+                                    alt="DTL Facility" 
+                                    fill 
+                                    className="object-cover" 
+                                />
+                            </motion.div>
+                            <motion.div
+                                className="absolute inset-0 bg-gradient-to-t from-purple-600/50 to-transparent"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: hoveredImage === 3 ? 1 : 0 }}
+                                transition={{ duration: 0.3 }}
+                            />
                         </motion.div>
 
                         {/* Running since badge */}
                         <motion.div
-                            className="absolute bottom-8 right-6 bg-blue border-2 border-white/50 shadow-[inset_0_0_80px_#014A7F99] text-white px-6 py-4 rounded-2xl"
+                            className="absolute bottom-8 right-6 bg-blue border-2 border-white/50 shadow-[inset_0_0_80px_#014A7F99] text-white px-6 py-4 rounded-2xl backdrop-blur-sm cursor-pointer z-30"
                             variants={badgeVariants}
+                            whileHover={{ 
+                                scale: 1.05,
+                                boxShadow: "0 0 20px rgba(1, 74, 127, 0.8)",
+                                transition: { type: "spring", stiffness: 300 }
+                            }}
                         >
-                            <p className="text-center">
+                            <motion.p 
+                                className="text-center"
+                                animate={{
+                                    scale: [1, 1.05, 1],
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                }}
+                            >
                                 <span className="block text-2xl font-bold">Running DTL</span>
                                 <span className="block text-2xl font-bold">Since 2013</span>
-                            </p>
+                            </motion.p>
                         </motion.div>
                     </div>
                 </div>
