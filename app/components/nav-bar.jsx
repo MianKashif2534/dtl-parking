@@ -138,12 +138,12 @@ export default function NavBar() {
                 </span>
               </a> */}
               <OffsetButton
-                href="tel:+18004262895"
-                buttonText={<>Talk to a Recruiter <br /> 1 (800) 426-2895</>}
-                height='h-12'
-                width='w-32'
-                classname="bg-[linear-gradient(90deg,_rgba(0,0,0,0.5)_0%,_#014A7F_100%)] text-xs"
-              />
+  href="tel:+18004262895"
+  buttonText="Talk to a Recruiter 1 (800) 426-2895"
+  height='h-auto'
+  width='w-48'
+  classname="bg-[#014A7F] text-white text-xs md:text-sm py-2 px-4 whitespace-normal"
+/>
             </div>
           </div>
 
@@ -277,7 +277,7 @@ export default function NavBar() {
                 <OffsetButton
                   href="tel:+18004262895"
                   buttonText={<>Talk to a Recruiter <br /> 1 (800) 426-2895</>}
-                  height='h-12'
+                  height='h-11'
                   width='w-32'
                   classname="bg-[linear-gradient(90deg,_rgba(0,0,0,0.5)_0%,_#014A7F_100%)] text-xs"
                 />
