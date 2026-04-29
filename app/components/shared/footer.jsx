@@ -170,8 +170,8 @@ function ContactInfo() {
         />
         <ContactItem
           icon={<Mail className='text-royalblue h-6 w-6' />}
-          text='lucky@dtltrans.com'
-          href='mailto:lucky@dtltrans.com'
+          text='hr@dtltransport.com'
+          href='mailto:hr@dtltransport.com'
           delay={0.5}
         />
       </div>
@@ -262,7 +262,7 @@ function FooterBottom() {
                 delay={0.9}
               />
               <SocialLink
-                href='mailto:info@dtltrans.com'
+                href='mailto:hr@dtltransport.com'
                 icon={<Mail className='w-5 h-5 text-royalblue' />}
                 delay={1.0}
               />

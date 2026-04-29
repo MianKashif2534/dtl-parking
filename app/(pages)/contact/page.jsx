@@ -461,8 +461,8 @@ export default function ContactPage() {
                                         </div>
                                         <div>
                                             <p className="text-white font-medium">Email</p>
-                                            <a href="mailto:lucky@dtltrans.com" className="text-white/80 hover:underline transition-colors">
-                                                lucky@dtltrans.com
+                                            <a href="mailto:hr@dtltransport.com" className="text-white/80 hover:underline transition-colors">
+                                                hr@dtltransport.com
                                             </a>
                                         </div>
                                     </motion.div>

@@ -117,7 +117,7 @@ export default function PartnersSection() {
                 </motion.div>
 
                 {/* Affiliations Section */}
-                <motion.div variants={itemVariants}>
+                {/* <motion.div variants={itemVariants}>
                     <motion.h2
                         className="text-white text-3xl md:text-4xl font-bold text-center mb-8"
                         variants={itemVariants}
@@ -135,7 +135,7 @@ export default function PartnersSection() {
                     >
                         <InfiniteMovingCards logos={affiliations} direction="right" speed="slow" />
                     </motion.div>
-                </motion.div>
+                </motion.div> */}
             </div>
 
             {/* Decorative elements */}
