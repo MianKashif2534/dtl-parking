@@ -161,7 +161,7 @@ export default function CommitmentSection() {
                                 Apply Now
                             </span>
                         </Link> */}
-                        <OffsetButton href="/driver" buttonText={<>Driver <br /> Apply Now</>} height='h-14' width='w-36' />
+                        <OffsetButton href="/driver" buttonText={<>Driver <br /> Apply Now</>} height='h-12' width='w-40' />
                     </InteractiveButton>
                     <InteractiveButton>
                         {/* <Link
@@ -175,8 +175,8 @@ export default function CommitmentSection() {
                         <OffsetButton
                             href="tel:+18004262895"
                             buttonText={<>Talk to a Recruiter <br /> 1 (800) 426-2895</>}
-                            height='h-14'
-                            width='w-36'
+                            height='h-12'
+                            width='w-40'
                             classname="bg-[linear-gradient(90deg,_rgba(0,0,0,0.5)_0%,_#014A7F_100%)]"
                         />
                     </InteractiveButton>
